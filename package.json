@@ -111,6 +111,7 @@
     "sass-loader": "^7.0.1",
     "shelljs": "^0.8.1",
     "style-loader": "0.23.1",
+    "ts-jest": "^23.10.5",
     "ts-loader": "^5.3.3",
     "url-loader": "1.1.2",
     "webpack": "4.20.2",

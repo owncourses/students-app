@@ -1,4 +1,5 @@
-import * as React from 'react';
+// @ts-ignore
+import React from 'react';
 
 const IssueIcon = ({ className } : { className: string }) => (
   <svg height="1em" width="0.875em" className={className}>

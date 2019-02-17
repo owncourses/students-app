@@ -17,7 +17,7 @@ module.exports = {
   coverageReporters: ['json', 'lcov', 'text-summary'],
   moduleDirectories: ['node_modules', 'app'],
   transform: {
-    '^.+\\.(js|jsx)$': '<rootDir>/node_modules/babel-jest'
+    '^.+\\.tsx?$': '<rootDir>/node_modules/babel-jest'
   },
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$', '^.+\\.module\\.(css|sass|scss)$'],
   moduleNameMapper: {

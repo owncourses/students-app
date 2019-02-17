@@ -1,4 +1,5 @@
-import * as React from 'react';
+// @ts-ignore
+import React from 'react';
 import './style.scss';
 
 const List = ({ component, items }: { component: any, items: [{ id: number }] }) => {
