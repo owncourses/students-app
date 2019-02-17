@@ -1,10 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import './style.scss';
 
-const List = ({ component, items }) => {
+const List = ({ component, items }: { component: any, items: [{ id: number }] }) => {
   const ComponentToRender = component;
-  let content = (<div></div>);
+  let content = null;
 
   // If we have items, render them
   if (items) {
@@ -23,11 +22,6 @@ const List = ({ component, items }) => {
       </ul>
     </div>
   );
-};
-
-List.propTypes = {
-  component: PropTypes.func.isRequired,
-  items: PropTypes.array,
 };
 
 export default List;

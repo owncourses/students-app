@@ -29,6 +29,10 @@ module.exports = (options) => ({
         }
       },
       {
+        test: /\.tsx?$/,
+        loader: 'ts-loader'
+      },
+      {
         // Preprocess our own .scss files
         test: /\.scss$/,
         exclude: /node_modules/,
@@ -80,7 +84,7 @@ module.exports = (options) => ({
   ]),
   resolve: {
     modules: ['app', 'node_modules'],
-    extensions: ['.js', '.jsx', '.scss', '.react.js'],
+    extensions: ['.js', '.jsx', '.scss', '.react.js', '.ts', '.tsx'],
     mainFields: ['browser', 'jsnext:main', 'main']
   },
   devtool: options.devtool,
