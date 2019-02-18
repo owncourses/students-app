@@ -1,10 +1,10 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from "react";
+import { shallow } from "enzyme";
 
-import Footer from '../index';
+import Footer from "../index";
 
-describe('<Footer />', () => {
-  it('should render the copyright notice', () => {
+describe("<Footer />", () => {
+  it("should render the copyright notice", () => {
     const renderedComponent = shallow(<Footer />);
     expect(
       renderedComponent.contains(
@@ -13,8 +13,8 @@ describe('<Footer />', () => {
     ).toBe(true);
   });
 
-  it('should render the credits', () => {
+  it("should render the credits", () => {
     const renderedComponent = shallow(<Footer />);
-    expect(renderedComponent.text()).toContain('Dinesh Pandiyan');
+    expect(renderedComponent.text()).toContain("Dinesh Pandiyan");
   });
 });

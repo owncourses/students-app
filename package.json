@@ -1,13 +1,20 @@
 {
-  "name": "react-redux-boilerplate",
+  "name": "npd-courses-app",
   "version": "1.0.0",
-  "description": "A minimal react-redux boilerplate with all the best practices",
+  "description": "React based courses dashboard app",
   "repository": {
     "type": "git",
-    "url": "git://github.com/flexdinesh/react-redux-boilerplate.git"
+    "url": "git@github.com:ahilles107/npd-courses-app.git"
   },
   "license": "MIT",
-  "author": "Dinesh Pandiyan",
+  "authors": [
+    {
+      "name": "Bartłomiej Mikołajczuk"
+    },
+    {
+      "name": "Paweł Mikołajczuk"
+    }
+  ],
   "scripts": {
     "prebuild": "npm run build:clean",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
@@ -87,9 +94,11 @@
     "eslint": "5.7.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-airbnb-base": "13.1.0",
+    "eslint-config-prettier": "^4.0.0",
     "eslint-import-resolver-webpack": "0.10.1",
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "7.11.1",
     "eslint-plugin-redux-saga": "0.9.0",
     "eventsource-polyfill": "0.9.6",
@@ -106,6 +115,7 @@
     "plop": "2.1.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
+    "prettier": "^1.16.4",
     "react-test-renderer": "^16.5.2",
     "rimraf": "2.6.2",
     "sass-loader": "^7.0.1",
