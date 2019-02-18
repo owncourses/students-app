@@ -1,30 +1,27 @@
-import { fromJS } from 'immutable';
+import { fromJS } from "immutable";
 
-import {
-  selectHome,
-  makeSelectUsername,
-} from '../selectors';
+import { selectHome, makeSelectUsername } from "../selectors";
 
-describe('selectHome', () => {
-  it('should select the home state', () => {
+describe("selectHome", () => {
+  it("should select the home state", () => {
     const homeState = fromJS({
-      userData: {},
+      userData: {}
     });
     const mockedState = fromJS({
-      home: homeState,
+      home: homeState
     });
     expect(selectHome(mockedState)).toEqual(homeState);
   });
 });
 
-describe('makeSelectUsername', () => {
+describe("makeSelectUsername", () => {
   const usernameSelector = makeSelectUsername();
-  it('should select the username', () => {
-    const username = 'flexdinesh';
+  it("should select the username", () => {
+    const username = "flexdinesh";
     const mockedState = fromJS({
       home: {
-        username,
-      },
+        username
+      }
     });
     expect(usernameSelector(mockedState)).toEqual(username);
   });

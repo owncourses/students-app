@@ -1,3 +1,3 @@
-import IssueIcon from './IssueIcon';
+import IssueIcon from "./IssueIcon";
 
 export { IssueIcon };
