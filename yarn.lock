@@ -697,7 +697,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime@^7.0.0":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.3.1":
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.3.1.tgz#574b03e8e8a9898eaf4a872a92ea20b7846f6f2a"
   integrity sha512-7jGW8ppV0ant637pIqAcFfQDDH1orEPGJb8aXfUozuCU3QqX7rX4DA8iwrbPrR1hcH0FTTHz47yQnk+bl5xHQA==
@@ -4133,6 +4133,13 @@ html-minifier@^3.2.3, html-minifier@^3.5.8:
     relateurl "0.2.x"
     uglify-js "3.4.x"
 
+html-parse-stringify2@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/html-parse-stringify2/-/html-parse-stringify2-2.0.1.tgz#dc5670b7292ca158b7bc916c9a6735ac8872834a"
+  integrity sha1-3FZwtyksoVi3vJFsmmc1rIhyg0o=
+  dependencies:
+    void-elements "^2.0.1"
+
 html-webpack-plugin@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-3.2.0.tgz#b01abbd723acaaa7b37b6af4492ebda03d9dd37b"
@@ -4201,6 +4208,13 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
+
+i18next@^15.0.4:
+  version "15.0.4"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-15.0.4.tgz#17ee253ff2cc67c5003065fef2f4196b2d6d8b04"
+  integrity sha512-msRzIP/9Vo6wMbbkFRoosVu5X55vARjfhX3H9Z2avRoDAjIBNsXfpfCVF3hbP/2aMQDNEds3NUuDxE4XhcAMnA==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
 
 iconv-lite@0.4.19:
   version "0.4.19"
@@ -7216,6 +7230,14 @@ react-helmet@^5.2.0:
     prop-types "^15.5.4"
     react-side-effect "^1.1.0"
 
+react-i18next@^10.1.2:
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-10.1.2.tgz#29d0b7a6e8e2df62d9f3f412c01796902a9e9b3f"
+  integrity sha512-0YGaZE7E9i+ZKsFXV8T1dSlUj3xim8Jn4dfn0fcpJxrkTlhLNZCPqc+zouroUku+CUKasupoek4rosUUq5VdeQ==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    html-parse-stringify2 "2.0.1"
+
 react-is@^16.3.2, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.2:
   version "16.8.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.2.tgz#09891d324cad1cb0c1f2d91f70a71a4bee34df0f"
@@ -8931,6 +8953,11 @@ vm-browserify@0.0.4:
   integrity sha1-XX6kW7755Kb/ZflUOOCofDV9WnM=
   dependencies:
     indexof "0.0.1"
+
+void-elements@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
+  integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"

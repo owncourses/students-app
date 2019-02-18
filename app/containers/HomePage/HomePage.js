@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import "./style.scss";
 import { IssueIcon } from "components/Icons";
+import i18n from "i18next";
 
 export default class HomePage extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
@@ -32,7 +33,7 @@ export default class HomePage extends React.PureComponent {
         <div className="home-page">
           <section className="centered">
             <IssueIcon className={"ELO"} />
-            <h2>Start your next react project in seconds</h2>
+            <h2>{i18n.t("Welcome to react")}</h2>
             <p>Best courses dashboard ever</p>
           </section>
         </div>
