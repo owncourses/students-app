@@ -4,13 +4,14 @@
  * This is the first thing users see of our App, at the '/' route
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import './style.scss';
-import { IssueIcon } from 'components/Icons';
+import React from "react";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
+import "./style.scss";
+import { IssueIcon } from "components/Icons";
 
-export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class HomePage extends React.PureComponent {
+  // eslint-disable-line react/prefer-stateless-function
   /**
    * when initial state username is not null, submit the form to load repos
    */
@@ -26,15 +27,13 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
       <article>
         <Helmet>
           <title>Home Page</title>
-          <meta name="description" content="A React.js Boilerplate application homepage" />
+          <meta name="description" content="Courses Dashboard" />
         </Helmet>
         <div className="home-page">
           <section className="centered">
-            <IssueIcon className={'ELO'} />
+            <IssueIcon className={"ELO"} />
             <h2>Start your next react project in seconds</h2>
-            <p>
-              A minimal <i>React-Redux</i> boilerplate with all the best practices
-            </p>
+            <p>Best courses dashboard ever</p>
           </section>
         </div>
       </article>
@@ -44,5 +43,5 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
 
 HomePage.propTypes = {
   onSubmitForm: PropTypes.func,
-  username: PropTypes.string,
+  username: PropTypes.string
 };
