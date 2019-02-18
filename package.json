@@ -1,13 +1,20 @@
 {
-  "name": "react-redux-boilerplate",
+  "name": "npd-courses-app",
   "version": "1.0.0",
-  "description": "A minimal react-redux boilerplate with all the best practices",
+  "description": "React based courses dashboard app",
   "repository": {
     "type": "git",
-    "url": "git://github.com/flexdinesh/react-redux-boilerplate.git"
+    "url": "git@github.com:ahilles107/npd-courses-app.git"
   },
   "license": "MIT",
-  "author": "Dinesh Pandiyan",
+  "authors": [
+    {
+      "name": "Bartłomiej Mikołajczuk"
+    },
+    {
+      "name": "Paweł Mikołajczuk"
+    }
+  ],
   "scripts": {
     "prebuild": "npm run build:clean",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
