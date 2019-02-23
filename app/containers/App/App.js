@@ -12,6 +12,7 @@ import { Switch, Route } from "react-router-dom";
 
 import HomePage from "containers/HomePage/Loadable";
 import NotFoundPage from "containers/NotFoundPage/Loadable";
+import Auth from "containers/Auth/Loadable";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import "./style.scss";
@@ -25,10 +26,13 @@ const App = () => (
       <meta name="description" content="Courses Dashboard" />
     </Helmet>
     <Header />
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="" component={NotFoundPage} />
-    </Switch>
+    <div className={"main"}>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/login" component={Auth} />
+        <Route path="" component={NotFoundPage} />
+      </Switch>
+    </div>
     <Footer />
   </div>
 );

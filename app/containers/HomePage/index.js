@@ -43,4 +43,3 @@ export default compose(
   withSaga,
   withConnect
 )(HomePage);
-export { mapDispatchToProps };
