@@ -1,8 +1,15 @@
+@import './../../styles/variables';
+
 .app-wrapper {
-  max-width: calc(768px + 16px * 2);
-  margin: 0 auto;
-  display: flex;
-  min-height: 100%;
-  padding: 0 16px;
-  flex-direction: column;
+  max-width: 100%;
+
+  @media #{$--md-and-above} {
+    max-width: calc(768px + 16px * 2);
+    margin: 0 auto;
+    display: flex;
+    min-height: 100%;
+    padding: 0 16px;
+    flex-direction: column;
+  }
+
 }

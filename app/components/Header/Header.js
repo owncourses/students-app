@@ -1,26 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Banner from "./images/banner.jpg";
 import "./style.scss";
 import { useTranslation } from "react-i18next";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const Header = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="header">
-      <a href="https://twitter.com/flexdinesh">
-        <img src={Banner} alt="react-redux-boilerplate - Logo" />
-      </a>
-      <div className="nav-bar">
-        <Link className="router-link" to="/">
-          {t("Welcome to react")}
-        </Link>
-        <Link className="router-link" to="/features">
-          Features
-        </Link>
-      </div>
-    </div>
+    <header className="header">
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            className={"menu-button"}
+            color="inherit"
+            aria-label="Menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" color="inherit" className={"grow"}>
+            NPD
+          </Typography>
+          <Button color="inherit">{t("Sign in")}</Button>
+        </Toolbar>
+      </AppBar>
+    </header>
   );
 };
 
