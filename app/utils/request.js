@@ -1,5 +1,7 @@
 import "whatwg-fetch";
 
+const requestUrl = "https://panel.internetowaszkolarodzenia.pl/api";
+
 /**
  * Parses the JSON returned by a network request
  *
@@ -10,6 +12,9 @@ import "whatwg-fetch";
 function parseJSON(response) {
   if (response.status === 204 || response.status === 205) {
     return null;
+  }
+  if (response.status === 500) {
+    throw new Error("Internal server error");
   }
   return response.json();
 }
@@ -22,13 +27,11 @@ function parseJSON(response) {
  * @return {object|undefined} Returns either the response, or throws an error
  */
 function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
+  if (response.code) {
+    throw new Error(response.message);
   }
 
-  const error = new Error(response.statusText);
-  error.response = response;
-  throw error;
+  return response;
 }
 
 /**
@@ -40,7 +43,7 @@ function checkStatus(response) {
  * @return {object}           The response data
  */
 export default function request(url, options) {
-  return fetch(url, options)
-    .then(checkStatus)
-    .then(parseJSON);
+  return fetch(requestUrl + url, options)
+    .then(parseJSON)
+    .then(checkStatus);
 }
