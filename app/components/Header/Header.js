@@ -15,7 +15,7 @@ const Header = ({ user }) => {
   return (
     <header className="header">
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={"toolbar"}>
           <IconButton
             className={"menu-button"}
             color="inherit"
@@ -28,11 +28,9 @@ const Header = ({ user }) => {
               NPD
             </Typography>
           </Link>
-          {!user && (
-            <Link to={"/login"}>
-              <Button color="secondary">{t("Sign in")}</Button>
-            </Link>
-          )}
+          <Link to={"/login"}>
+            <Button color="secondary">{t("Sign out")}</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </header>

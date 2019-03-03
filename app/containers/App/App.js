@@ -8,20 +8,21 @@
 
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import HomePage from "containers/HomePage/Loadable";
-import Dashboard from "containers/Dashboard/Dashboard";
 import NotFoundPage from "containers/NotFoundPage/Loadable";
 import Auth from "containers/Auth/Loadable";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import "./style.scss";
+import { getToken } from "../../utils/userUtils";
 
 class App extends React.Component {
   componentDidMount() {
-    const { user, getUser } = this.props;
-    if (user) {
+    const token = getToken();
+    const { getUser } = this.props;
+    if (token) {
       getUser();
     }
   }
@@ -42,7 +43,6 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={Auth} />
-            <Route exact path="/dashboard" component={Dashboard} />
             <Route path="" component={NotFoundPage} />
           </Switch>
         </div>

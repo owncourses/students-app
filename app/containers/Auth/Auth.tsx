@@ -70,7 +70,7 @@ class Auth extends React.Component<AuthProps, AuthState> {
     const { loading, error, currentUser } = this.props;
 
     if (currentUser) {
-      return <Redirect to={"/dashboard"} />;
+      return <Redirect to={"/"} />;
     }
 
     return (
