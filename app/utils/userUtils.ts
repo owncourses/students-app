@@ -14,7 +14,7 @@ export function getToken(): string {
     return token;
   }
 
-  return "";
+  return null;
 }
 
 export function getAuthorizationHeaders(): AuthHeadersInterface {

@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 import "./style.scss";
 import { IssueIcon } from "components/Icons";
 import i18n from "i18next";
+import { Redirect } from "react-router-dom";
 
 export default class HomePage extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
@@ -24,6 +25,11 @@ export default class HomePage extends React.PureComponent {
   }
 
   render() {
+    const { user } = this.props;
+
+    if (user) {
+      return <Redirect to={"/dashboard"} />;
+    }
     return (
       <article>
         <Helmet>

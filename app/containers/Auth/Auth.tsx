@@ -1,5 +1,6 @@
 import * as React from "react";
 import i18n from "i18next";
+import { Redirect } from "react-router-dom";
 import { userLoginInterface } from "./constants";
 import Login from "../../components/Login";
 import "./style.scss";
@@ -10,6 +11,7 @@ interface AuthProps {
   onLogin: (payload: userLoginInterface) => void;
   loading: boolean;
   error: string;
+  currentUser: any;
 }
 
 interface AuthState {
@@ -65,7 +67,11 @@ class Auth extends React.Component<AuthProps, AuthState> {
 
   render() {
     const { fields } = this.state;
-    const { loading, error } = this.props;
+    const { loading, error, currentUser } = this.props;
+
+    if (currentUser) {
+      return <Redirect to={"/dashboard"} />;
+    }
 
     return (
       <div className={"container"}>

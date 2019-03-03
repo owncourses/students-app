@@ -2,6 +2,7 @@ import {
   AUTH_ACTION,
   AUTH_ACTION_ERROR,
   AUTH_ACTION_SUCCESS,
+  USER_ACTION,
   userLoginInterface
 } from "./constants";
 
@@ -27,5 +28,11 @@ export function authActionError(
   return {
     type: AUTH_ACTION_ERROR,
     error
+  };
+}
+
+export function getUser() {
+  return {
+    type: USER_ACTION
   };
 }

@@ -17,5 +17,15 @@ const makeSelectAuthError = () =>
     selectAuth,
     authState => authState.get("error")
   );
+const makeSelectUser = () =>
+  createSelector(
+    selectAuth,
+    authState => authState.get("currentUser")
+  );
 
-export { selectAuth, makeSelectAuthLoading, makeSelectAuthError };
+export {
+  selectAuth,
+  makeSelectAuthLoading,
+  makeSelectAuthError,
+  makeSelectUser
+};
