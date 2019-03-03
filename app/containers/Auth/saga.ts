@@ -15,14 +15,18 @@ export function* getTokenFromApi(payload: userLoginInterface) {
   try {
     const options = {
       method: "POST",
-      body: JSON.stringify(payload),
+      url: `/login_check`,
+      data: JSON.stringify(payload),
       headers: getAuthorizationHeaders()
     };
-    const res = yield call(request, `/login_check`, options);
+    const {
+      data: { token }
+    } = yield call(request, options);
 
-    setToken(res.token);
+    setToken(token);
   } catch (err) {
-    yield put(authActionError(err.message));
+    const { message } = err.response.data;
+    yield put(authActionError(message));
   }
 }
 
@@ -30,13 +34,15 @@ export function* getUser() {
   try {
     const options = {
       method: "GET",
+      url: `/users/me`,
       headers: getAuthorizationHeaders()
     };
-    const user = yield call(request, `/users/me`, options);
+    const { data: user } = yield call(request, options);
 
     yield put(authActionSuccess(user));
   } catch (err) {
-    yield put(authActionError(err.message));
+    const { message } = err.response.data;
+    yield put(authActionError(message));
   }
 }
 

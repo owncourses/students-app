@@ -18,6 +18,10 @@ export default class HomePage extends React.PureComponent {
   render() {
     const { user } = this.props;
 
+    if (!user) {
+      return <Redirect to={"/login"} />;
+    }
+
     user.courses = [
       {
         id: 0,
@@ -39,9 +43,6 @@ export default class HomePage extends React.PureComponent {
       }
     ];
 
-    if (!user) {
-      return <Redirect to={"/login"} />;
-    }
     return (
       <article>
         <Helmet>
