@@ -21,13 +21,10 @@ export function parseJwt(token) {
   return JSON.parse(window.atob(base64));
 }
 
-export function isAuth() {
-  const token = getToken();
-  const expires = localStorage.getItem("expires");
-
+export function isTokenNotExpired(token: string, expires: number): boolean {
   if (!token || !expires) {
     return false;
   }
 
-  return parseInt(expires) < Date.now();
+  return expires < Date.now();
 }

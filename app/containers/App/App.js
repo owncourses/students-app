@@ -18,8 +18,8 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import "./style.scss";
 import { getToken } from "../../utils/userUtils";
-import { isAuth } from "../Auth/auth-logic";
 import projectConfig from "../../../config/projectConfig";
+import { isAuth, isTokenNotExpired } from "../Auth/auth-logic";
 
 class App extends React.Component {
   componentDidMount() {
@@ -61,11 +61,14 @@ class App extends React.Component {
 export default App;
 
 function PrivateRoute({ component: Component, ...rest }) {
+  const token = getToken();
+  const expires = parseInt(localStorage.getItem("expires"));
+  const isTokenValid = isTokenNotExpired(token, expires);
   return (
     <Route
       {...rest}
       render={props =>
-        isAuth() ? (
+        isTokenValid ? (
           <Component {...props} />
         ) : (
           <Redirect
