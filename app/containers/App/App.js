@@ -18,6 +18,7 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import "./style.scss";
 import { getToken } from "../../utils/userUtils";
+import { isAuth } from "../Auth/auth-logic";
 import projectConfig from "../../../config/projectConfig";
 
 class App extends React.Component {
@@ -34,7 +35,6 @@ class App extends React.Component {
       header: { text: headerTitle },
       footer: { text: footerTitle }
     } = projectConfig;
-
     return (
       <div className="app-wrapper">
         <Helmet
@@ -47,11 +47,7 @@ class App extends React.Component {
         <div className={"main"}>
           <Switch>
             <Route exact path="/login" component={Auth} />
-            <PrivateRoute
-              path="/:courseId"
-              component={SingleCourse}
-              user={user}
-            />
+            <PrivateRoute path="/:courseId" component={SingleCourse} />
             <Route exact path="/" component={HomePage} />
             <Route path="" component={NotFoundPage} />
           </Switch>
@@ -64,12 +60,12 @@ class App extends React.Component {
 
 export default App;
 
-function PrivateRoute({ component: Component, user, ...rest }) {
+function PrivateRoute({ component: Component, ...rest }) {
   return (
     <Route
       {...rest}
       render={props =>
-        user ? (
+        isAuth() ? (
           <Component {...props} />
         ) : (
           <Redirect

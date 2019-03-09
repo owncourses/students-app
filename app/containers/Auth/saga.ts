@@ -6,6 +6,7 @@ import request from "utils/request";
 import { authActionError, authActionSuccess } from "./actions";
 import { getAuthorizationHeaders, setToken } from "../../utils/userUtils";
 import { makeSelectAuthError } from "./selectors";
+import { parseJwt } from "./auth-logic";
 
 export function* getTokenFromApi(payload: userLoginInterface) {
   try {
@@ -20,6 +21,7 @@ export function* getTokenFromApi(payload: userLoginInterface) {
     } = yield call(request, options);
 
     setToken(token);
+    localStorage.setItem("expires", parseJwt(token).exp);
   } catch (err) {
     const { message } = err.response.data;
     yield put(authActionError(message));
