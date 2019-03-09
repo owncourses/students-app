@@ -7,5 +7,6 @@ export const en = {
   Login: "Login",
   Password: "Password",
   "Sign in to your account!": "Sing in to your account!",
-  "My courses": "Course list"
+  "My courses": "My courses",
+  "My modules": "My modules"
 };

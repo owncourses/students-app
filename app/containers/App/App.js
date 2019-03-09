@@ -8,7 +8,7 @@
 
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import HomePage from "containers/HomePage/Loadable";
 import NotFoundPage from "containers/NotFoundPage/Loadable";
@@ -47,7 +47,11 @@ class App extends React.Component {
         <div className={"main"}>
           <Switch>
             <Route exact path="/login" component={Auth} />
-            <Route path="/:courseId" component={SingleCourse} />
+            <PrivateRoute
+              path="/:courseId"
+              component={SingleCourse}
+              user={user}
+            />
             <Route exact path="/" component={HomePage} />
             <Route path="" component={NotFoundPage} />
           </Switch>
@@ -59,3 +63,23 @@ class App extends React.Component {
 }
 
 export default App;
+
+function PrivateRoute({ component: Component, user, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        user ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
+    />
+  );
+}
