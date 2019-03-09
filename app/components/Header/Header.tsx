@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import "./style.scss";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import MenuIcon from "@material-ui/icons/Menu";
 
-const Header = ({ user }) => {
+const Header = ({ title }: { title: string }) => {
   const { t } = useTranslation();
 
   return (
@@ -25,7 +25,7 @@ const Header = ({ user }) => {
           </IconButton>
           <Link to={"/"}>
             <Typography variant="h6" color="inherit" className={"grow"}>
-              NPD
+              {title}
             </Typography>
           </Link>
           <Link to={"/login"}>

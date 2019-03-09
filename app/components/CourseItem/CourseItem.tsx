@@ -4,35 +4,28 @@ import {
   CardContent,
   CardHeader,
   CardMedia,
-  IconButton,
   Typography
 } from "@material-ui/core";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
-const CourseItem = ({
-  item: {
-    title,
-    description,
-    image: { url }
-  }
-}) => {
+const CourseItem = ({ item: { title, description, id } }) => {
   return (
     <li className="list-item">
-      <Card>
-        <CardHeader
-          title={title}
-          action={
-            <IconButton>
-              <MoreVertIcon />
-            </IconButton>
-          }
-        />
-        <CardMedia className={"media"} image={url} />
-        <CardContent>
-          <Typography component="p">{description}</Typography>
-        </CardContent>
-      </Card>
+      <Link to={`/${id}`}>
+        <Card>
+          <CardHeader title={title} />
+          <CardMedia
+            className={"media"}
+            image={
+              "https://naszepierwszedziecko.pl/media/800_533__b5fd7a8050e87b5bb16042f1464a3ae83a2581c3.jpeg"
+            }
+          />
+          <CardContent>
+            <Typography component="p">{description}</Typography>
+          </CardContent>
+        </Card>
+      </Link>
     </li>
   );
 };

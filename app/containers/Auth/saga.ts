@@ -1,8 +1,4 @@
-/**
- * Gets the repositories of the user from Github
- */
-
-import { call, put, select, takeEvery, takeLatest } from "redux-saga/effects";
+import { call, put, select, takeEvery } from "redux-saga/effects";
 import { AUTH_ACTION, USER_ACTION, userLoginInterface } from "./constants";
 
 // @ts-ignore
@@ -60,9 +56,6 @@ export function* login({ payload }) {
   }
 }
 
-/**
- * Root saga manages watcher lifecycle
- */
 export default function* authFlow() {
   // @ts-ignore
   yield takeEvery(AUTH_ACTION, login);

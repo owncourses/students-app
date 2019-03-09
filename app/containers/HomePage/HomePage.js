@@ -22,27 +22,6 @@ export default class HomePage extends React.PureComponent {
       return <Redirect to={"/login"} />;
     }
 
-    user.courses = [
-      {
-        id: 0,
-        title: "Szkoła rodzenia",
-        description: "Description of course 0",
-        image: {
-          url:
-            "https://naszepierwszedziecko.pl/media/800_533__520c3ca5881dd7fce789ee4ec14c34f01d76f319.jpeg"
-        }
-      },
-      {
-        id: 1,
-        title: "Karmienie noworodka",
-        description: "Description of course 1",
-        image: {
-          url:
-            "https://naszepierwszedziecko.pl/media/800_533__b2e38fe72aa62a9830ab88f34d7f0f656bc20a27.jpeg"
-        }
-      }
-    ];
-
     return (
       <article>
         <Helmet>
