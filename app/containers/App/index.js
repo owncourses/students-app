@@ -6,8 +6,8 @@ import { withRouter } from "react-router-dom";
 import App from "./App";
 import { getUser } from "../Auth/actions";
 import saga from "../Auth/saga";
-import injectSaga from "../../utils/injectSaga";
 import reducer from "../Auth/reducer";
+import injectSaga from "../../utils/injectSaga";
 import injectReducer from "../../utils/injectReducer";
 
 const mapStateToProps = createStructuredSelector({

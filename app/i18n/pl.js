@@ -5,5 +5,6 @@ export const pl = {
   Login: "Login",
   Password: "Hasło",
   "Sign in to your account!": "Zaloguj się na swoje konto!",
-  "My courses": "Moje kursy"
+  "My courses": "Moje kursy",
+  "My modules": "Moje moduły"
 };

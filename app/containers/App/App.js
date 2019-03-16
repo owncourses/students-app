@@ -8,7 +8,7 @@
 
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import HomePage from "containers/HomePage/Loadable";
 import NotFoundPage from "containers/NotFoundPage/Loadable";
@@ -19,6 +19,7 @@ import Footer from "components/Footer";
 import "./style.scss";
 import { getToken } from "../../utils/userUtils";
 import projectConfig from "../../../config/projectConfig";
+import { isAuth, isTokenNotExpired } from "../Auth/auth-logic";
 
 class App extends React.Component {
   componentDidMount() {
@@ -34,7 +35,6 @@ class App extends React.Component {
       header: { text: headerTitle },
       footer: { text: footerTitle }
     } = projectConfig;
-
     return (
       <div className="app-wrapper">
         <Helmet
@@ -47,7 +47,7 @@ class App extends React.Component {
         <div className={"main"}>
           <Switch>
             <Route exact path="/login" component={Auth} />
-            <Route path="/:courseId" component={SingleCourse} />
+            <PrivateRoute path="/:courseId" component={SingleCourse} />
             <Route exact path="/" component={HomePage} />
             <Route path="" component={NotFoundPage} />
           </Switch>
@@ -59,3 +59,26 @@ class App extends React.Component {
 }
 
 export default App;
+
+function PrivateRoute({ component: Component, ...rest }) {
+  const token = getToken();
+  const expires = parseInt(localStorage.getItem("expires"));
+  const isTokenValid = isTokenNotExpired(token, expires);
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        isTokenValid ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
+    />
+  );
+}
