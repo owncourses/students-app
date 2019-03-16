@@ -11,25 +11,17 @@ import "./style.scss";
 import { IssueIcon } from "components/Icons";
 import i18n from "i18next";
 import { Redirect } from "react-router-dom";
+import List from "../../components/List/List";
+import CourseItem from "../../components/CourseItem";
 
 export default class HomePage extends React.PureComponent {
-  // eslint-disable-line react/prefer-stateless-function
-  /**
-   * when initial state username is not null, submit the form to load repos
-   */
-  componentDidMount() {
-    const { username, onSubmitForm } = this.props;
-    if (username && username.trim().length > 0) {
-      onSubmitForm();
-    }
-  }
-
   render() {
     const { user } = this.props;
 
-    if (user) {
-      return <Redirect to={"/dashboard"} />;
+    if (!user) {
+      return <Redirect to={"/login"} />;
     }
+
     return (
       <article>
         <Helmet>
@@ -37,10 +29,9 @@ export default class HomePage extends React.PureComponent {
           <meta name="description" content="Courses Dashboard" />
         </Helmet>
         <div className="home-page">
-          <section className="centered">
-            <IssueIcon className={"ELO"} />
-            <h2>{i18n.t("Welcome to react")}</h2>
-            <p>Best courses dashboard ever</p>
+          <section>
+            <h2>{i18n.t("My courses")}:</h2>
+            <List component={CourseItem} items={user.courses} />
           </section>
         </div>
       </article>
