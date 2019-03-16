@@ -18,8 +18,10 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import "./style.scss";
 import { getToken } from "../../utils/userUtils";
-import projectConfig from "../../../config/projectConfig";
-import { isAuth, isTokenNotExpired } from "../Auth/auth-logic";
+import { loadConfig } from "../../services/configService";
+import { isTokenNotExpired } from "../Auth/auth-logic";
+
+const projectConfig = loadConfig();
 
 class App extends React.Component {
   componentDidMount() {
