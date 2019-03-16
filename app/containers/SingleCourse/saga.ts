@@ -1,6 +1,7 @@
 import { COURSE_ACTION } from "./constants";
 import { call, put, takeEvery } from "redux-saga/effects";
 import { getAuthorizationHeaders } from "../../utils/userUtils";
+// @ts-ignore
 import { courseActionError, courseActionSuccess } from "./actions";
 
 // @ts-ignore

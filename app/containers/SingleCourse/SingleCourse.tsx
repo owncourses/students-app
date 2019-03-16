@@ -1,13 +1,15 @@
 import * as React from "react";
 import i18n from "i18next";
 import CourseModuleItem from "../../components/CourseModuleItem";
+import { Route } from "react-router-dom";
 
 interface SingleCourseProps {
   match: any;
   getCourse: (id: number) => void;
   error: boolean | string;
   loading: boolean;
-  currentCourse: any;
+  courses: any;
+  modules: any;
 }
 
 class SingleCourse extends React.Component<SingleCourseProps> {
@@ -27,7 +29,15 @@ class SingleCourse extends React.Component<SingleCourseProps> {
   };
 
   render(): React.ReactNode {
-    const { error, loading, currentCourse } = this.props;
+    const { error, loading, modules, match } = this.props;
+
+    let currentCourse = null;
+
+    if (modules) {
+      const [firstModule] = modules;
+      currentCourse = firstModule.course;
+    }
+
     if (error) {
       return <div>{error}</div>;
     }
@@ -37,11 +47,12 @@ class SingleCourse extends React.Component<SingleCourseProps> {
 
     return (
       <section>
-        <h2>{i18n.t("My modules")}:</h2>
-        {currentCourse &&
-          currentCourse.map(module => {
+        <h2>{currentCourse && currentCourse.title}:</h2>
+        {modules &&
+          modules.map(module => {
             return (
               <CourseModuleItem
+                match={match}
                 item={module}
                 key={module.id}
                 expanded={this.state.expanded}

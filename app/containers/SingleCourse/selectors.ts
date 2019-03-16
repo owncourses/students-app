@@ -9,23 +9,24 @@ const selectSingleCourse = state => state.get("singleCourse");
 const makeSelectSingleCourseLoading = () =>
   createSelector(
     selectSingleCourse,
-    authState => authState.get("loading")
+    singleCourse => singleCourse.get("loading")
   );
 
 const makeSelectSingleCourseError = () =>
   createSelector(
     selectSingleCourse,
-    authState => authState.get("error")
+    singleCourse => singleCourse.get("error")
   );
-const makeSelectSingleCourse = () =>
+
+const makeSelectSingleCourseModules = () =>
   createSelector(
     selectSingleCourse,
-    authState => authState.get("currentCourse")
+    singleCourse => singleCourse.get("modules")
   );
 
 export {
   selectSingleCourse,
   makeSelectSingleCourseLoading,
   makeSelectSingleCourseError,
-  makeSelectSingleCourse
+  makeSelectSingleCourseModules
 };

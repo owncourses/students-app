@@ -23,12 +23,12 @@ const withConnect = connect(
   mapDispatchToProps
 );
 
-const withReducer = injectReducer({ key: "auth", reducer });
-const withSaga = injectSaga({ key: "auth", saga });
+const withAuthReducer = injectReducer({ key: "auth", reducer });
+const withAuthSaga = injectSaga({ key: "auth", saga });
 
 export default compose(
-  withSaga,
-  withReducer,
+  withAuthSaga,
+  withAuthReducer,
   withRouter,
   withConnect
 )(App);

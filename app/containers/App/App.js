@@ -14,6 +14,7 @@ import HomePage from "containers/HomePage/Loadable";
 import NotFoundPage from "containers/NotFoundPage/Loadable";
 import Auth from "containers/Auth/Loadable";
 import SingleCourse from "containers/SingleCourse/Loadable";
+import SingleLesson from "containers/SingleLesson/Loadable";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import "./style.scss";
@@ -49,6 +50,10 @@ class App extends React.Component {
         <div className={"main"}>
           <Switch>
             <Route exact path="/login" component={Auth} />
+            <PrivateRoute
+              path={`/:courseId/lesson/:lessonId`}
+              component={SingleLesson}
+            />
             <PrivateRoute path="/:courseId" component={SingleCourse} />
             <Route exact path="/" component={HomePage} />
             <Route path="" component={NotFoundPage} />
