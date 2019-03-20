@@ -6,10 +6,13 @@ import {
   Typography
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import CourseLessonItem from "../CourseLessonItem";
+import "./style.scss";
 
 const CourseModuleItem = ({
-  item: { id, title, description },
+  item: { id, title, description, lessons },
   expanded,
+  match,
   onChange
 }) => {
   return (
@@ -17,8 +20,14 @@ const CourseModuleItem = ({
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>{title}</Typography>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
+      <ExpansionPanelDetails className={"details"}>
         <Typography>{description}</Typography>
+        <div className={"lessons"}>
+          {lessons &&
+            lessons.map(lesson => (
+              <CourseLessonItem key={lesson.id} item={lesson} match={match} />
+            ))}
+        </div>
       </ExpansionPanelDetails>
     </ExpansionPanel>
   );

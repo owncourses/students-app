@@ -1,20 +1,20 @@
-import reducer from "./reducer";
-import saga from "./saga";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import SingleCourse from "./SingleCourse";
-import injectSaga from "../../utils/injectSaga";
-import injectReducer from "../../utils/injectReducer";
 import { createStructuredSelector } from "reselect";
 import { courseAction } from "./actions";
 import {
-  makeSelectSingleCourse,
+  makeSelectSingleCourseModules,
   makeSelectSingleCourseError,
   makeSelectSingleCourseLoading
 } from "./selectors";
+import singleCourseReducer from "./reducer";
+import singleCourseSaga from "./saga";
+import injectSaga from "../../utils/injectSaga";
+import injectReducer from "../../utils/injectReducer";
 
 const mapStateToProps = createStructuredSelector({
-  currentCourse: makeSelectSingleCourse(),
+  modules: makeSelectSingleCourseModules(),
   error: makeSelectSingleCourseError(),
   loading: makeSelectSingleCourseLoading()
 });
@@ -28,12 +28,18 @@ const withConnect = connect(
   mapDispatchToProps
 );
 
-const withReducer = injectReducer({ key: "singleCourse", reducer });
-const withSaga = injectSaga({ key: "singleCourse", saga });
+const withSingleCourseReducer = injectReducer({
+  key: "singleCourse",
+  reducer: singleCourseReducer
+});
+const withSingleCourseSaga = injectSaga({
+  key: "singleCourse",
+  saga: singleCourseSaga
+});
 
 // @ts-ignore
 export default compose(
-  withSaga,
-  withReducer,
-  withConnect
+  withConnect,
+  withSingleCourseReducer,
+  withSingleCourseSaga
 )(SingleCourse);
