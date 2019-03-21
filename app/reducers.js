@@ -8,6 +8,7 @@ import { LOCATION_CHANGE } from "react-router-redux";
 
 import authReducer from "containers/Auth/reducer";
 import singleCourseReducer from "containers/SingleCourse/reducer";
+import singleLessonReducer from "containers/SingleLesson/reducer";
 
 /*
  * routeReducer
@@ -45,6 +46,7 @@ export default function createReducer(injectedReducers) {
     route: routeReducer,
     auth: authReducer,
     singleCourse: singleCourseReducer,
+    singleLesson: singleLessonReducer,
     ...injectedReducers
   });
 }

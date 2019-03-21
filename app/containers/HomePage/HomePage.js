@@ -11,7 +11,7 @@ import "./style.scss";
 import { IssueIcon } from "components/Icons";
 import i18n from "i18next";
 import { Redirect } from "react-router-dom";
-import List from "../../components/List/List";
+import List from "../../components/List";
 import CourseItem from "../../components/CourseItem";
 
 export default class HomePage extends React.PureComponent {

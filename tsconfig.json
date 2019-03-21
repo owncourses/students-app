@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "sourceMap": true,
+    "moduleResolution": "node",
+    "baseUrl": "./app",
     "jsx": "react"
   }
 }
