@@ -1,9 +1,13 @@
 import * as React from "react";
 import { Typography } from "@material-ui/core";
 import "./style.scss";
+import { LessonInterface } from "../../containers/SingleLesson/interfaces";
 
-const CourseLesson = ({ item }) => {
-  const { title, description, embed_code } = item;
+const CourseLesson = ({
+  item: { title, description, embed_code }
+}: {
+  item: LessonInterface;
+}) => {
   return (
     <div>
       <Typography variant={"title"}>{title}</Typography>
@@ -18,6 +22,6 @@ const CourseLesson = ({ item }) => {
 
 export default CourseLesson;
 
-function createEmbedCode(embedCode) {
+function createEmbedCode(embedCode: string): { __html: string } {
   return { __html: embedCode };
 }

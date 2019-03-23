@@ -4,14 +4,14 @@ import { Redirect } from "react-router-dom";
 import { userLoginInterface } from "./constants";
 import Login from "../../components/Login";
 import "./style.scss";
-import { AuthFieldsInterface } from "./interfaces";
+import { AuthFieldsInterface, UserInterface } from "./interfaces";
 import { getValueFromFields } from "./auth-logic";
 
 interface AuthProps {
   onLogin: (payload: userLoginInterface) => void;
   loading: boolean;
   error: string;
-  currentUser: any;
+  currentUser: UserInterface;
 }
 
 interface AuthState {

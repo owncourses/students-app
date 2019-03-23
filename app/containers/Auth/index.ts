@@ -3,8 +3,7 @@ import { compose } from "redux";
 import { authAction } from "./actions";
 import { createStructuredSelector } from "reselect";
 import { userLoginInterface } from "./constants";
-// @ts-ignore
-import Auth from "./Auth.tsx";
+import Auth from "./Auth";
 import {
   makeSelectAuthError,
   makeSelectAuthLoading,

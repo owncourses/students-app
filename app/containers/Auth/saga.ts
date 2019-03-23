@@ -7,6 +7,7 @@ import { authActionError, authActionSuccess } from "./actions";
 import { getAuthorizationHeaders, setToken } from "../../utils/userUtils";
 import { makeSelectAuthError } from "./selectors";
 import { parseJwt } from "./auth-logic";
+import { UserInterface } from "./interfaces";
 
 export function* getTokenFromApi(payload: userLoginInterface) {
   try {
@@ -18,10 +19,10 @@ export function* getTokenFromApi(payload: userLoginInterface) {
     };
     const {
       data: { token }
-    } = yield call(request, options);
+    }: { data: { token: string } } = yield call(request, options);
 
     setToken(token);
-    localStorage.setItem("expires", parseJwt(token).exp);
+    localStorage.setItem("expires", String(parseJwt(token).exp));
   } catch (err) {
     const { message } = err.response.data;
     yield put(authActionError(message));
@@ -35,7 +36,10 @@ export function* getUser() {
       url: `/users/me`,
       headers: getAuthorizationHeaders()
     };
-    const { data: user } = yield call(request, options);
+    const { data: user }: { data: UserInterface } = yield call(
+      request,
+      options
+    );
 
     yield put(authActionSuccess(user));
   } catch (err) {
@@ -44,7 +48,7 @@ export function* getUser() {
   }
 }
 
-export function* login({ payload }) {
+export function* login({ payload }: { payload: userLoginInterface }) {
   try {
     yield call(getTokenFromApi, payload);
 

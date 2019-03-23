@@ -5,6 +5,7 @@ import {
   USER_ACTION,
   userLoginInterface
 } from "./constants";
+import { UserInterface } from "./interfaces";
 
 export function authAction(
   payload: userLoginInterface
@@ -15,7 +16,9 @@ export function authAction(
   };
 }
 
-export function authActionSuccess(user: any): { type: string; user: any } {
+export function authActionSuccess(
+  user: UserInterface
+): { type: string; user: UserInterface } {
   return {
     type: AUTH_ACTION_SUCCESS,
     user
@@ -31,7 +34,7 @@ export function authActionError(
   };
 }
 
-export function getUser() {
+export function getUser(): { type: string } {
   return {
     type: USER_ACTION
   };

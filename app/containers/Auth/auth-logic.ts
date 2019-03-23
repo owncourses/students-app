@@ -15,7 +15,9 @@ export function getValueFromFields(
   return value;
 }
 
-export function parseJwt(token) {
+export function parseJwt(
+  token: string
+): { exp: number; iat: number; roles: [string]; userName: string } {
   const base64Url = token.split(".")[1];
   const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
   return JSON.parse(window.atob(base64));

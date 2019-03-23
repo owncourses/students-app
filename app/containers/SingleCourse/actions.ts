@@ -3,10 +3,11 @@ import {
   COURSE_ACTION_SUCCESS,
   COURSE_ACTION_ERROR
 } from "./constants";
+import { ModuleInterface } from "./interfaces";
 
 export function courseAction(
-  id: number
-): { type: string; payload: { id: number } } {
+  id: string
+): { type: string; payload: { id: string } } {
   return {
     type: COURSE_ACTION,
     payload: { id }
@@ -14,8 +15,8 @@ export function courseAction(
 }
 
 export function courseActionSuccess(
-  modules: any
-): { type: string; modules: any } {
+  modules: [ModuleInterface]
+): { type: string; modules: [ModuleInterface] } {
   return {
     type: COURSE_ACTION_SUCCESS,
     modules

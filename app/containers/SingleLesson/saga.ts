@@ -6,16 +6,23 @@ import { lessonActionError, lessonActionSuccess } from "./actions";
 
 // @ts-ignore
 import request from "utils/request";
+import { LessonInterface } from "./interfaces";
 
-export function* getLesson({ payload }) {
+export function* getLesson({
+  payload: { id: lessonId }
+}: {
+  payload: { id: string };
+}) {
   try {
-    const { id: lessonId } = payload;
     const options = {
       method: "GET",
       url: `/lessons/${lessonId}`,
       headers: getAuthorizationHeaders()
     };
-    const { data: lesson } = yield call(request, options);
+    const { data: lesson }: { data: LessonInterface } = yield call(
+      request,
+      options
+    );
 
     yield put(lessonActionSuccess(lesson));
   } catch (err) {

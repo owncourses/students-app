@@ -1,12 +1,15 @@
 import * as React from "react";
 import CourseLesson from "../../components/CourseLesson";
+import { match } from "react-router";
+import { LessonInterface } from "./interfaces";
+import LoadingIndicator from "../../components/LoadingIndicator";
 
 interface SingleLessonProps {
   getLesson: (lessonId: string) => void;
   error: string;
   loading: boolean;
-  currentLesson: any;
-  match: any;
+  currentLesson: LessonInterface;
+  match: match<{ lessonId: string }>;
 }
 
 class SingleLesson extends React.Component<SingleLessonProps> {
@@ -24,7 +27,7 @@ class SingleLesson extends React.Component<SingleLessonProps> {
       return <div>{error}</div>;
     }
     if (loading) {
-      return <div>Loading...</div>;
+      return <LoadingIndicator />;
     }
 
     return <CourseLesson item={currentLesson} />;

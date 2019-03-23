@@ -1,25 +1,30 @@
 import { COURSE_ACTION } from "./constants";
 import { call, put, takeEvery } from "redux-saga/effects";
 import { getAuthorizationHeaders } from "../../utils/userUtils";
-// @ts-ignore
 import { courseActionError, courseActionSuccess } from "./actions";
-
 // @ts-ignore
 import request from "utils/request";
+import { ModuleInterface } from "./interfaces";
 
-export function* getCourse({ payload }) {
+export function* getCourse({
+  payload: { id: courseId }
+}: {
+  payload: { id: string };
+}) {
   try {
-    const { id: courseId } = payload;
     const options = {
       method: "GET",
       url: `/courses/${courseId}/modules`,
       headers: getAuthorizationHeaders()
     };
-    const { data: modules } = yield call(request, options);
+    const { data: modules }: { data: [ModuleInterface] } = yield call(
+      request,
+      options
+    );
 
     yield put(courseActionSuccess(modules));
   } catch (err) {
-    const { message } = err.response.data;
+    const { message }: { message: string } = err.response.data;
     yield put(courseActionError(message));
   }
 }
