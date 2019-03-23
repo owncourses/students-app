@@ -1,2 +1,2 @@
 // @ts-ignore
-export { default } from "./CourseLessonItem.tsx";
+export { default } from "./CourseLessonItem";

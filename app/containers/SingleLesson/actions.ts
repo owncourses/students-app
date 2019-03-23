@@ -3,10 +3,11 @@ import {
   LESSON_ACTION_SUCCESS,
   LESSON_ACTION_ERROR
 } from "./constants";
+import { LessonInterface } from "./interfaces";
 
 export function lessonAction(
-  id: number
-): { type: string; payload: { id: number } } {
+  id: string
+): { type: string; payload: { id: string } } {
   return {
     type: LESSON_ACTION,
     payload: { id }
@@ -14,8 +15,8 @@ export function lessonAction(
 }
 
 export function lessonActionSuccess(
-  lesson: any
-): { type: string; lesson: any } {
+  lesson: LessonInterface
+): { type: string; lesson: LessonInterface } {
   return {
     type: LESSON_ACTION_SUCCESS,
     lesson

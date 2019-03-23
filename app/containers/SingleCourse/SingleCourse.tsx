@@ -1,15 +1,15 @@
 import * as React from "react";
-import i18n from "i18next";
 import CourseModuleItem from "../../components/CourseModuleItem";
-import { Route } from "react-router-dom";
+import { match } from "react-router-dom";
+import { ModuleInterface } from "./interfaces";
+import LoadingIndicator from "../../components/LoadingIndicator";
 
 interface SingleCourseProps {
-  match: any;
-  getCourse: (id: number) => void;
+  match: match<{ courseId: string }>;
+  getCourse: (id: string) => void;
   error: boolean | string;
   loading: boolean;
-  courses: any;
-  modules: any;
+  modules: [ModuleInterface];
 }
 
 class SingleCourse extends React.Component<SingleCourseProps> {
@@ -42,7 +42,7 @@ class SingleCourse extends React.Component<SingleCourseProps> {
       return <div>{error}</div>;
     }
     if (loading) {
-      return <div>Loading...</div>;
+      return <LoadingIndicator />;
     }
 
     return (
