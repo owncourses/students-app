@@ -8,7 +8,7 @@ import HomePage from "../HomePage";
 
 describe("<HomePage />", () => {
   it("should render the homePage", () => {
-    const wrapper = shallow(<HomePage />);
+    const wrapper = shallow(<HomePage user={{}} />);
     expect(wrapper.find("div.home-page").length).toBe(1);
   });
 });

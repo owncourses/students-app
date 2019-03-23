@@ -31,5 +31,5 @@ module.exports = {
       "<rootDir>/config/jest-mocks/image.js"
   },
   setupTestFrameworkScriptFile: "<rootDir>/config/test-setup.js",
-  testRegex: "tests/.*\\.test\\.js$"
+  preset: "ts-jest/presets/js-with-babel"
 };

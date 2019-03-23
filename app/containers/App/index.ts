@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { makeSelectUser } from "containers/Auth/selectors";
+import { makeSelectUser } from "../Auth/selectors";
 import { compose } from "redux";
 import { withRouter } from "react-router-dom";
 import App from "./App";
@@ -26,6 +26,7 @@ const withConnect = connect(
 const withAuthReducer = injectReducer({ key: "auth", reducer });
 const withAuthSaga = injectSaga({ key: "auth", saga });
 
+// @ts-ignore
 export default compose(
   withAuthSaga,
   withAuthReducer,

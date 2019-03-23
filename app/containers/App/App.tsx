@@ -6,17 +6,17 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import React from "react";
+import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import HomePage from "containers/HomePage/Loadable";
-import NotFoundPage from "containers/NotFoundPage/Loadable";
-import Auth from "containers/Auth/Loadable";
-import SingleCourse from "containers/SingleCourse/Loadable";
-import SingleLesson from "containers/SingleLesson/Loadable";
-import Header from "components/Header";
-import Footer from "components/Footer";
+import HomePage from "../../containers/HomePage/Loadable";
+import NotFoundPage from "../../containers/NotFoundPage/Loadable";
+import Auth from "../../containers/Auth/Loadable";
+import SingleCourse from "../../containers/SingleCourse/Loadable";
+import SingleLesson from "../../containers/SingleLesson/Loadable";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import "./style.scss";
 import { getToken } from "../../utils/userUtils";
 import { loadConfig } from "../../services/configService";
@@ -24,7 +24,11 @@ import { isTokenNotExpired } from "../Auth/auth-logic";
 
 const projectConfig = loadConfig();
 
-class App extends React.Component {
+interface AppProps {
+  getUser: () => void;
+}
+
+class App extends React.Component<AppProps> {
   componentDidMount() {
     const token = getToken();
     const { getUser } = this.props;
@@ -55,7 +59,7 @@ class App extends React.Component {
               component={SingleLesson}
             />
             <PrivateRoute path="/:courseId" component={SingleCourse} />
-            <Route exact path="/" component={HomePage} />
+            <PrivateRoute exact path="/" component={HomePage} />
             <Route path="" component={NotFoundPage} />
           </Switch>
         </div>
