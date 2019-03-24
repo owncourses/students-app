@@ -3,6 +3,7 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "baseUrl": "./app",
+    "resolveJsonModule": true,
     "jsx": "react"
   }
 }
