@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getTokenFromApi Saga should call the authActionError if the response errors 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "data": "{\\"username\\":\\"test\\",\\"password\\":\\"password\\"}",
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "POST",
+        "url": "/login_check",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`getTokenFromApi Saga should call the repoLoadingError action if the response errors 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "data": "{\\"username\\":\\"test\\",\\"password\\":\\"password\\"}",
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "POST",
+        "url": "/login_check",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`getTokenFromApi Saga should dispatch the put token in localstorage it requests the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "data": "{\\"username\\":\\"test\\",\\"password\\":\\"password\\"}",
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "POST",
+        "url": "/login_check",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`getTokenFromApi Saga should put token in localstorage if it requests the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "data": "{\\"username\\":\\"test\\",\\"password\\":\\"password\\"}",
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "POST",
+        "url": "/login_check",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`getUser Saga should call the authActionError if the response errors 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "GET",
+        "url": "/users/me",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`getUser Saga should dispatch the authActionSuccess if it requests the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "GET",
+        "url": "/users/me",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`login Saga should call the authActionError if the  1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "password": "password",
+        "username": "test",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`login Saga should call the getUser saga if no errors 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "password": "password",
+        "username": "test",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;

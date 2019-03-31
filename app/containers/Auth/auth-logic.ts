@@ -1,18 +1,16 @@
 import { AuthFieldsInterface } from "./interfaces";
-import { getToken } from "../../utils/userUtils";
 
 export function getValueFromFields(
   fields: AuthFieldsInterface = [],
   fieldName: string
 ): string {
-  let value = null;
-  fields.forEach(field => {
-    if (field.type === fieldName) {
-      value = field.value;
-    }
-  });
+  const filteredField = fields.find(field => field.type === fieldName);
 
-  return value;
+  if (!filteredField) {
+    return "";
+  }
+
+  return filteredField.value;
 }
 
 export function parseJwt(
@@ -23,10 +21,12 @@ export function parseJwt(
   return JSON.parse(window.atob(base64));
 }
 
-export function isTokenNotExpired(token: string, expires: number): boolean {
-  if (!token || !expires) {
+export function isTokenNotExpired(token: string): boolean {
+  if (!token) {
     return false;
   }
 
-  return expires < Date.now();
+  const parsedToken = parseJwt(token);
+
+  return parsedToken.exp < Date.now();
 }

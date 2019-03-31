@@ -1,0 +1,20 @@
+{
+  "email": "test@example.com",
+  "roles": ["ROLE_USER"],
+  "first_name": "Test",
+  "last_name": "User",
+  "courses": [{
+    "id": 1,
+    "title": "First example course",
+    "description": "Description of first example course",
+    "cover_image_name": "example.jpeg",
+    "created": "2019-03-08T00:00:00+01:00",
+    "updated": "2019-03-23T14:54:36+01:00",
+    "href": {
+      "coverImageUrl": "examples.com/example.jpeg"
+    }
+  }],
+  "created": "2019-03-08T00:00:00+01:00",
+  "updated": "2019-03-09T12:22:16+01:00",
+  "id": "bf12af6d-7fe1-493f-a345-c5ca24984500"
+}

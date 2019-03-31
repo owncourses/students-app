@@ -25,8 +25,8 @@ export interface UserInterface {
   last_name: string;
   id: string;
   updated: string;
-  roles: [string];
-  courses: [CourseInterface];
+  roles: string[];
+  courses: CourseInterface[];
 }
 
 export interface AuthFieldsInterface extends Array<AuthFields> {}

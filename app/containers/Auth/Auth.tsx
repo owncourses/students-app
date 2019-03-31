@@ -10,8 +10,8 @@ import { getValueFromFields } from "./auth-logic";
 interface AuthProps {
   onLogin: (payload: userLoginInterface) => void;
   loading: boolean;
-  error: string;
-  currentUser: UserInterface;
+  error: string | boolean;
+  currentUser: UserInterface | boolean;
 }
 
 interface AuthState {
@@ -53,16 +53,27 @@ class Auth extends React.Component<AuthProps, AuthState> {
   };
 
   handleUserInput = (fieldName: string, value: string) => {
-    const { fields } = this.state;
-    const updatedFields = fields.map(field => {
+    const updatedFields = this.updateFields(
+      fieldName,
+      value,
+      this.state.fields
+    );
+
+    this.setState({ fields: updatedFields });
+  };
+
+  updateFields = (
+    fieldName: string,
+    value: string,
+    fields: AuthFieldsInterface
+  ) => {
+    return fields.map(field => {
       if (field.type === fieldName) {
         field.value = value;
         return field;
       }
       return field;
     });
-
-    this.setState({ fields: updatedFields });
   };
 
   render() {

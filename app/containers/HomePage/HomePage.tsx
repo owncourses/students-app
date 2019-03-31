@@ -1,20 +1,17 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- */
-
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import { Helmet } from "react-helmet";
 import "./style.scss";
-import { IssueIcon } from "components/Icons";
 import i18n from "i18next";
 import { Redirect } from "react-router-dom";
 import List from "../../components/List";
 import CourseItem from "../../components/CourseItem";
+import { UserInterface } from "../Auth/interfaces";
 
-export default class HomePage extends React.PureComponent {
+interface HomePageProps {
+  user: UserInterface;
+}
+
+export default class HomePage extends React.PureComponent<HomePageProps> {
   render() {
     const { user } = this.props;
 
@@ -38,8 +35,3 @@ export default class HomePage extends React.PureComponent {
     );
   }
 }
-
-HomePage.propTypes = {
-  onSubmitForm: PropTypes.func,
-  username: PropTypes.string
-};

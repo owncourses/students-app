@@ -22,7 +22,6 @@ export function* getTokenFromApi(payload: userLoginInterface) {
     }: { data: { token: string } } = yield call(request, options);
 
     setToken(token);
-    localStorage.setItem("expires", String(parseJwt(token).exp));
   } catch (err) {
     const { message } = err.response.data;
     yield put(authActionError(message));
@@ -58,7 +57,8 @@ export function* login({ payload }: { payload: userLoginInterface }) {
       yield call(getUser);
     }
   } catch (err) {
-    yield put(authActionError(err.message));
+    const { message } = err.response.data;
+    yield put(authActionError(message));
   }
 }
 

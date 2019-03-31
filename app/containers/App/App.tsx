@@ -31,8 +31,9 @@ interface AppProps {
 class App extends React.Component<AppProps> {
   componentDidMount() {
     const token = getToken();
+    const isTokenValid = isTokenNotExpired(token);
     const { getUser } = this.props;
-    if (token) {
+    if (token && isTokenValid) {
       getUser();
     }
   }
@@ -73,8 +74,7 @@ export default App;
 
 function PrivateRoute({ component: Component, ...rest }) {
   const token = getToken();
-  const expires = parseInt(localStorage.getItem("expires"));
-  const isTokenValid = isTokenNotExpired(token, expires);
+  const isTokenValid = isTokenNotExpired(token);
   return (
     <Route
       {...rest}
