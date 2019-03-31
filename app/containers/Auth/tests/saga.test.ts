@@ -1,9 +1,10 @@
-import { getTokenFromApi, getUser } from "../saga";
-import { userLoginInterface } from "../constants";
+import authFlow, { getTokenFromApi, getUser, login } from "../saga";
+import { AUTH_ACTION, USER_ACTION, userLoginInterface } from "../constants";
 import { setToken } from "../../../utils/userUtils";
-import { put } from "redux-saga/effects";
+import { call, put, select, takeEvery } from "redux-saga/effects";
 import { authActionError, authActionSuccess } from "../actions";
 import * as user from "./mocks/user.json";
+import { makeSelectAuthError } from "../selectors";
 
 const userLoginData: userLoginInterface = {
   username: "test",
@@ -53,5 +54,51 @@ describe("getUser Saga", () => {
     const err = { response: { data: { message: "Test error" } } };
     const putDescriptor = getUserGenerator.throw(err).value;
     expect(putDescriptor).toEqual(put(authActionError("Test error")));
+  });
+});
+
+describe("login Saga", () => {
+  let loginGenerator;
+
+  beforeEach(() => {
+    loginGenerator = login({ payload: userLoginData });
+    const callDescriptor = loginGenerator.next().value;
+    console.log(callDescriptor);
+    expect(callDescriptor).toMatchSnapshot();
+  });
+
+  it("should call the getUser saga if no errors", () => {
+    const selectDescriptor = loginGenerator.next().value;
+
+    expect(JSON.stringify(selectDescriptor)).toEqual(
+      JSON.stringify(select(makeSelectAuthError()))
+    );
+
+    const callUserDescriptor = loginGenerator.next().value;
+
+    expect(callUserDescriptor).toEqual(call(getUser));
+  });
+
+  it("should call the authActionError if the ", () => {
+    const err = { response: { data: { message: "Test error" } } };
+
+    const putDescriptor = loginGenerator.throw(err).value;
+    expect(putDescriptor).toEqual(put(authActionError("Test error")));
+  });
+});
+
+describe("authFlow Saga", () => {
+  const authFlowSaga = authFlow();
+
+  it("should start task to watch for AUTH_ACTION action", () => {
+    const takeLatestDescriptor = authFlowSaga.next().value;
+    // @ts-ignore
+    expect(takeLatestDescriptor).toEqual(takeEvery(AUTH_ACTION, login));
+  });
+
+  it("should start task to watch for USER_ACTION action", () => {
+    const takeLatestDescriptor = authFlowSaga.next().value;
+    // @ts-ignore
+    expect(takeLatestDescriptor).toEqual(takeEvery(USER_ACTION, getUser));
   });
 });
