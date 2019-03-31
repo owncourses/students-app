@@ -37,3 +37,5 @@ export default compose(
   withReducer,
   withConnect
 )(SingleLesson);
+
+export { mapDispatchToProps };

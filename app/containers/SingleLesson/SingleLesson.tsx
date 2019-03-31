@@ -6,7 +6,7 @@ import LoadingIndicator from "../../components/LoadingIndicator";
 
 interface SingleLessonProps {
   getLesson: (lessonId: string) => void;
-  error: string;
+  error: boolean | string;
   loading: boolean;
   currentLesson: LessonInterface;
   match: match<{ lessonId: string }>;

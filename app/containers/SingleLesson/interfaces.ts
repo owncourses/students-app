@@ -10,7 +10,7 @@ export interface LessonInterface {
     id: string;
     title: string;
     course: {
-      id: number;
+      id: string;
       title: string;
     };
   };
