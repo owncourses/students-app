@@ -43,3 +43,5 @@ export default compose(
   withSingleCourseReducer,
   withSingleCourseSaga
 )(SingleCourse);
+
+export { mapDispatchToProps };

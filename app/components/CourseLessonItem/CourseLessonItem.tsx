@@ -7,7 +7,7 @@ const CourseLessonItem = ({
   item
 }: {
   match: match;
-  item: LessonInterface;
+  item: { id: string; title: string };
 }) => {
   return <Link to={`${match.url}/lesson/${item.id}`}>{item.title}</Link>;
 };

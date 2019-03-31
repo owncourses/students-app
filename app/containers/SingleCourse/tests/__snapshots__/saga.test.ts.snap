@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getCourse Saga should call the authActionError if the response errors 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "GET",
+        "url": "/courses/1/modules",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`getCourse Saga should dispatch the courseActionSuccess if it requests the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "GET",
+        "url": "/courses/1/modules",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;

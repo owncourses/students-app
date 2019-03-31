@@ -15,8 +15,8 @@ export function courseAction(
 }
 
 export function courseActionSuccess(
-  modules: [ModuleInterface]
-): { type: string; modules: [ModuleInterface] } {
+  modules: ModuleInterface[]
+): { type: string; modules: ModuleInterface[] } {
   return {
     type: COURSE_ACTION_SUCCESS,
     modules
