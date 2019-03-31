@@ -16,6 +16,7 @@ module.exports = {
   },
   coverageReporters: ["json", "lcov", "text-summary"],
   moduleDirectories: ["node_modules", "app"],
+  snapshotSerializers: ["enzyme-to-json/serializer"],
   transform: {
     "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
     "\\.(ts|tsx)$": "ts-jest"

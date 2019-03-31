@@ -91,14 +91,14 @@ describe("authFlow Saga", () => {
   const authFlowSaga = authFlow();
 
   it("should start task to watch for AUTH_ACTION action", () => {
-    const takeLatestDescriptor = authFlowSaga.next().value;
+    const takeEveryDescriptor = authFlowSaga.next().value;
     // @ts-ignore
-    expect(takeLatestDescriptor).toEqual(takeEvery(AUTH_ACTION, login));
+    expect(takeEveryDescriptor).toEqual(takeEvery(AUTH_ACTION, login));
   });
 
   it("should start task to watch for USER_ACTION action", () => {
-    const takeLatestDescriptor = authFlowSaga.next().value;
+    const takeEveryDescriptor = authFlowSaga.next().value;
     // @ts-ignore
-    expect(takeLatestDescriptor).toEqual(takeEvery(USER_ACTION, getUser));
+    expect(takeEveryDescriptor).toEqual(takeEvery(USER_ACTION, getUser));
   });
 });

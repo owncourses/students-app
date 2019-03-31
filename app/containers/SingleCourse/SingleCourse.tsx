@@ -9,7 +9,7 @@ interface SingleCourseProps {
   getCourse: (id: string) => void;
   error: boolean | string;
   loading: boolean;
-  modules: [ModuleInterface];
+  modules: ModuleInterface[];
 }
 
 class SingleCourse extends React.Component<SingleCourseProps> {

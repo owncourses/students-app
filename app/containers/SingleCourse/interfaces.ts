@@ -1,5 +1,3 @@
-import { LessonInterface } from "../SingleLesson/interfaces";
-
 export interface ModuleInterface {
   id: string;
   title: string;
@@ -11,5 +9,5 @@ export interface ModuleInterface {
     id: number;
     title: string;
   };
-  lessons: [LessonInterface];
+  lessons: { id: string; title: string }[];
 }

@@ -10,7 +10,6 @@ import {
 const initialState = fromJS({
   loading: false,
   error: false,
-  currentCourse: false,
   modules: false
 });
 
