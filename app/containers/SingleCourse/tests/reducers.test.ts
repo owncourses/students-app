@@ -30,7 +30,7 @@ describe("singleCourse Reducer", () => {
     expect(courseReducer(state, courseAction(fixture))).toEqual(expectedResult);
   });
 
-  it("should handle the authActionSuccess correctly", () => {
+  it("should handle the courseActionSuccess correctly", () => {
     const fixture: ModuleInterface[] = modules;
     const expectedResult = state.set("loading", false).set("modules", modules);
 
@@ -39,7 +39,7 @@ describe("singleCourse Reducer", () => {
     );
   });
 
-  it("should handle the authActionError correctly", () => {
+  it("should handle the courseActionError correctly", () => {
     const fixture: string = "Sample error message";
     const expectedResult = state.set("loading", false).set("error", fixture);
 

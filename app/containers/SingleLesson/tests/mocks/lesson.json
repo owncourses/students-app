@@ -1,0 +1,17 @@
+{
+  "title": "Test title of example lesson",
+  "description": "Test description of example lesson",
+  "embed_code": "Test embed_code of example lesson",
+  "module": {
+    "id": "fb8fbc90-2a0f-45b3-83ee-bb6e9d1bc402",
+    "title": "Test title of example module",
+    "course": {
+      "id": "1",
+      "title": "Test title of example course"
+    }
+  },
+  "created": "2019-03-17T11:29:18+01:00",
+  "updated": "2019-03-17T12:24:44+01:00",
+  "position": 1,
+  "id": "53ca8a0a-b5a9-40e9-b5b7-0f9d226a4d8b"
+}
