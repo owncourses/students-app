@@ -23,11 +23,11 @@ const Header = ({ title }: { title: string }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Link to={"/"}>
-            <Typography variant="h6" color="inherit" className={"grow"}>
-              {title}
-            </Typography>
-          </Link>
+          <Typography variant={"subheading"} className={"grow"}>
+            <Link to={"/"} color={"inherit"}>
+              <Button color="secondary">{title}</Button>
+            </Link>
+          </Typography>
           <Link to={"/login"}>
             <Button color="secondary">{t("Sign out")}</Button>
           </Link>

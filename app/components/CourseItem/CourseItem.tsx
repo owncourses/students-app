@@ -1,14 +1,10 @@
 import * as React from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Typography
-} from "@material-ui/core";
+import { Card, CardContent, CardMedia, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "./style.scss";
 import { CourseInterface } from "../../containers/Auth/interfaces";
+import SuccessButton from "../Buttons/SuccessButton";
+import { useTranslation } from "react-i18next";
 
 const CourseItem = ({
   item: {
@@ -20,17 +16,20 @@ const CourseItem = ({
 }: {
   item: CourseInterface;
 }) => {
+  const { t } = useTranslation();
+
   return (
     <li className="list-item">
-      <Link to={`/${id}`}>
-        <Card>
-          <CardHeader title={title} />
-          <CardMedia className={"media"} image={coverImageUrl} />
-          <CardContent>
-            <Typography component="p">{description}</Typography>
-          </CardContent>
-        </Card>
-      </Link>
+      <Card className={"course-card"}>
+        <CardMedia className={"media"} image={coverImageUrl} />
+        <CardContent className={"content"}>
+          <Typography variant={"subtitle2"}>{title}</Typography>
+          <Typography variant="body1">{description}</Typography>
+          <Link to={`/${id}`}>
+            <SuccessButton variant={"contained"} text={t("Start course")} />
+          </Link>
+        </CardContent>
+      </Card>
     </li>
   );
 };
