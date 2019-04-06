@@ -24,6 +24,7 @@ import "styles/theme.scss";
 import configureStore from "./configureStore";
 
 import "./i18n/i18n";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
@@ -44,13 +45,25 @@ const initialState = {};
 const history = createHistory();
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById("app");
+const customTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#D71461"
+    },
+    secondary: {
+      main: "#FFFFFF"
+    }
+  }
+});
 
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
       {/* <LanguageProvider messages={messages}> */}
       <ConnectedRouter history={history}>
-        <App />
+        <MuiThemeProvider theme={customTheme}>
+          <App />
+        </MuiThemeProvider>
       </ConnectedRouter>
       {/* </LanguageProvider> */}
     </Provider>,

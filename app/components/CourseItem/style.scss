@@ -1,8 +1,54 @@
+@import './../../styles/variables';
+
 .list-item {
   padding: 8px 0;
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+
+  @media #{$--md-and-above} {
+    margin-right: 16px;
+  }
+
+  @media #{$--md-and-above} {
+    width: calc(50% - 8px);
+
+    &:nth-of-type(2n) {
+      margin-right: 0;
+    }
+  }
+
+  @media #{$--lg-and-above} {
+    width: calc(33% - 13px);
+    margin-right: 24px;
+    margin-bottom: 24px;
+
+    &:nth-of-type(2n) {
+      margin-right: 24px;
+    }
+
+    &:nth-of-type(3n) {
+      margin-right: 0;
+    }
+
+    &:nth-last-child(-n+3) {
+      margin-bottom: 24px;
+    }
+  }
 }
 
 .media {
   height: 0;
   padding-top: 56.25%;
+}
+
+.course-card {
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .12);
+
+  .content {
+    button {
+      margin-top: 16px;
+    }
+  }
 }

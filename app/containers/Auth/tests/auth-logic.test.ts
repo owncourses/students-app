@@ -56,18 +56,18 @@ describe("Auth logic", () => {
       const tokenNotExpiredPayload = {
         name: "John Doe",
         iat: 1516239022,
-        exp: new Date().setDate(new Date().getDay() + 1)
+        exp: new Date().setDate(new Date().getDay() + 1) / 1000
       };
       const tokenExpiredPayload = {
         name: "John Doe",
         iat: 1516239022,
-        exp: new Date().setDate(new Date().getDay() - 1)
+        exp: new Date().setDate(new Date().getDay() - 1) / 1000
       };
       const tokenNotExpired = generateToken(tokenNotExpiredPayload);
       const tokenExpired = generateToken(tokenExpiredPayload);
 
       expect(isTokenNotExpired(tokenNotExpired)).toBeTruthy();
-      expect(isTokenNotExpired(tokenExpired)).toBeTruthy();
+      expect(isTokenNotExpired(tokenExpired)).toBeFalsy();
     });
   });
 });

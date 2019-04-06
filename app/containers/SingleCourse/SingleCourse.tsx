@@ -12,7 +12,14 @@ interface SingleCourseProps {
   modules: ModuleInterface[];
 }
 
-class SingleCourse extends React.Component<SingleCourseProps> {
+interface SingleCourseState {
+  expanded: any;
+}
+
+class SingleCourse extends React.Component<
+  SingleCourseProps,
+  SingleCourseState
+> {
   state = {
     expanded: null
   };
@@ -30,6 +37,7 @@ class SingleCourse extends React.Component<SingleCourseProps> {
 
   render(): React.ReactNode {
     const { error, loading, modules, match } = this.props;
+    const { expanded } = this.state;
 
     let currentCourse = null;
 
@@ -45,21 +53,22 @@ class SingleCourse extends React.Component<SingleCourseProps> {
       return <LoadingIndicator />;
     }
 
+    const modulesView =
+      modules &&
+      modules.map(module => (
+        <CourseModuleItem
+          match={match}
+          item={module}
+          key={module.id}
+          expanded={expanded}
+          onChange={this.handleChange}
+        />
+      ));
+
     return (
       <section>
         <h2>{currentCourse && currentCourse.title}:</h2>
-        {modules &&
-          modules.map(module => {
-            return (
-              <CourseModuleItem
-                match={match}
-                item={module}
-                key={module.id}
-                expanded={this.state.expanded}
-                onChange={this.handleChange}
-              />
-            );
-          })}
+        {modulesView}
       </section>
     );
   }

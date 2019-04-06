@@ -28,5 +28,5 @@ export function isTokenNotExpired(token: string): boolean {
 
   const parsedToken = parseJwt(token);
 
-  return parsedToken.exp < Date.now();
+  return parsedToken.exp * 1000 > +new Date();
 }
