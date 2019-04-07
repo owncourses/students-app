@@ -11,3 +11,7 @@ npm-debug.log
 
 # Logs
 yarn-error.log
+
+
+# Env
+.env

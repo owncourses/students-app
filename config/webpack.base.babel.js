@@ -4,6 +4,7 @@
 
 const path = require("path");
 const webpack = require("webpack");
+const Dotenv = require("dotenv-webpack");
 
 process.noDeprecation = true;
 
@@ -80,6 +81,10 @@ module.exports = options => ({
       "process.env": {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
+    }),
+    new Dotenv({
+      systemvars: true,
+      defaults: true
     })
   ]),
   resolve: {
