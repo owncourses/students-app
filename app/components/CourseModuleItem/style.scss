@@ -1,13 +1,13 @@
-.details {
-  flex-direction: column;
-}
+.module-card {
+  padding: 16px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .12);
+  margin-bottom: 16px;
 
-.lessons {
-  display: flex;
-  flex-direction: column;
-
-  > * {
-    padding: 5px;
+  .lessons {
+    margin-top: 16px;
   }
 }
+
+
 

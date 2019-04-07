@@ -3,6 +3,8 @@ import CourseModuleItem from "../../components/CourseModuleItem";
 import { match } from "react-router-dom";
 import { ModuleInterface } from "./interfaces";
 import LoadingIndicator from "../../components/LoadingIndicator";
+import Jumbotron from "../../components/Jumbotron";
+import "./style.scss";
 
 interface SingleCourseProps {
   match: match<{ courseId: string }>;
@@ -12,32 +14,14 @@ interface SingleCourseProps {
   modules: ModuleInterface[];
 }
 
-interface SingleCourseState {
-  expanded: any;
-}
-
-class SingleCourse extends React.Component<
-  SingleCourseProps,
-  SingleCourseState
-> {
-  state = {
-    expanded: null
-  };
-
+class SingleCourse extends React.Component<SingleCourseProps> {
   componentDidMount(): void {
     const { courseId } = this.props.match.params;
     this.props.getCourse(courseId);
   }
 
-  handleChange = panel => (event, expanded) => {
-    this.setState({
-      expanded: expanded ? panel : false
-    });
-  };
-
   render(): React.ReactNode {
     const { error, loading, modules, match } = this.props;
-    const { expanded } = this.state;
 
     let currentCourse = null;
 
@@ -56,19 +40,16 @@ class SingleCourse extends React.Component<
     const modulesView =
       modules &&
       modules.map(module => (
-        <CourseModuleItem
-          match={match}
-          item={module}
-          key={module.id}
-          expanded={expanded}
-          onChange={this.handleChange}
-        />
+        <CourseModuleItem match={match} item={module} key={module.id} />
       ));
+    const jumbotronView = currentCourse && (
+      <Jumbotron title={currentCourse.title} subtitle={currentCourse.title} />
+    );
 
     return (
       <section>
-        <h2>{currentCourse && currentCourse.title}:</h2>
-        {modulesView}
+        {jumbotronView}
+        <div className={"modules"}>{modulesView}</div>
       </section>
     );
   }

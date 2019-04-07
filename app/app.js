@@ -48,11 +48,14 @@ const MOUNT_NODE = document.getElementById("app");
 const customTheme = createMuiTheme({
   palette: {
     primary: {
-      main: "#D71461"
+      main: process.env.BRAND_COLORS_PRIMARY
     },
     secondary: {
-      main: "#FFFFFF"
+      main: process.env.BRAND_COLORS_SECONDARY
     }
+  },
+  typography: {
+    useNextVariants: true
   }
 });
 

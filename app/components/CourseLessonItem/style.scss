@@ -1,0 +1,18 @@
+.lesson {
+  margin-bottom: 16px;
+  display: flex;
+
+  &:hover {
+    background-color: rgba(#D71461, 0.1);
+  }
+
+  .details {
+    padding: 16px;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+

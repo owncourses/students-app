@@ -10,8 +10,8 @@ const CourseLesson = ({
 }) => {
   return (
     <div>
-      <Typography variant={"title"}>{title}</Typography>
-      <Typography variant={"subheading"}>{description}</Typography>
+      <Typography variant={"h6"}>{title}</Typography>
+      <Typography variant={"subtitle1"}>{description}</Typography>
       <div
         className={"embed-code"}
         dangerouslySetInnerHTML={createEmbedCode(embed_code)}
