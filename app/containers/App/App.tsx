@@ -19,10 +19,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import "./style.scss";
 import { getToken } from "../../utils/userUtils";
-import { loadConfig } from "../../services/configService";
 import { isTokenNotExpired } from "../Auth/auth-logic";
-
-const projectConfig = loadConfig();
 
 interface AppProps {
   getUser: () => void;
@@ -39,10 +36,9 @@ class App extends React.Component<AppProps> {
   }
 
   render() {
-    const {
-      header: { text: headerTitle },
-      footer: { text: footerTitle }
-    } = projectConfig;
+    const headerTitle = process.env.BRAND_HEADER_TEXT;
+    const footerTitle = process.env.BRAND_FOOTER_TEXT;
+
     return (
       <div className="app-wrapper">
         <Helmet
