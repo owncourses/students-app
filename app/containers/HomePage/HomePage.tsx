@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 import List from "../../components/List";
 import CourseItem from "../../components/CourseItem";
 import { UserInterface } from "../Auth/interfaces";
-import { Typography } from "@material-ui/core";
+import { Divider, Typography } from "@material-ui/core";
 
 interface HomePageProps {
   user: UserInterface;
@@ -28,7 +28,8 @@ export default class HomePage extends React.PureComponent<HomePageProps> {
         </Helmet>
         <div className="home-page">
           <section>
-            <Typography variant={"headline"}>{i18n.t("My courses")}</Typography>
+            <Typography variant={"h5"}>{i18n.t("My courses")}</Typography>
+            <Divider />
             <List component={CourseItem} items={user.courses} />
           </section>
         </div>

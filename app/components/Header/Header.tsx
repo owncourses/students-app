@@ -7,8 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import MenuIcon from "@material-ui/icons/Menu";
-
+import Icon from "@material-ui/core/Icon";
 const Header = ({ title }: { title: string }) => {
   const { t } = useTranslation();
 
@@ -17,24 +16,26 @@ const Header = ({ title }: { title: string }) => {
       <AppBar position="static">
         <Toolbar className={"toolbar"}>
           <IconButton
-            className={"menu-button"}
+            className={"navigate_before"}
             color="inherit"
-            aria-label="Menu"
+            aria-label="Back"
           >
-            <MenuIcon />
+            <Link to={"../"}>
+              <Icon>navigate_before</Icon>
+            </Link>
           </IconButton>
-          <Typography variant={"subheading"} className={"grow"}>
+
+          <Typography variant={"subtitle1"} className={"grow"}>
             <Link to={"/"} color={"inherit"}>
               <Button color="secondary">{title}</Button>
             </Link>
           </Typography>
-          <Link to={"/login"}>
-            <Button color="secondary">{t("Sign out")}</Button>
-          </Link>
+          <IconButton className={"menu"} color="inherit" aria-label="Menu">
+            <Icon>person</Icon>
+          </IconButton>
         </Toolbar>
       </AppBar>
     </header>
   );
 };
-
 export default Header;

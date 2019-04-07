@@ -26,7 +26,7 @@ const CourseItem = ({
           <Typography variant={"subtitle2"}>{title}</Typography>
           <Typography variant="body1">{description}</Typography>
           <Link to={`/${id}`}>
-            <SuccessButton variant={"contained"} text={t("Start course")} />
+            <SuccessButton variant={"outlined"} text={t("Start course")} />
           </Link>
         </CardContent>
       </Card>

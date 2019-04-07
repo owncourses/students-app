@@ -1,11 +1,22 @@
+@import "./../../styles/variables";
+
 .app-wrapper {
   height: 100vh;
   display: flex;
   flex-direction: column;
 
   .main {
-    padding: 16px;
     flex: 1 0 auto;
+
+    > :first-child {
+      padding: 0 16px;
+      max-width: 1024px;
+      margin: 0 auto;
+
+      @media #{$--lg-and-above} {
+        padding: 0;
+      }
+    }
   }
 
 }
