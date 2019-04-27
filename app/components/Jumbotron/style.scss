@@ -3,7 +3,7 @@
 .jumbotron {
   background-color: rgba(#D71461, 0.85);
   position: relative;
-  width: 100vw;
+  width: calc(100vw - 8px);
   left: calc(-50vw + 50%);
 
   .content {

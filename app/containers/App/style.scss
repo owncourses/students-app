@@ -7,15 +7,14 @@
 
   .main {
     flex: 1 0 auto;
+    background-color: #fafafa;
 
     > :first-child {
+      min-height: 100%;
+      background-color: #fff;
       padding: 0 16px;
       max-width: 1024px;
       margin: 0 auto;
-
-      @media #{$--lg-and-above} {
-        padding: 0;
-      }
     }
   }
 

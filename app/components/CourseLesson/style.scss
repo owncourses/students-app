@@ -1,15 +1,21 @@
-.embed-code {
-  margin-top: 16px;
-  position: relative;
-  padding-bottom: 56.25%;
-  overflow: hidden;
+.course-lesson {
+  padding-top: 16px;
 
-  iframe {
-    border: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  .embed-code {
+    margin-top: 16px;
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+
+    iframe {
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
+
 }
+

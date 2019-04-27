@@ -9,7 +9,7 @@ const CourseLesson = ({
   item: LessonInterface;
 }) => {
   return (
-    <div>
+    <div className={"course-lesson"}>
       <Typography variant={"h6"}>{title}</Typography>
       <Typography variant={"subtitle1"}>{description}</Typography>
       <div
