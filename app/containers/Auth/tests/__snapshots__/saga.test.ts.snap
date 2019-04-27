@@ -20,46 +20,6 @@ Object {
 }
 `;
 
-exports[`getTokenFromApi Saga should call the repoLoadingError action if the response errors 1`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "CALL": Object {
-    "args": Array [
-      Object {
-        "data": "{\\"username\\":\\"test\\",\\"password\\":\\"password\\"}",
-        "headers": Object {
-          "Content-Type": "application/json",
-        },
-        "method": "POST",
-        "url": "/login_check",
-      },
-    ],
-    "context": null,
-    "fn": [Function],
-  },
-}
-`;
-
-exports[`getTokenFromApi Saga should dispatch the put token in localstorage it requests the data successfully 1`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "CALL": Object {
-    "args": Array [
-      Object {
-        "data": "{\\"username\\":\\"test\\",\\"password\\":\\"password\\"}",
-        "headers": Object {
-          "Content-Type": "application/json",
-        },
-        "method": "POST",
-        "url": "/login_check",
-      },
-    ],
-    "context": null,
-    "fn": [Function],
-  },
-}
-`;
-
 exports[`getTokenFromApi Saga should put token in localstorage if it requests the data successfully 1`] = `
 Object {
   "@@redux-saga/IO": true,

@@ -53,15 +53,17 @@ describe("Auth logic", () => {
 
   describe("isTokenNotExpired", () => {
     it("should check if token is not expired", () => {
+      const today = new Date();
+      // I divide exp date here by 1k cause token i received from api need to be multiply by 1000
       const tokenNotExpiredPayload = {
         name: "John Doe",
         iat: 1516239022,
-        exp: new Date().setDate(new Date().getDay() + 1) / 1000
+        exp: new Date().setDate(today.getDate() + 1) / 1000
       };
       const tokenExpiredPayload = {
         name: "John Doe",
         iat: 1516239022,
-        exp: new Date().setDate(new Date().getDay() - 1) / 1000
+        exp: new Date().setDate(today.getDate() - 1) / 1000
       };
       const tokenNotExpired = generateToken(tokenNotExpiredPayload);
       const tokenExpired = generateToken(tokenExpiredPayload);
