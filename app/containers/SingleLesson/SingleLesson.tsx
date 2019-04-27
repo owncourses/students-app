@@ -30,7 +30,11 @@ class SingleLesson extends React.Component<SingleLessonProps> {
       return <LoadingIndicator />;
     }
 
-    return <CourseLesson item={currentLesson} />;
+    return (
+      <div className={"course-lesson-wrapper"}>
+        <CourseLesson item={currentLesson} />
+      </div>
+    );
   }
 }
 
