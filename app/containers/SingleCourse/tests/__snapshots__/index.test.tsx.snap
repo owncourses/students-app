@@ -2,44 +2,46 @@
 
 exports[`<SingleCourse /> should render correctly 1`] = `
 <section>
-  <h2>
-    Test title of example course
-    :
-  </h2>
-  <CourseModuleItem
-    expanded={null}
-    item={
-      Object {
-        "course": Object {
-          "id": 1,
-          "title": "Test title of example course",
-        },
-        "created": "2019-03-08T00:00:00+01:00",
-        "description": "Test description of example module",
-        "id": "fb8fbc90-2a0f-45b3-83ee-bb6e9d1bc402",
-        "lessons": Array [
-          Object {
-            "id": "53ca8a0a-b5a9-40e9-b5b7-0f9d226a4d8b",
-            "title": "Test title of example lesson",
-          },
-        ],
-        "position": 0,
-        "title": "Test title of example module",
-        "updated": "2019-03-11T19:41:18+01:00",
-      }
-    }
-    key="fb8fbc90-2a0f-45b3-83ee-bb6e9d1bc402"
-    match={
-      Object {
-        "isExact": true,
-        "params": Object {
-          "courseId": "1",
-        },
-        "path": "",
-        "url": "",
-      }
-    }
-    onChange={[Function]}
+  <Jumbotron
+    subtitle="Test title of example course"
+    title="Test title of example course"
   />
+  <div
+    className="modules"
+  >
+    <CourseModuleItem
+      item={
+        Object {
+          "course": Object {
+            "id": 1,
+            "title": "Test title of example course",
+          },
+          "created": "2019-03-08T00:00:00+01:00",
+          "description": "Test description of example module",
+          "id": "fb8fbc90-2a0f-45b3-83ee-bb6e9d1bc402",
+          "lessons": Array [
+            Object {
+              "id": "53ca8a0a-b5a9-40e9-b5b7-0f9d226a4d8b",
+              "title": "Test title of example lesson",
+            },
+          ],
+          "position": 0,
+          "title": "Test title of example module",
+          "updated": "2019-03-11T19:41:18+01:00",
+        }
+      }
+      key="fb8fbc90-2a0f-45b3-83ee-bb6e9d1bc402"
+      match={
+        Object {
+          "isExact": true,
+          "params": Object {
+            "courseId": "1",
+          },
+          "path": "",
+          "url": "",
+        }
+      }
+    />
+  </div>
 </section>
 `;
