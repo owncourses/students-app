@@ -10,6 +10,7 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+import config from "../../../config/config";
 import HomePage from "../../containers/HomePage/Loadable";
 import NotFoundPage from "../../containers/NotFoundPage/Loadable";
 import Auth from "../../containers/Auth/Loadable";
@@ -36,8 +37,8 @@ class App extends React.Component<AppProps> {
   }
 
   render() {
-    const headerTitle = process.env.BRAND_HEADER_TEXT;
-    const footerTitle = process.env.BRAND_FOOTER_TEXT;
+    const headerTitle = config.brand.headerText;
+    const footerTitle = config.brand.footerText;
 
     return (
       <div className="app-wrapper">
