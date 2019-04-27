@@ -12,6 +12,7 @@ import "sanitize.css/sanitize.css";
 
 // Import root app
 import App from "containers/App";
+import config from "../config/config";
 
 // Load the favicon
 /* eslint-disable import/no-webpack-loader-syntax */
@@ -48,10 +49,10 @@ const MOUNT_NODE = document.getElementById("app");
 const customTheme = createMuiTheme({
   palette: {
     primary: {
-      main: process.env.BRAND_COLORS_PRIMARY
+      main: config.brand.colors.primary
     },
     secondary: {
-      main: process.env.BRAND_COLORS_SECONDARY
+      main: config.brand.colors.secondary
     }
   },
   typography: {
