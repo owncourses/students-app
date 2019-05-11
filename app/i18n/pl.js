@@ -7,5 +7,7 @@ export const pl = {
   "Sign in to your account!": "Zaloguj się na swoje konto!",
   "My courses": "Moje kursy",
   "My modules": "Moje moduły",
-  "Start course": "Rozpocznij kurs"
+  "Start course": "Rozpocznij kurs",
+  "Mark as completed": "Oznacz jak ukończoną",
+  Completed: "Ukończony"
 };

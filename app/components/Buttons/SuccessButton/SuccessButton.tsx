@@ -15,10 +15,14 @@ const successTheme = createMuiTheme({
 });
 
 const SuccessButton = ({
+  onClick,
   text,
-  variant
+  variant,
+  disabled
 }: {
-  text: string;
+  text: any;
+  disabled?: boolean;
+  onClick?: () => any;
   variant?:
     | "text"
     | "flat"
@@ -30,7 +34,13 @@ const SuccessButton = ({
 }) => {
   return (
     <MuiThemeProvider theme={successTheme}>
-      <Button fullWidth color={"primary"} variant={variant}>
+      <Button
+        fullWidth
+        color={"primary"}
+        variant={variant}
+        onClick={onClick}
+        disabled={disabled}
+      >
         {text}
       </Button>
     </MuiThemeProvider>

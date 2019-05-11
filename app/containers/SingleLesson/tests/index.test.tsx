@@ -10,8 +10,11 @@ describe("<SingleLesson />", () => {
     const renderedComponent = shallow(
       <SingleLesson
         getLesson={() => {}}
+        completeLesson={() => {}}
         error={false}
         loading={false}
+        completeLoading={false}
+        completeError={false}
         currentLesson={lesson}
         match={{ params: { lessonId: "1" }, isExact: true, path: "", url: "" }}
       />

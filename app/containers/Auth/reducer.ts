@@ -3,7 +3,8 @@ import { fromJS } from "immutable";
 import {
   AUTH_ACTION,
   AUTH_ACTION_SUCCESS,
-  AUTH_ACTION_ERROR
+  AUTH_ACTION_ERROR,
+  USER_ACTION
 } from "./constants";
 
 // The initial state of the App
@@ -15,6 +16,8 @@ const initialState = fromJS({
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
+    case USER_ACTION:
+      return state.set("loading", true).set("error", false);
     case AUTH_ACTION:
       return state.set("loading", true).set("error", false);
     case AUTH_ACTION_SUCCESS:

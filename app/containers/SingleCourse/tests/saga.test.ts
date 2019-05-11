@@ -3,6 +3,7 @@ import * as modules from "./mocks/modules.json";
 import { put, takeEvery } from "redux-saga/effects";
 import { courseActionError, courseActionSuccess } from "../actions";
 import { COURSE_ACTION } from "../constants";
+import { ModuleInterface } from "../interfaces";
 
 const coursePayload = { payload: { id: "1" } };
 
@@ -16,7 +17,7 @@ describe("getCourse Saga", () => {
   });
 
   it("should dispatch the courseActionSuccess if it requests the data successfully", () => {
-    const response = { data: modules };
+    const response: { data: ModuleInterface[] } = { data: modules };
     const putDescriptor = getCourseGenerator.next(response).value;
     expect(putDescriptor).toEqual(put(courseActionSuccess(response.data)));
   });

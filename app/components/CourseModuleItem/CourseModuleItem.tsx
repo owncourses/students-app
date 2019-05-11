@@ -6,7 +6,7 @@ import { ModuleInterface } from "../../containers/SingleCourse/interfaces";
 import { match } from "react-router";
 
 const CourseModuleItem = ({
-  item: { id, title, description, lessons },
+  item: { title, lessons },
   match
 }: {
   item: ModuleInterface;

@@ -1,25 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SingleLesson /> should render correctly 1`] = `
-<CourseLesson
-  item={
-    Object {
-      "created": "2019-03-17T11:29:18+01:00",
-      "description": "Test description of example lesson",
-      "embed_code": "Test embed_code of example lesson",
-      "id": "53ca8a0a-b5a9-40e9-b5b7-0f9d226a4d8b",
-      "module": Object {
-        "course": Object {
-          "id": "1",
-          "title": "Test title of example course",
+<div
+  className="course-lesson-wrapper"
+>
+  <CourseLesson
+    item={
+      Object {
+        "completed": false,
+        "created": "2019-03-17T11:29:18+01:00",
+        "description": "Test description of example lesson",
+        "embed_code": "Test embed_code of example lesson",
+        "id": "53ca8a0a-b5a9-40e9-b5b7-0f9d226a4d8b",
+        "module": Object {
+          "course": Object {
+            "id": "1",
+            "title": "Test title of example course",
+          },
+          "id": "fb8fbc90-2a0f-45b3-83ee-bb6e9d1bc402",
+          "title": "Test title of example module",
         },
-        "id": "fb8fbc90-2a0f-45b3-83ee-bb6e9d1bc402",
-        "title": "Test title of example module",
-      },
-      "position": 1,
-      "title": "Test title of example lesson",
-      "updated": "2019-03-17T12:24:44+01:00",
+        "position": 1,
+        "title": "Test title of example lesson",
+        "updated": "2019-03-17T12:24:44+01:00",
+      }
     }
-  }
-/>
+  />
+</div>
 `;

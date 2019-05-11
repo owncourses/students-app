@@ -8,11 +8,24 @@ const makeSelectSingleLessonLoading = () =>
     lessonState => lessonState.get("loading")
   );
 
+const makeSelectSingleLessonCompleteLoading = () =>
+  createSelector(
+    selectSingleLesson,
+    lessonState => lessonState.get("completeLoading")
+  );
+
 const makeSelectSingleLessonError = () =>
   createSelector(
     selectSingleLesson,
     lessonState => lessonState.get("error")
   );
+
+const makeSelectSingleLessonCompleteError = () =>
+  createSelector(
+    selectSingleLesson,
+    lessonState => lessonState.get("completeError")
+  );
+
 const makeSelectSingleLesson = () =>
   createSelector(
     selectSingleLesson,
@@ -23,5 +36,7 @@ export {
   selectSingleLesson,
   makeSelectSingleLessonLoading,
   makeSelectSingleLessonError,
-  makeSelectSingleLesson
+  makeSelectSingleLesson,
+  makeSelectSingleLessonCompleteLoading,
+  makeSelectSingleLessonCompleteError
 };

@@ -9,7 +9,7 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Switch, Route, Redirect } from "react-router-dom";
-
+import LoadingIndicator from "../../components/LoadingIndicator";
 import config from "../../../config/config";
 import HomePage from "../../containers/HomePage/Loadable";
 import NotFoundPage from "../../containers/NotFoundPage/Loadable";
@@ -24,6 +24,7 @@ import { isTokenNotExpired } from "../Auth/auth-logic";
 
 interface AppProps {
   getUser: () => void;
+  loading: boolean;
 }
 
 class App extends React.Component<AppProps> {
@@ -39,6 +40,10 @@ class App extends React.Component<AppProps> {
   render() {
     const headerTitle = config.brand.headerText;
     const footerTitle = config.brand.footerText;
+
+    if (this.props.loading) {
+      return <LoadingIndicator />;
+    }
 
     return (
       <div className="app-wrapper">

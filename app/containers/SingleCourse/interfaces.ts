@@ -9,5 +9,12 @@ export interface ModuleInterface {
     id: number;
     title: string;
   };
-  lessons: { id: string; title: string }[];
+  lessons: {
+    id: string;
+    title: string;
+    href: {
+      coverImageUrl: string | null;
+    };
+    completed: boolean | null;
+  }[];
 }

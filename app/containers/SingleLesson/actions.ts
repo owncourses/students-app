@@ -1,7 +1,10 @@
 import {
   LESSON_ACTION,
   LESSON_ACTION_SUCCESS,
-  LESSON_ACTION_ERROR
+  LESSON_ACTION_ERROR,
+  LESSON_COMPLETE_ACTION,
+  LESSON_COMPLETE_ACTION_SUCCESS,
+  LESSON_COMPLETE_ACTION_ERROR
 } from "./constants";
 import { LessonInterface } from "./interfaces";
 
@@ -28,6 +31,37 @@ export function lessonActionError(
 ): { type: string; error: string } {
   return {
     type: LESSON_ACTION_ERROR,
+    error
+  };
+}
+
+export function lessonCompleteAction(
+  isComplete: boolean,
+  lessonId: string
+): { type: string; payload: { isComplete: boolean; lessonId: string } } {
+  return {
+    type: LESSON_COMPLETE_ACTION,
+    payload: {
+      isComplete,
+      lessonId
+    }
+  };
+}
+
+export function lessonCompleteActionSuccess(
+  lesson: LessonInterface
+): { type: string; lesson: LessonInterface } {
+  return {
+    type: LESSON_COMPLETE_ACTION_SUCCESS,
+    lesson
+  };
+}
+
+export function lessonCompleteActionError(
+  error: string
+): { type: string; error: string } {
+  return {
+    type: LESSON_COMPLETE_ACTION_ERROR,
     error
   };
 }
