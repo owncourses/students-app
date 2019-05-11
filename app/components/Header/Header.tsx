@@ -1,14 +1,16 @@
 import * as React from "react";
 import "./style.scss";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
-const Header = ({ title }: { title: string }) => {
+import { History } from "history";
+
+const Header = ({ title, history }: { title: string; history: History }) => {
   const { t } = useTranslation();
 
   return (
@@ -19,12 +21,10 @@ const Header = ({ title }: { title: string }) => {
             className={"navigate_before"}
             color="inherit"
             aria-label="Back"
+            onClick={history.goBack}
           >
-            <Link to={"../"}>
-              <Icon>navigate_before</Icon>
-            </Link>
+            <Icon>navigate_before</Icon>
           </IconButton>
-
           <Typography variant={"subtitle1"} className={"grow"}>
             <Link to={"/"} color={"inherit"}>
               <Button color="secondary">{title}</Button>
@@ -38,4 +38,5 @@ const Header = ({ title }: { title: string }) => {
     </header>
   );
 };
-export default Header;
+// @ts-ignore
+export default withRouter(Header);
