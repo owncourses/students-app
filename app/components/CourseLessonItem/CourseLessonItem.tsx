@@ -9,16 +9,27 @@ const CourseLessonItem = ({
   item
 }: {
   match: match;
-  item: { id: string; title: string };
+  item: {
+    id: string;
+    title: string;
+    href: { coverImageUrl: string | null };
+    completed: boolean | null;
+  };
 }) => {
   return (
     <Link to={`${match.url}/lesson/${item.id}`}>
       <div className={"lesson"}>
-        <img src="https://via.placeholder.com/75" alt="" />
+        <img
+          src={
+            item.href.coverImageUrl
+              ? item.href.coverImageUrl
+              : "https://via.placeholder.com/75"
+          }
+          alt=""
+        />
         <div className={"details"}>
           <Typography variant={"body1"}>{item.title}</Typography>
-          {/*TODO: We need new field in single lesson `completed`*/}
-          {true && <Icon color={"primary"}>check</Icon>}
+          {item.completed && <Icon color={"primary"}>check</Icon>}
         </div>
       </div>
     </Link>

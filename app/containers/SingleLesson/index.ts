@@ -6,9 +6,11 @@ import SingleLesson from "./SingleLesson";
 import injectSaga from "../../utils/injectSaga";
 import injectReducer from "../../utils/injectReducer";
 import { createStructuredSelector } from "reselect";
-import { lessonAction } from "./actions";
+import { lessonAction, lessonCompleteAction } from "./actions";
 import {
   makeSelectSingleLesson,
+  makeSelectSingleLessonCompleteError,
+  makeSelectSingleLessonCompleteLoading,
   makeSelectSingleLessonError,
   makeSelectSingleLessonLoading
 } from "./selectors";
@@ -16,11 +18,17 @@ import {
 const mapStateToProps = createStructuredSelector({
   currentLesson: makeSelectSingleLesson(),
   error: makeSelectSingleLessonError(),
-  loading: makeSelectSingleLessonLoading()
+  loading: makeSelectSingleLessonLoading(),
+  completeLoading: makeSelectSingleLessonCompleteLoading(),
+  completeError: makeSelectSingleLessonCompleteError()
 });
 
 const mapDispatchToProps = dispatch => ({
-  getLesson: id => dispatch(lessonAction(id))
+  getLesson: id => dispatch(lessonAction(id)),
+  completeLesson: (isComplete, lessonId) => {
+    console.log(isComplete);
+    dispatch(lessonCompleteAction(isComplete, lessonId));
+  }
 });
 
 const withConnect = connect(

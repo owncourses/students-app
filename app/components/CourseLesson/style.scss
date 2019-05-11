@@ -1,6 +1,4 @@
 .course-lesson {
-  padding-top: 16px;
-
   .embed-code {
     margin-top: 16px;
     position: relative;
@@ -17,5 +15,19 @@
     }
   }
 
+  .description {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+  }
+
+  .complete-button {
+    margin-top: 16px;
+
+    .left-icon {
+      margin-right: 8px;
+    }
+  }
 }
 

@@ -6,6 +6,7 @@ export interface LessonInterface {
   embed_code: string;
   created: string;
   updated: string;
+  completed: boolean | null;
   module: {
     id: string;
     title: string;

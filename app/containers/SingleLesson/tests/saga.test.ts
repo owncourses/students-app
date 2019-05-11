@@ -3,6 +3,7 @@ import * as lesson from "./mocks/lesson.json";
 import { put, takeEvery } from "redux-saga/effects";
 import { lessonActionError, lessonActionSuccess } from "../actions";
 import { LESSON_ACTION } from "../constants";
+import { LessonInterface } from "../interfaces";
 
 const lessonPayload = { payload: { id: "1" } };
 
@@ -16,7 +17,7 @@ describe("getLesson Saga", () => {
   });
 
   it("should dispatch the lessonActionSuccess if it requests the data successfully", () => {
-    const response = { data: lesson };
+    const response: { data: LessonInterface } = { data: lesson };
     const putDescriptor = getLessonGenerator.next(response).value;
     expect(putDescriptor).toEqual(put(lessonActionSuccess(response.data)));
   });

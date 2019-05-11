@@ -9,5 +9,7 @@ export const en = {
   "Sign in to your account!": "Sing in to your account!",
   "My courses": "My courses",
   "My modules": "My modules",
-  "Start course": "Start course"
+  "Start course": "Start course",
+  "Mark as completed": "Mark as completed",
+  Completed: "Completed"
 };
