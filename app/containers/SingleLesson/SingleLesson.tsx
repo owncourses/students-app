@@ -3,6 +3,7 @@ import CourseLesson from "../../components/CourseLesson";
 import { match } from "react-router";
 import { LessonInterface } from "./interfaces";
 import LoadingIndicator from "../../components/LoadingIndicator";
+import "./style.scss";
 
 interface SingleLessonProps {
   getLesson: (lessonId: string) => void;

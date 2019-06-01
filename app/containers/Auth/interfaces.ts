@@ -14,7 +14,7 @@ export interface CourseInterface {
   created: string;
   updated: string;
   href: {
-    coverImageUrl: string;
+    cover_image_url: string;
   };
 }
 

@@ -12,7 +12,7 @@ const CourseLessonItem = ({
   item: {
     id: string;
     title: string;
-    href: { coverImageUrl: string | null };
+    href: { cover_image_url: string | null };
     completed: boolean | null;
   };
 }) => {
@@ -21,8 +21,8 @@ const CourseLessonItem = ({
       <div className={"lesson"}>
         <img
           src={
-            item.href.coverImageUrl
-              ? item.href.coverImageUrl
+            item.href.cover_image_url
+              ? item.href.cover_image_url
               : "https://via.placeholder.com/75"
           }
           alt=""

@@ -15,7 +15,7 @@
         "id": "53ca8a0a-b5a9-40e9-b5b7-0f9d226a4d8b",
         "title": "Test title of example lesson",
         "href": {
-          "coverImageUrl": "simplestring.jpg"
+          "cover_image_url": "simplestring.jpg"
         },
         "completed": null
       }

@@ -13,7 +13,7 @@ export interface ModuleInterface {
     id: string;
     title: string;
     href: {
-      coverImageUrl: string | null;
+      cover_image_url: string | null;
     };
     completed: boolean | null;
   }[];

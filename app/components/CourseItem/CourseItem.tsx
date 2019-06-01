@@ -11,7 +11,7 @@ const CourseItem = ({
     title,
     description,
     id,
-    href: { coverImageUrl }
+    href: { cover_image_url }
   }
 }: {
   item: CourseInterface;
@@ -21,7 +21,7 @@ const CourseItem = ({
   return (
     <li className="list-item">
       <Card className={"course-card"}>
-        <CardMedia className={"media"} image={coverImageUrl} />
+        <CardMedia className={"media"} image={cover_image_url} />
         <CardContent className={"content"}>
           <Typography variant={"subtitle2"}>{title}</Typography>
           <Typography variant="body1">{description}</Typography>
