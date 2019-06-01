@@ -37,8 +37,7 @@ const withSingleCourseSaga = injectSaga({
   saga: singleCourseSaga
 });
 
-// @ts-ignore
-export default compose(
+export default compose<any>(
   withConnect,
   withSingleCourseReducer,
   withSingleCourseSaga

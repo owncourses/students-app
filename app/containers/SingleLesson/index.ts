@@ -39,8 +39,7 @@ const withConnect = connect(
 const withReducer = injectReducer({ key: "singleLesson", reducer });
 const withSaga = injectSaga({ key: "singleLesson", saga });
 
-// @ts-ignore
-export default compose(
+export default compose<any>(
   withSaga,
   withReducer,
   withConnect
