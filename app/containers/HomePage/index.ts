@@ -14,8 +14,7 @@ const withConnect = connect(
   null
 );
 
-// @ts-ignore
-export default compose(
+export default compose<any>(
   withRouter,
   withConnect
 )(HomePage);

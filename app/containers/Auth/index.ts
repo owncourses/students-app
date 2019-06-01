@@ -24,6 +24,6 @@ const withConnect = connect(
   mapStateToProps,
   mapDispatchToProps
 );
-// @ts-ignore
-export default compose(withConnect)(Auth);
+
+export default compose<any>(withConnect)(Auth);
 export { mapDispatchToProps };

@@ -26,8 +26,7 @@ const withConnect = connect(
 const withAuthReducer = injectReducer({ key: "auth", reducer });
 const withAuthSaga = injectSaga({ key: "auth", saga });
 
-// @ts-ignore
-export default compose(
+export default compose<any>(
   withAuthSaga,
   withAuthReducer,
   withRouter,
