@@ -45,6 +45,7 @@
     "axios": "^0.19",
     "chalk": "^2.3.2",
     "compression": "1.7.3",
+    "copy-webpack-plugin": "^5.0.3",
     "cross-env": "5.2.0",
     "dotenv-webpack": "^1.7.0",
     "enzyme-to-json": "^3.3.5",
@@ -75,6 +76,7 @@
     "sanitize.css": "8.0.0",
     "typescript": "^3.3.3",
     "warning": "^4.0.1",
+    "webpack-assets-manifest": "^3.1.1",
     "whatwg-fetch": "2.0.4"
   },
   "devDependencies": {

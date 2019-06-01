@@ -2,6 +2,8 @@
 const path = require("path");
 // const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WebpackAssetsManifest = require("webpack-assets-manifest");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = require("./webpack.base.babel")({
   mode: "production",
@@ -31,7 +33,11 @@ module.exports = require("./webpack.base.babel")({
         minifyURLs: true
       },
       inject: true
-    })
+    }),
+    new WebpackAssetsManifest({
+      // Options go here
+    }),
+    new CopyPlugin([{ from: "app/_redirects" }])
   ],
 
   performance: {
