@@ -4,6 +4,7 @@ import {
   COURSE_ACTION_ERROR
 } from "./constants";
 import { ModuleInterface } from "./interfaces";
+import { CourseInterface } from "../Auth/interfaces";
 
 export function courseAction(
   id: string
@@ -15,11 +16,11 @@ export function courseAction(
 }
 
 export function courseActionSuccess(
-  modules: ModuleInterface[]
-): { type: string; modules: ModuleInterface[] } {
+  course: CourseInterface
+): { type: string; course: CourseInterface } {
   return {
     type: COURSE_ACTION_SUCCESS,
-    modules
+    course
   };
 }
 

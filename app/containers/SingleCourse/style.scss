@@ -1,3 +1,39 @@
-.modules {
+@import "./../../styles/variables";
+
+.column-container {
+  display: flex;
+  flex-direction: column;
   margin-top: 16px;
+
+  @media #{$--md-and-above} {
+    flex-direction: row;
+  }
+
+  .modules {
+
+    @media #{$--md-and-above} {
+      flex: 1;
+      max-width: 70%;
+    }
+  }
+
+  .authors {
+    max-width: 100%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    padding: 16px;
+    margin: 0 0 32px 0;
+    height: 100%;
+
+    @media #{$--md-and-above} {
+      max-width: 30%;
+      margin: 0 8px;
+    }
+
+    h5 {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+  }
 }
+

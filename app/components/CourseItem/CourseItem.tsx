@@ -23,8 +23,8 @@ const CourseItem = ({
       <Card className={"course-card"}>
         <CardMedia className={"media"} image={cover_image_url} />
         <CardContent className={"content"}>
-          <Typography variant={"subtitle2"}>{title}</Typography>
-          <Typography variant="body1">{description}</Typography>
+          <Typography variant={"h4"}>{title}</Typography>
+          <Typography variant="body2">{description}</Typography>
           <Link to={`/${id}`}>
             <SuccessButton variant={"outlined"} text={t("Start course")} />
           </Link>

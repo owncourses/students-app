@@ -1,17 +1,20 @@
 import * as React from "react";
 import CourseModuleItem from "../../components/CourseModuleItem";
 import { match } from "react-router-dom";
-import { ModuleInterface } from "./interfaces";
 import LoadingIndicator from "../../components/LoadingIndicator";
 import Jumbotron from "../../components/Jumbotron";
 import "./style.scss";
+import { CourseInterface } from "../Auth/interfaces";
+import Author from "../../components/Author/Author";
+import { Typography } from "@material-ui/core";
+import i18n from "i18next";
 
 interface SingleCourseProps {
   match: match<{ courseId: string }>;
   getCourse: (id: string) => void;
   error: boolean | string;
   loading: boolean;
-  modules: ModuleInterface[];
+  course: CourseInterface;
 }
 
 class SingleCourse extends React.Component<SingleCourseProps> {
@@ -21,14 +24,7 @@ class SingleCourse extends React.Component<SingleCourseProps> {
   }
 
   render(): React.ReactNode {
-    const { error, loading, modules, match } = this.props;
-
-    let currentCourse = null;
-
-    if (modules) {
-      const [firstModule] = modules;
-      currentCourse = firstModule.course;
-    }
+    const { error, loading, course, match } = this.props;
 
     if (error) {
       return <div>{error}</div>;
@@ -38,18 +34,36 @@ class SingleCourse extends React.Component<SingleCourseProps> {
     }
 
     const modulesView =
-      modules &&
-      modules.map(module => (
+      course &&
+      course.modules.map(module => (
         <CourseModuleItem match={match} item={module} key={module.id} />
       ));
-    const jumbotronView = currentCourse && (
-      <Jumbotron title={currentCourse.title} subtitle={currentCourse.title} />
+
+    const jumbotronView = course && (
+      <Jumbotron title={course.title} subtitle={course.title} />
     );
+
+    const authorsView =
+      course &&
+      course.authors.map(author => (
+        <Author author={author} key={author.name} />
+      ));
+
+    const authorTitle =
+      course && course.authors.length > 1
+        ? i18n.t("Course authors")
+        : i18n.t("Course author");
 
     return (
       <section>
         {jumbotronView}
-        <div className={"modules"}>{modulesView}</div>
+        <div className={"column-container"}>
+          <div className={"modules"}>{modulesView}</div>
+          <div className={"authors"}>
+            <Typography variant={"h5"}>{authorTitle}</Typography>
+            {authorsView}
+          </div>
+        </div>
       </section>
     );
   }

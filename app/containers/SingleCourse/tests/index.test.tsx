@@ -1,7 +1,7 @@
 import * as React from "react";
 import SingleCourse from "../SingleCourse";
 import { shallow } from "enzyme";
-import * as modules from "./mocks/modules.json";
+import * as course from "./mocks/course.json";
 import { mapDispatchToProps } from "../index";
 import { courseAction } from "../actions";
 
@@ -13,7 +13,7 @@ describe("<SingleCourse />", () => {
         getCourse={() => {}}
         error={false}
         loading={false}
-        modules={modules}
+        course={course}
       />
     );
 

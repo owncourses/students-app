@@ -2,7 +2,7 @@ import { fromJS } from "immutable";
 import {
   makeSelectSingleCourseError,
   makeSelectSingleCourseLoading,
-  makeSelectSingleCourseModules,
+  makeSelectSingleCourse,
   selectSingleCourse
 } from "../selectors";
 
@@ -49,15 +49,15 @@ describe("singleCourse selectors", () => {
   });
 
   describe("makeSelectSingleCourseModules", () => {
-    const singleCourseModulesSelector = makeSelectSingleCourseModules();
+    const singleCourseModulesSelector = makeSelectSingleCourse();
     it("should select the singleCourseModules", () => {
-      const modules = false;
+      const course = false;
       const mockedState = fromJS({
         singleCourse: {
-          modules
+          course
         }
       });
-      expect(singleCourseModulesSelector(mockedState)).toEqual(modules);
+      expect(singleCourseModulesSelector(mockedState)).toEqual(course);
     });
   });
 });

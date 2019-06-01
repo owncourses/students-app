@@ -5,9 +5,10 @@ exports[`<SingleLesson /> should render correctly 1`] = `
   className="course-lesson-wrapper"
 >
   <CourseLesson
+    completeLoading={false}
     item={
       Object {
-        "completed": false,
+        "completed": null,
         "created": "2019-03-17T11:29:18+01:00",
         "description": "Test description of example lesson",
         "embed_code": "Test embed_code of example lesson",
@@ -25,6 +26,7 @@ exports[`<SingleLesson /> should render correctly 1`] = `
         "updated": "2019-03-17T12:24:44+01:00",
       }
     }
+    onComplete={[Function]}
   />
 </div>
 `;

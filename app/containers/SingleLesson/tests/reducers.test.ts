@@ -13,6 +13,8 @@ describe("SingleLesson Reducer", () => {
   beforeEach(() => {
     state = fromJS({
       loading: false,
+      completeLoading: false,
+      completeError: false,
       error: false,
       currentLesson: false
     });
