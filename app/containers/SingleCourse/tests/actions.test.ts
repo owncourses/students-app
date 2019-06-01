@@ -8,8 +8,8 @@ import {
   courseActionError,
   courseActionSuccess
 } from "../actions";
-import * as modules from "./mocks/modules.json";
-import { ModuleInterface } from "../interfaces";
+import * as course from "./mocks/course.json";
+import { CourseInterface } from "../../Auth/interfaces";
 
 describe("SingleCourse Actions", () => {
   describe("courseAction", () => {
@@ -26,10 +26,10 @@ describe("SingleCourse Actions", () => {
 
   describe("courseActionSuccess", () => {
     it("should return the correct type and the passed payload", () => {
-      const fixture: ModuleInterface[] = modules;
+      const fixture: CourseInterface = course;
       const expectedResult = {
         type: COURSE_ACTION_SUCCESS,
-        modules
+        course
       };
       expect(courseActionSuccess(fixture)).toEqual(expectedResult);
     });

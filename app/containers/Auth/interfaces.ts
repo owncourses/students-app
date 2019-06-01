@@ -1,3 +1,14 @@
+import { ModuleInterface } from "../SingleCourse/interfaces";
+
+export interface AuthorInterface {
+  bio: string;
+  href: {
+    picture: string;
+  };
+  name: string;
+  picture: string;
+}
+
 interface AuthFields {
   type: string;
   label: string;
@@ -7,7 +18,7 @@ interface AuthFields {
 }
 
 export interface CourseInterface {
-  id: number;
+  id?: number;
   title: string;
   description: string;
   cover_image_name: string;
@@ -16,6 +27,8 @@ export interface CourseInterface {
   href: {
     cover_image_url: string;
   };
+  modules?: ModuleInterface[];
+  authors?: AuthorInterface[];
 }
 
 export interface UserInterface {

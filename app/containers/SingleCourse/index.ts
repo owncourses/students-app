@@ -4,9 +4,9 @@ import SingleCourse from "./SingleCourse";
 import { createStructuredSelector } from "reselect";
 import { courseAction } from "./actions";
 import {
-  makeSelectSingleCourseModules,
   makeSelectSingleCourseError,
-  makeSelectSingleCourseLoading
+  makeSelectSingleCourseLoading,
+  makeSelectSingleCourse
 } from "./selectors";
 import singleCourseReducer from "./reducer";
 import singleCourseSaga from "./saga";
@@ -14,7 +14,7 @@ import injectSaga from "../../utils/injectSaga";
 import injectReducer from "../../utils/injectReducer";
 
 const mapStateToProps = createStructuredSelector({
-  modules: makeSelectSingleCourseModules(),
+  course: makeSelectSingleCourse(),
   error: makeSelectSingleCourseError(),
   loading: makeSelectSingleCourseLoading()
 });

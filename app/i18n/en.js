@@ -11,5 +11,7 @@ export const en = {
   "My modules": "My modules",
   "Start course": "Start course",
   "Mark as completed": "Mark as completed",
-  Completed: "Completed"
+  Completed: "Completed",
+  "Course authors": "Course authors",
+  "Course author": "Course author"
 };

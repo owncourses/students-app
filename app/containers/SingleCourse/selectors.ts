@@ -18,15 +18,15 @@ const makeSelectSingleCourseError = () =>
     singleCourse => singleCourse.get("error")
   );
 
-const makeSelectSingleCourseModules = () =>
+const makeSelectSingleCourse = () =>
   createSelector(
     selectSingleCourse,
-    singleCourse => singleCourse.get("modules")
+    singleCourse => singleCourse.get("course")
   );
 
 export {
   selectSingleCourse,
   makeSelectSingleCourseLoading,
   makeSelectSingleCourseError,
-  makeSelectSingleCourseModules
+  makeSelectSingleCourse
 };

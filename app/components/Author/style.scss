@@ -1,0 +1,21 @@
+@import "./../../styles/variables";
+
+.author {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  .author-avatar {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    width: 120px!important;
+    height: 120px!important;
+  }
+
+  .description {
+    margin-top: 8px;
+    text-align: center;
+  }
+}
+
+

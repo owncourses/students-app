@@ -5,8 +5,8 @@ import {
   courseActionError,
   courseActionSuccess
 } from "../actions";
-import * as modules from "./mocks/modules.json";
-import { ModuleInterface } from "../interfaces";
+import * as course from "./mocks/course.json";
+import { CourseInterface } from "../../Auth/interfaces";
 
 describe("singleCourse Reducer", () => {
   let state;
@@ -14,7 +14,7 @@ describe("singleCourse Reducer", () => {
     state = fromJS({
       loading: false,
       error: false,
-      modules: false
+      course: false
     });
   });
 
@@ -31,8 +31,8 @@ describe("singleCourse Reducer", () => {
   });
 
   it("should handle the courseActionSuccess correctly", () => {
-    const fixture: ModuleInterface[] = modules;
-    const expectedResult = state.set("loading", false).set("modules", modules);
+    const fixture: CourseInterface = course;
+    const expectedResult = state.set("loading", false).set("course", course);
 
     expect(courseReducer(state, courseActionSuccess(fixture))).toEqual(
       expectedResult

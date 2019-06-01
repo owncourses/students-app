@@ -8,8 +8,12 @@ describe("<Footer />", () => {
   it("should render the copyright notice", () => {
     const headerTitle = config.brand.headerText;
     const renderedComponent = shallow(<Footer title={headerTitle} />);
-    expect(renderedComponent.contains(<section>{headerTitle}</section>)).toBe(
-      true
-    );
+    expect(
+      renderedComponent.contains(
+        <footer className={"footer"}>
+          <section className={"footer-title"}>{headerTitle}</section>
+        </footer>
+      )
+    ).toBe(true);
   });
 });

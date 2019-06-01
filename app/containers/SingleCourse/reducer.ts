@@ -10,7 +10,7 @@ import {
 const initialState = fromJS({
   loading: false,
   error: false,
-  modules: false
+  course: false
 });
 
 function appReducer(state = initialState, action) {
@@ -18,7 +18,7 @@ function appReducer(state = initialState, action) {
     case COURSE_ACTION:
       return state.set("loading", true).set("error", false);
     case COURSE_ACTION_SUCCESS:
-      return state.set("loading", false).set("modules", action.modules);
+      return state.set("loading", false).set("course", action.course);
     case COURSE_ACTION_ERROR:
       return state.set("loading", false).set("error", action.error);
     default:
