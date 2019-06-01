@@ -43,7 +43,7 @@ export function* completeLesson({
 }) {
   try {
     const options = {
-      method: "PATCH",
+      method: "PUT",
       url: `/lessons/${lessonId}/progress`,
       data: JSON.stringify({
         completed: isComplete
