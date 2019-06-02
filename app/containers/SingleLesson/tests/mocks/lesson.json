@@ -14,5 +14,16 @@
   "completed": null,
   "created": "2019-03-17T11:29:18+01:00",
   "updated": "2019-03-17T12:24:44+01:00",
-  "position": 1
+  "position": 1,
+  "attachments": [
+    {
+      "id": "test_id",
+      "name": "dummy name",
+      "mime_type": "application/pdf",
+      "file_name": "attachment_example.pdf",
+      "href": {
+        "download": "example.com/example.png"
+      }
+    }
+  ]
 }

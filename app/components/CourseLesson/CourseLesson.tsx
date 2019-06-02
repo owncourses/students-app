@@ -9,6 +9,8 @@ import SuccessButton from "../Buttons/SuccessButton";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import List from "../List/List";
+import Attachment from "../Attachment";
 
 const CourseLesson = ({
   item: {
@@ -18,7 +20,8 @@ const CourseLesson = ({
     completed,
     module: {
       course: { title: courseTitle }
-    }
+    },
+    attachments
   },
   onComplete,
   completeLoading
@@ -58,6 +61,14 @@ const CourseLesson = ({
     onComplete(!completed);
   };
 
+  const attachmentsView = attachments.length > 0 && (
+    <div className="attachments">
+      <Typography variant={"h6"}>Pliki do pobrania:</Typography>
+
+      <List component={Attachment} items={attachments} />
+    </div>
+  );
+
   return (
     <div className={"course-lesson"}>
       <Jumbotron title={title} subtitle={courseTitle} />
@@ -69,9 +80,11 @@ const CourseLesson = ({
 
       <div className={"description"}>
         <Typography variant={"subtitle1"}>
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+          <div dangerouslySetInnerHTML={createEmbedCode(description)} />
         </Typography>
       </div>
+
+      {attachmentsView}
 
       <div className={"complete-button"}>
         <SuccessButton

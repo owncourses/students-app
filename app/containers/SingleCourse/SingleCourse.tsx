@@ -1,13 +1,13 @@
 import * as React from "react";
-import CourseModuleItem from "../../components/CourseModuleItem";
 import { match } from "react-router-dom";
+import i18n from "i18next";
+import { Typography } from "@material-ui/core";
+import CourseModuleItem from "../../components/CourseModuleItem";
 import LoadingIndicator from "../../components/LoadingIndicator";
 import Jumbotron from "../../components/Jumbotron";
-import "./style.scss";
+import Author from "../../components/Author";
 import { CourseInterface } from "../Auth/interfaces";
-import Author from "../../components/Author/Author";
-import { Typography } from "@material-ui/core";
-import i18n from "i18next";
+import "./style.scss";
 
 interface SingleCourseProps {
   match: match<{ courseId: string }>;
@@ -43,7 +43,7 @@ class SingleCourse extends React.Component<SingleCourseProps> {
       <Jumbotron title={course.title} subtitle={course.title} />
     );
 
-    const authorsView =
+    const authors =
       course &&
       course.authors.map(author => (
         <Author author={author} key={author.name} />
@@ -54,15 +54,19 @@ class SingleCourse extends React.Component<SingleCourseProps> {
         ? i18n.t("Course authors")
         : i18n.t("Course author");
 
+    const authorsView = course && course.authors.length > 0 && (
+      <div className={"authors"}>
+        <Typography variant={"h5"}>{authorTitle}</Typography>
+        {authors}
+      </div>
+    );
+
     return (
       <section>
         {jumbotronView}
         <div className={"column-container"}>
           <div className={"modules"}>{modulesView}</div>
-          <div className={"authors"}>
-            <Typography variant={"h5"}>{authorTitle}</Typography>
-            {authorsView}
-          </div>
+          {authorsView}
         </div>
       </section>
     );
