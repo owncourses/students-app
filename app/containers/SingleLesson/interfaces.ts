@@ -15,4 +15,15 @@ export interface LessonInterface {
       title: string;
     };
   };
+  attachments: AttachmentInterface[];
+}
+
+export interface AttachmentInterface {
+  name: string;
+  id: string;
+  mime_type: string;
+  file_name: string;
+  href: {
+    download: string;
+  };
 }

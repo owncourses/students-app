@@ -6,7 +6,7 @@ const List = ({
   items
 }: {
   component: any;
-  items: [{ id: number }];
+  items: { id?: string }[];
 }) => {
   const ComponentToRender = component;
   let content = null;
