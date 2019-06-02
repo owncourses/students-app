@@ -10,6 +10,9 @@ interface Config {
       secondary: string;
     };
   };
+  ui: {
+    language: string;
+  };
 }
 
 const config: Config = {
@@ -23,6 +26,9 @@ const config: Config = {
       primary: process.env.BRAND_COLORS_PRIMARY,
       secondary: process.env.BRAND_COLORS_SECONDARY
     }
+  },
+  ui: {
+    language: process.env.UI_LANGUAGE
   }
 };
 
