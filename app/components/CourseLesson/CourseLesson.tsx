@@ -69,7 +69,8 @@ const CourseLesson = ({
 
       <div className={"description"}>
         <Typography variant={"subtitle1"}>
-          <div dangerouslySetInnerHTML={{ __html: description }} /></Typography>
+          <div dangerouslySetInnerHTML={{ __html: description }} />
+        </Typography>
       </div>
 
       <div className={"complete-button"}>
