@@ -1,4 +1,5 @@
 import { AuthFieldsInterface } from "./interfaces";
+import { removeToken } from "../../utils/userUtils";
 
 export function getValueFromFields(
   fields: AuthFieldsInterface = [],
@@ -29,4 +30,8 @@ export function isTokenNotExpired(token: string): boolean {
   const parsedToken = parseJwt(token);
 
   return parsedToken.exp * 1000 > +new Date();
+}
+
+export function logout() {
+  removeToken();
 }

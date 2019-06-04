@@ -2,6 +2,8 @@ import {
   AUTH_ACTION,
   AUTH_ACTION_ERROR,
   AUTH_ACTION_SUCCESS,
+  LOGOUT_ACTION,
+  LOGOUT_ACTION_SUCCESS,
   USER_ACTION,
   userLoginInterface
 } from "./constants";
@@ -37,5 +39,17 @@ export function authActionError(
 export function getUser(): { type: string } {
   return {
     type: USER_ACTION
+  };
+}
+
+export function logoutAction(): { type: string } {
+  return {
+    type: LOGOUT_ACTION
+  };
+}
+
+export function logoutActionSuccess() {
+  return {
+    type: LOGOUT_ACTION_SUCCESS
   };
 }

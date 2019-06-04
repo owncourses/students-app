@@ -4,7 +4,8 @@ import {
   AUTH_ACTION,
   AUTH_ACTION_SUCCESS,
   AUTH_ACTION_ERROR,
-  USER_ACTION
+  USER_ACTION,
+  LOGOUT_ACTION_SUCCESS
 } from "./constants";
 
 // The initial state of the App
@@ -24,6 +25,8 @@ function appReducer(state = initialState, action) {
       return state.set("loading", false).set("currentUser", action.user);
     case AUTH_ACTION_ERROR:
       return state.set("loading", false).set("error", action.error);
+    case LOGOUT_ACTION_SUCCESS:
+      return state.set("currentUser", false);
     default:
       return state;
   }

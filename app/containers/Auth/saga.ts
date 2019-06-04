@@ -1,13 +1,22 @@
 import { call, put, select, takeEvery } from "redux-saga/effects";
-import { AUTH_ACTION, USER_ACTION, userLoginInterface } from "./constants";
+import {
+  AUTH_ACTION,
+  LOGOUT_ACTION,
+  USER_ACTION,
+  userLoginInterface
+} from "./constants";
 
 // @ts-ignore
 import request from "utils/request";
-import { authActionError, authActionSuccess } from "./actions";
+import {
+  authActionError,
+  authActionSuccess,
+  logoutActionSuccess
+} from "./actions";
 import { getAuthorizationHeaders, setToken } from "../../utils/userUtils";
 import { makeSelectAuthError } from "./selectors";
-import { parseJwt } from "./auth-logic";
 import { UserInterface } from "./interfaces";
+import { logout } from "./auth-logic";
 
 export function* getTokenFromApi(payload: userLoginInterface) {
   try {
@@ -62,8 +71,20 @@ export function* login({ payload }: { payload: userLoginInterface }) {
   }
 }
 
+export function* logoutSaga() {
+  try {
+    logout();
+
+    yield put(logoutActionSuccess());
+  } catch (err) {
+    //This console is placed here purposely.
+    console.warn(err);
+  }
+}
+
 export default function* authFlow() {
   // @ts-ignore
   yield takeEvery(AUTH_ACTION, login);
+  yield takeEvery(LOGOUT_ACTION, logoutSaga);
   yield takeEvery(USER_ACTION, getUser);
 }
