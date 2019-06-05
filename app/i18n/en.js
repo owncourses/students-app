@@ -13,5 +13,6 @@ export const en = {
   "Mark as completed": "Mark as completed",
   Completed: "Completed",
   "Course authors": "Course authors",
-  "Course author": "Course author"
+  "Course author": "Course author",
+  Logout: "Logout"
 };

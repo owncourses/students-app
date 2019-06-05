@@ -4,7 +4,7 @@ import { makeSelectAuthLoading } from "../Auth/selectors";
 import { compose } from "redux";
 import { withRouter } from "react-router-dom";
 import App from "./App";
-import { getUser } from "../Auth/actions";
+import { getUser, logoutAction } from "../Auth/actions";
 import saga from "../Auth/saga";
 import reducer from "../Auth/reducer";
 import injectSaga from "../../utils/injectSaga";
@@ -15,7 +15,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getUser: () => dispatch(getUser())
+  getUser: () => dispatch(getUser()),
+  logoutAction: () => dispatch(logoutAction())
 });
 
 const withConnect = connect(

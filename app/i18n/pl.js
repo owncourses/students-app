@@ -11,5 +11,6 @@ export const pl = {
   "Mark as completed": "Oznacz jak ukończoną",
   Completed: "Ukończony",
   "Course authors": "Autorzy kursu",
-  "Course author": "Autor kursu"
+  "Course author": "Autor kursu",
+  Logout: "Wyloguj"
 };

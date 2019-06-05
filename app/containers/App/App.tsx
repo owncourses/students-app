@@ -21,9 +21,12 @@ import Footer from "../../components/Footer";
 import "./style.scss";
 import { getToken } from "../../utils/userUtils";
 import { isTokenNotExpired } from "../Auth/auth-logic";
+import { History } from "history";
 
 interface AppProps {
   getUser: () => void;
+  logoutAction: () => void;
+  history: History;
   loading: boolean;
 }
 
@@ -36,6 +39,11 @@ class App extends React.Component<AppProps> {
       getUser();
     }
   }
+
+  handleLogout = () => {
+    this.props.history.push("/login");
+    this.props.logoutAction();
+  };
 
   render() {
     const headerTitle = config.brand.headerText;
@@ -53,7 +61,7 @@ class App extends React.Component<AppProps> {
         >
           <meta name="description" content="Courses Dashboard" />
         </Helmet>
-        <Header title={headerTitle} />
+        <Header title={headerTitle} onLogout={this.handleLogout} />
         <div className={"main"}>
           <Switch>
             <Route exact path="/login" component={Auth} />

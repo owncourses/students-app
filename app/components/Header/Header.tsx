@@ -9,9 +9,33 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
 import { History } from "history";
+import { ListItemIcon, ListItemText, Menu, MenuItem } from "@material-ui/core";
+import LogoutIcon from "@material-ui/icons/ExitToApp";
 
-const Header = ({ title, history }: { title: string; history: History }) => {
+const Header = ({
+  title,
+  onLogout,
+  history
+}: {
+  title: string;
+  onLogout: () => void;
+  history: History;
+}) => {
   const { t } = useTranslation();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  function handleClick(event) {
+    setAnchorEl(event.currentTarget);
+  }
+
+  function handleClose() {
+    setAnchorEl(null);
+  }
+
+  function handleMenuClick() {
+    handleClose();
+    onLogout();
+  }
 
   return (
     <header className="header">
@@ -30,9 +54,32 @@ const Header = ({ title, history }: { title: string; history: History }) => {
               <Button color="secondary">{title}</Button>
             </Link>
           </Typography>
-          <IconButton className={"menu"} color="inherit" aria-label="Menu">
-            <Icon>person</Icon>
-          </IconButton>
+          <div className={"menu-icon"}>
+            {!isInLoginScreen(history.location.pathname) && (
+              <IconButton
+                className={"menu"}
+                color="inherit"
+                aria-label="Menu"
+                onClick={handleClick}
+              >
+                <Icon>person</Icon>
+              </IconButton>
+            )}
+          </div>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClick}
+          >
+            <MenuItem onClick={handleMenuClick}>
+              <ListItemIcon>
+                <LogoutIcon />
+              </ListItemIcon>
+              <ListItemText primary={t("Logout")} />
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
     </header>
@@ -40,3 +87,7 @@ const Header = ({ title, history }: { title: string; history: History }) => {
 };
 // @ts-ignore
 export default withRouter(Header);
+
+function isInLoginScreen(pathname) {
+  return pathname === "/login";
+}
