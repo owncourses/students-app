@@ -1,5 +1,5 @@
-import authFlow, { getTokenFromApi, getUser, login } from "../saga";
-import { AUTH_ACTION, USER_ACTION, userLoginInterface } from "../constants";
+import authFlow, {getTokenFromApi, getUser, login, logoutSaga} from "../saga";
+import {AUTH_ACTION, LOGOUT_ACTION, USER_ACTION, userLoginInterface} from "../constants";
 import { setToken } from "../../../utils/userUtils";
 import { call, put, select, takeEvery } from "redux-saga/effects";
 import { authActionError, authActionSuccess } from "../actions";
@@ -63,7 +63,6 @@ describe("login Saga", () => {
   beforeEach(() => {
     loginGenerator = login({ payload: userLoginData });
     const callDescriptor = loginGenerator.next().value;
-    console.log(callDescriptor);
     expect(callDescriptor).toMatchSnapshot();
   });
 
@@ -94,6 +93,12 @@ describe("authFlow Saga", () => {
     const takeEveryDescriptor = authFlowSaga.next().value;
     // @ts-ignore
     expect(takeEveryDescriptor).toEqual(takeEvery(AUTH_ACTION, login));
+  });
+
+  it("should start task to watch for LOGOUT_ACTION action", () => {
+    const takeEveryDescriptor = authFlowSaga.next().value;
+    // @ts-ignore
+    expect(takeEveryDescriptor).toEqual(takeEvery(LOGOUT_ACTION, logoutSaga));
   });
 
   it("should start task to watch for USER_ACTION action", () => {

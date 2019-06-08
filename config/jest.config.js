@@ -6,14 +6,6 @@ module.exports = {
     "!app/app.js",
     "!app/*/*/Loadable.{js,jsx}"
   ],
-  coverageThreshold: {
-    global: {
-      statements: 98,
-      branches: 91,
-      functions: 98,
-      lines: 98
-    }
-  },
   coverageReporters: ["json", "lcov", "text-summary"],
   moduleDirectories: ["node_modules", "app"],
   snapshotSerializers: ["enzyme-to-json/serializer"],

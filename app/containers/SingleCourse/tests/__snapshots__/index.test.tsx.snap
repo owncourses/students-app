@@ -53,7 +53,22 @@ exports[`<SingleCourse /> should render correctly 1`] = `
     <div
       className="authors"
     >
-      Authors
+      <WithStyles(Typography)
+        variant="h5"
+      />
+      <Author
+        author={
+          Object {
+            "bio": "Lorem Ipsum of bio",
+            "href": Object {
+              "picture": "examples.com/example.jpeg",
+            },
+            "name": "John Doe",
+            "picture": "example.png",
+          }
+        }
+        key="John Doe"
+      />
     </div>
   </div>
 </section>

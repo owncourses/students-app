@@ -8,6 +8,17 @@ exports[`<SingleLesson /> should render correctly 1`] = `
     completeLoading={false}
     item={
       Object {
+        "attachments": Array [
+          Object {
+            "file_name": "attachment_example.pdf",
+            "href": Object {
+              "download": "example.com/example.png",
+            },
+            "id": "test_id",
+            "mime_type": "application/pdf",
+            "name": "dummy name",
+          },
+        ],
         "completed": null,
         "created": "2019-03-17T11:29:18+01:00",
         "description": "Test description of example lesson",
