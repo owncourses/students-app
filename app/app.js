@@ -63,13 +63,11 @@ const customTheme = createMuiTheme({
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
-      {/* <LanguageProvider messages={messages}> */}
       <ConnectedRouter history={history}>
         <MuiThemeProvider theme={customTheme}>
           <App />
         </MuiThemeProvider>
       </ConnectedRouter>
-      {/* </LanguageProvider> */}
     </Provider>,
     MOUNT_NODE
   );

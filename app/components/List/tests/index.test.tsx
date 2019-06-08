@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { shallow } from "enzyme";
 
 import ListItem from "components/ListItem";
@@ -13,9 +13,12 @@ describe("<List />", () => {
   it("should pass all items props to rendered component", () => {
     const items = [{ id: 1, name: "Hello" }, { id: 2, name: "World" }];
 
-    const component = ({ item }) => <ListItem>{item.name}</ListItem>; // eslint-disable-line react/prop-types
+    const component = ({ item }) => (
+      <ListItem item={<span>test</span>}>{item.name}</ListItem>
+    ); // eslint-disable-line react/prop-types
 
     const renderedComponent = shallow(
+      // @ts-ignore
       <List items={items} component={component} />
     );
     expect(renderedComponent.find(component)).toHaveLength(2);
