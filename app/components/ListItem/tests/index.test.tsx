@@ -1,11 +1,11 @@
-import React from "react";
+import * as React from "react";
 import { mount } from "enzyme";
 
 import ListItem from "../index";
 
 describe("<ListItem />", () => {
   it("should have a className", () => {
-    const renderedComponent = mount(<ListItem className="test" />);
+    const renderedComponent = mount(<ListItem item={<div>adasd</div>} />);
     expect(renderedComponent.find("li").prop("className")).toBeDefined();
   });
 

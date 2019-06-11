@@ -1,6 +1,6 @@
 import i18n from "i18next";
-import { en } from "./en.js";
-import { pl } from "./pl.js";
+import { en } from "./en";
+import { pl } from "./pl";
 import { initReactI18next } from "react-i18next";
 import config from "../../config/config";
 
