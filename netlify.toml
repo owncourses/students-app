@@ -1,5 +1,5 @@
 [template.environment]
-  SERVER_URL = "OwnCourses API server url"
+  SERVER_URL = "OwnCourses API server url (example: https://mayapp.herokuapp.com)"
 [build]
   command = "yarn build"
   publish = "build"
