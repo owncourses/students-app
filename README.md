@@ -40,7 +40,7 @@ Application for OwnCourses students.
 
 Set this in `.env` file:
 
-`SERVER_URL="https://owncourses.org/api"`
+`SERVER_URL="https://owncourses.org"`
 
 Login data for https://owncourses.org API:
 ```
