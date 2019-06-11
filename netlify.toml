@@ -1,0 +1,5 @@
+[template.environment]
+  SERVER_URL = "OwnCourses API server url"
+[build]
+  command = "yarn build"
+  publish = "build"
