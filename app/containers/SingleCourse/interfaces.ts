@@ -1,3 +1,5 @@
+import { ProgressInterface } from "../Auth/interfaces";
+
 export interface ModuleInterface {
   id: string;
   title: string;
@@ -9,6 +11,7 @@ export interface ModuleInterface {
     id: number;
     title: string;
   };
+  progress: ProgressInterface;
   lessons: {
     id: string;
     title: string;

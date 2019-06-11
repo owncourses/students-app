@@ -5,13 +5,16 @@ import "./style.scss";
 import { CourseInterface } from "../../containers/Auth/interfaces";
 import SuccessButton from "../Buttons/SuccessButton";
 import { useTranslation } from "react-i18next";
+import Progress from "../Progress";
 
 const CourseItem = ({
+  item,
   item: {
     title,
     description,
     id,
-    href: { cover_image_url }
+    href: { cover_image_url },
+    progress: { completed_percentage }
   }
 }: {
   item: CourseInterface;
@@ -25,6 +28,7 @@ const CourseItem = ({
         <CardContent className={"content"}>
           <Typography variant={"h4"}>{title}</Typography>
           <Typography variant="body2">{description}</Typography>
+          <Progress value={parseInt(completed_percentage)} type={"course"} />
           <Link to={`/${id}`}>
             <SuccessButton variant={"outlined"} text={t("Start course")} />
           </Link>

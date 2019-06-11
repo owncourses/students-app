@@ -33,6 +33,12 @@ exports[`<SingleCourse /> should render correctly 1`] = `
               },
             ],
             "position": 0,
+            "progress": Object {
+              "completed_lesson": "1",
+              "completed_percentage": "10",
+              "completed_time": "10",
+              "total_duration": "100",
+            },
             "title": "Test title of example module",
             "updated": "2019-03-11T19:41:18+01:00",
           }

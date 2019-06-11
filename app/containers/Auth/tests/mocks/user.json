@@ -13,6 +13,12 @@
     "href": {
       "cover_image_url": "examples.com/example.jpeg"
     },
+    "progress": {
+      "completed_lesson": "1",
+      "completed_percentage": "10",
+      "completed_time": "10",
+      "total_duration": "100"
+    },
     "authors": [
       {
         "bio": "Lorem Ipsum of bio",
