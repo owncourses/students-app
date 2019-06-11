@@ -26,7 +26,6 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   getLesson: id => dispatch(lessonAction(id)),
   completeLesson: (isComplete, lessonId) => {
-    console.log(isComplete);
     dispatch(lessonCompleteAction(isComplete, lessonId));
   }
 });

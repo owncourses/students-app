@@ -1,5 +1,10 @@
-import authFlow, {getTokenFromApi, getUser, login, logoutSaga} from "../saga";
-import {AUTH_ACTION, LOGOUT_ACTION, USER_ACTION, userLoginInterface} from "../constants";
+import authFlow, { getTokenFromApi, getUser, login, logoutSaga } from "../saga";
+import {
+  AUTH_ACTION,
+  LOGOUT_ACTION,
+  USER_ACTION,
+  userLoginInterface
+} from "../constants";
 import { setToken } from "../../../utils/userUtils";
 import { call, put, select, takeEvery } from "redux-saga/effects";
 import { authActionError, authActionSuccess } from "../actions";

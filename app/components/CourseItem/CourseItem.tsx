@@ -21,8 +21,6 @@ const CourseItem = ({
 }) => {
   const { t } = useTranslation();
 
-  console.log(item);
-
   return (
     <li className="list-item">
       <Card className={"course-card"}>
