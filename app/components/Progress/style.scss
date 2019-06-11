@@ -1,0 +1,17 @@
+.progress-wrapper {
+  padding-top: 16px;
+
+  .progress-value {
+    padding-top: 8px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.65);
+  }
+}
+
+.progress-bar {
+  flex: 1;
+  height: 10px!important;
+  border-radius: 10px;
+}
+
+

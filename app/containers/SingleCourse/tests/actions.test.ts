@@ -27,6 +27,7 @@ describe("SingleCourse Actions", () => {
   describe("courseActionSuccess", () => {
     it("should return the correct type and the passed payload", () => {
       const fixture: CourseInterface = course;
+      console.log(course);
       const expectedResult = {
         type: COURSE_ACTION_SUCCESS,
         course

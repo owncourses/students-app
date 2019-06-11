@@ -27,6 +27,7 @@ export interface CourseInterface {
   href: {
     cover_image_url: string;
   };
+  progress: ProgressInterface;
   modules?: ModuleInterface[];
   authors?: AuthorInterface[];
 }
@@ -40,6 +41,13 @@ export interface UserInterface {
   updated: string;
   roles: string[];
   courses: CourseInterface[];
+}
+
+export interface ProgressInterface {
+  completed_lesson: string;
+  completed_percentage: string;
+  completed_time: string;
+  total_duration: string;
 }
 
 export interface AuthFieldsInterface extends Array<AuthFields> {}

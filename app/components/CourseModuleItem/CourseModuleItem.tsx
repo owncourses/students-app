@@ -4,9 +4,14 @@ import CourseLessonItem from "../CourseLessonItem";
 import "./style.scss";
 import { ModuleInterface } from "../../containers/SingleCourse/interfaces";
 import { match } from "react-router";
+import Progress from "../Progress";
 
 const CourseModuleItem = ({
-  item: { title, lessons },
+  item: {
+    title,
+    lessons,
+    progress: { completed_percentage }
+  },
   match
 }: {
   item: ModuleInterface;
@@ -20,7 +25,10 @@ const CourseModuleItem = ({
 
   return (
     <div className={"module-card"}>
-      <Typography variant={"subtitle2"}>{title}</Typography>
+      <div className={"module-header"}>
+        <Typography variant={"subtitle2"}>{title}</Typography>
+        <Progress value={parseInt(completed_percentage)} type={"module"} />
+      </div>
       <div className={"lessons"}>{lessonsView}</div>
     </div>
   );

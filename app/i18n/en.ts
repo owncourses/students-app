@@ -12,5 +12,7 @@ export const en = {
   Completed: "Completed",
   "Course authors": "Course authors",
   "Course author": "Course author",
-  Logout: "Logout"
+  Logout: "Logout",
+  "Finished of course": "Finished {{value}}% of course",
+  "Finished of module": "Finished {{value}}% of module"
 };
