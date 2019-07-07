@@ -26,7 +26,7 @@ const CourseModuleItem = ({
   return (
     <div className={"module-card"}>
       <div className={"module-header"}>
-        <Typography variant={"subtitle2"}>{title}</Typography>
+        <Typography variant={"h6"}>{title}</Typography>
         <Progress value={parseInt(completed_percentage)} type={"module"} />
       </div>
       <div className={"lessons"}>{lessonsView}</div>

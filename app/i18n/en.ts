@@ -8,6 +8,7 @@ export const en = {
   "My courses": "My courses",
   "My modules": "My modules",
   "Start course": "Start course",
+  "Go to course": "Go to course",
   "Mark as completed": "Mark as completed",
   Completed: "Completed",
   "Course authors": "Course authors",

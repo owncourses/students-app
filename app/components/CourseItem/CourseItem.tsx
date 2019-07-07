@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 import Progress from "../Progress";
 
 const CourseItem = ({
-  item,
   item: {
     title,
     description,
@@ -21,6 +20,9 @@ const CourseItem = ({
 }) => {
   const { t } = useTranslation();
 
+  const successButtonText =
+    parseInt(completed_percentage) > 1 ? t("Go to course") : t("Start course");
+
   return (
     <li className="list-item">
       <Card className={"course-card"}>
@@ -30,7 +32,7 @@ const CourseItem = ({
           <Typography variant="body2">{description}</Typography>
           <Progress value={parseInt(completed_percentage)} type={"course"} />
           <Link to={`/${id}`}>
-            <SuccessButton variant={"outlined"} text={t("Start course")} />
+            <SuccessButton variant={"outlined"} text={successButtonText} />
           </Link>
         </CardContent>
       </Card>
