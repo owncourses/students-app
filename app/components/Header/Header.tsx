@@ -71,7 +71,7 @@ const Header = ({
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
-            onClose={handleClick}
+            onClose={handleClose}
           >
             <MenuItem onClick={handleMenuClick}>
               <ListItemIcon>

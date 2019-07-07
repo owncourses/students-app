@@ -40,7 +40,7 @@ class SingleCourse extends React.Component<SingleCourseProps> {
       ));
 
     const jumbotronView = course && (
-      <Jumbotron title={course.title} subtitle={course.title} />
+      <Jumbotron title={course.title} subtitle={course.description} />
     );
 
     const authors =

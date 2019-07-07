@@ -32,6 +32,7 @@ module.exports = require("./webpack.base.babel")({
     }),
     new WebpackAssetsManifest({
       // Options go here
+      templateParameters: { title: process.env.BRAND_HEADER_TEXT }
     }),
     new CopyPlugin([{ from: "app/_redirects" }])
   ],

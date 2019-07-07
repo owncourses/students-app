@@ -55,10 +55,8 @@ class App extends React.Component<AppProps> {
 
     return (
       <div className="app-wrapper">
-        <Helmet
-          titleTemplate="%s - Courses Dashboard"
-          defaultTitle="Courses Dashboard"
-        >
+        <Helmet>
+          <title>{headerTitle}</title>
           <meta name="description" content="Courses Dashboard" />
         </Helmet>
         <Header title={headerTitle} onLogout={this.handleLogout} />

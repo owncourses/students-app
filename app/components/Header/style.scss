@@ -4,6 +4,10 @@
   .grow {
     flex-grow: 1;
     text-align: center;
+
+    span {
+      text-transform: initial;
+    }
   }
 
   .menu-icon {

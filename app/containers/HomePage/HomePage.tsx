@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Helmet } from "react-helmet";
 import "./style.scss";
 import i18n from "i18next";
 import List from "../../components/List";
@@ -17,10 +16,6 @@ export default class HomePage extends React.PureComponent<HomePageProps> {
 
     return (
       <article>
-        <Helmet>
-          <title>Home Page</title>
-          <meta name="description" content="Courses Dashboard" />
-        </Helmet>
         <div className="home-page">
           <section>
             <Typography variant={"h5"}>{i18n.t("My courses")}</Typography>
