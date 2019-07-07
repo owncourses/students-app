@@ -15,7 +15,10 @@ module.exports = require("./webpack.base.babel")({
   plugins: [
     // Minify and optimize the index.html
     new HtmlWebpackPlugin({
-      templateParameters: { title: process.env.BRAND_HEADER_TEXT },
+      templateParameters: {
+        title: process.env.BRAND_HEADER_TEXT,
+        favicon_url: process.env.FAVICON_URL
+      },
       template: "app/index.ejs",
       minify: {
         removeComments: true,

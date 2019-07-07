@@ -14,9 +14,6 @@ import "sanitize.css/sanitize.css";
 import App from "containers/App";
 import config from "../config/config";
 
-// Load the favicon
-/* eslint-disable import/no-webpack-loader-syntax */
-import "!file-loader?name=[name].[ext]!./images/favicon.ico";
 /* eslint-enable import/no-webpack-loader-syntax */
 
 // Import CSS reset and Global Styles
