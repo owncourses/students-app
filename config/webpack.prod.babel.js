@@ -15,7 +15,8 @@ module.exports = require("./webpack.base.babel")({
   plugins: [
     // Minify and optimize the index.html
     new HtmlWebpackPlugin({
-      template: "app/index.html",
+      templateParameters: { title: process.env.BRAND_HEADER_TEXT },
+      template: "app/index.ejs",
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -32,7 +33,6 @@ module.exports = require("./webpack.base.babel")({
     }),
     new WebpackAssetsManifest({
       // Options go here
-      templateParameters: { title: process.env.BRAND_HEADER_TEXT }
     }),
     new CopyPlugin([{ from: "app/_redirects" }])
   ],

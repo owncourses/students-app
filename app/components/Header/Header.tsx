@@ -11,6 +11,7 @@ import Icon from "@material-ui/core/Icon";
 import { History } from "history";
 import { ListItemIcon, ListItemText, Menu, MenuItem } from "@material-ui/core";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
+import { isInHomeScreen, isInLoginScreen } from "../../utils/urlService";
 
 const Header = ({
   title,
@@ -41,14 +42,18 @@ const Header = ({
     <header className="header">
       <AppBar position="static">
         <Toolbar className={"toolbar"}>
-          <IconButton
-            className={"navigate_before"}
-            color="inherit"
-            aria-label="Back"
-            onClick={history.goBack}
-          >
-            <Icon>navigate_before</Icon>
-          </IconButton>
+          <div className={"back-icon"}>
+            {!isInHomeScreen(history.location.pathname) && (
+              <IconButton
+                className={"navigate_before"}
+                color="inherit"
+                aria-label="Back"
+                onClick={history.goBack}
+              >
+                <Icon>navigate_before</Icon>
+              </IconButton>
+            )}
+          </div>
           <Typography variant={"subtitle1"} className={"grow"}>
             <Link to={"/"} color={"inherit"}>
               <Button color="secondary">{title}</Button>
@@ -87,7 +92,3 @@ const Header = ({
 };
 // @ts-ignore
 export default withRouter(Header);
-
-function isInLoginScreen(pathname) {
-  return pathname === "/login";
-}
