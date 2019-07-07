@@ -29,6 +29,7 @@ class SingleCourse extends React.Component<SingleCourseProps> {
     if (error) {
       return <div>{error}</div>;
     }
+
     if (loading) {
       return <LoadingIndicator />;
     }

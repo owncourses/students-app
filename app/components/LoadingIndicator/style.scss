@@ -1,9 +1,12 @@
 .loading-indicator {
-  padding: 300px!important;
-  margin: 2em auto;
-  position: relative;
-  width: 64px;
-  height: 64px;
+  position: absolute;
+  top: calc(50% - 64px);
+  left: calc(50% - 32px);
+  margin: 2em auto !important;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent !important;
+  padding: 0 !important;
   div {
     animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     transform-origin: 32px 32px;
