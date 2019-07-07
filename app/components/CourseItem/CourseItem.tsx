@@ -21,7 +21,7 @@ const CourseItem = ({
   const { t } = useTranslation();
 
   const successButtonText =
-    parseInt(completed_percentage) > 1 ? t("Go to course") : t("Start course");
+    parseInt(completed_percentage) > 0 ? t("Go to course") : t("Start course");
 
   return (
     <li className="list-item">
