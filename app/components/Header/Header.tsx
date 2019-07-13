@@ -43,16 +43,17 @@ const Header = ({
       <AppBar position="static">
         <Toolbar className={"toolbar"}>
           <div className={"back-icon"}>
-            {!isInHomeScreen(history.location.pathname) && (
-              <IconButton
-                className={"navigate_before"}
-                color="inherit"
-                aria-label="Back"
-                onClick={history.goBack}
-              >
-                <Icon>navigate_before</Icon>
-              </IconButton>
-            )}
+            {!isInHomeScreen(history.location.pathname) &&
+              !isInLoginScreen(history.location.pathname) && (
+                <IconButton
+                  className={"navigate_before"}
+                  color="inherit"
+                  aria-label="Back"
+                  onClick={history.goBack}
+                >
+                  <Icon>navigate_before</Icon>
+                </IconButton>
+              )}
           </div>
           <Typography variant={"subtitle1"} className={"grow"}>
             <Link to={"/"} color={"inherit"}>
