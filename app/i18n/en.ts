@@ -4,6 +4,8 @@ export const en = {
   "Sign out": "Sign out",
   Login: "Login",
   Password: "Password",
+  "Confirm password": "Confirm password",
+  "Reset your password": "Reset your password",
   "Sign in to your account!": "Sing in to your account!",
   "My courses": "My courses",
   "My modules": "My modules",
@@ -15,5 +17,11 @@ export const en = {
   "Course author": "Course author",
   Logout: "Logout",
   "Finished of course": "Finished {{value}}% of course",
-  "Finished of module": "Finished {{value}}% of module"
+  "Finished of module": "Finished {{value}}% of module",
+  "I forgot a password": "I forgot a password",
+  "You forgot a password": "You forgot a password?",
+  "Provide your email": "Provide your email",
+  Submit: "Submit",
+  "An e-mail has been sent to":
+    "An e-mail has been sent to {{value}}. Please follow the instructions to reset your password."
 };

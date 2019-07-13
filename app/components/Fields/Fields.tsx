@@ -6,18 +6,24 @@ import { AuthFieldsInterface } from "../../containers/Auth/interfaces";
 
 interface LoginProps {
   fields: AuthFieldsInterface;
+  label: string;
+  buttonLabel: string;
   isLoading: boolean;
   error: boolean | string;
+  subtitle?: string;
   onUserInput: (fieldName: string, value: string) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const Login = ({
+const Fields = ({
+  label,
+  buttonLabel,
   fields,
   isLoading,
   error,
   onUserInput,
-  onSubmit
+  onSubmit,
+  subtitle
 }: LoginProps) => {
   const { t } = useTranslation();
 
@@ -30,14 +36,22 @@ const Login = ({
       case "password": {
         return renderTextField(field, props);
       }
+
+      case "confirmPassword": {
+        return renderTextField(field, props);
+      }
     }
   });
 
   const errorView = error && <Typography color={"error"}>{error}</Typography>;
+  const subtitleView = subtitle && (
+    <Typography variant={"subtitle2"}>{subtitle}</Typography>
+  );
 
   return (
     <Paper elevation={1} className={"login-container"}>
-      <Typography variant={"h6"}>{t("Sign in to your account!")}</Typography>
+      <Typography variant={"h6"}>{label}</Typography>
+      {subtitleView}
       <form onSubmit={onSubmit}>
         {fieldsView}
         {errorView}
@@ -49,14 +63,14 @@ const Login = ({
           fullWidth
           className={"login-button"}
         >
-          {t("Sign in")}
+          {buttonLabel}
         </Button>
       </form>
     </Paper>
   );
 };
 
-export default Login;
+export default Fields;
 
 function renderTextField(field, props) {
   return (
@@ -68,7 +82,7 @@ function renderTextField(field, props) {
       margin="normal"
       variant="outlined"
       onChange={e => props.onUserInput(field.type, e.target.value)}
-      type={field.type === "password" ? field.type : ""}
+      type={field.type !== "login" ? "password" : ""}
       fullWidth
     />
   );

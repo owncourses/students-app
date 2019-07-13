@@ -1,23 +1,12 @@
 import { shallow } from "enzyme";
 import Auth from "../Auth";
 import * as React from "react";
-import Login from "../../../components/Login";
-import { AuthFieldsInterface } from "../interfaces";
+import Fields from "../../../components/Fields";
 import { mapDispatchToProps } from "../index";
 import { userLoginInterface } from "../constants";
 import { authAction } from "../actions";
 
 describe("<Auth />", () => {
-  const fields: AuthFieldsInterface = [
-    {
-      type: "login",
-      value: "",
-      label: "Login",
-      disabled: false,
-      error: null
-    }
-  ];
-
   it("should render Login component", () => {
     const renderedComponent = shallow(
       <Auth
@@ -30,7 +19,9 @@ describe("<Auth />", () => {
 
     expect(
       renderedComponent.contains(
-        <Login
+        <Fields
+          buttonLabel={"test"}
+          label={"test"}
           fields={[]}
           isLoading={true}
           error={false}
@@ -39,49 +30,6 @@ describe("<Auth />", () => {
         />
       )
     );
-  });
-
-  it("should updated fields with fieldName and value", () => {
-    const wrapper = shallow(
-      <Auth
-        onLogin={() => {}}
-        loading={true}
-        error={false}
-        currentUser={false}
-      />
-    );
-
-    const fieldName: string = "login";
-    const value: string = "test";
-
-    const expectedValue = [
-      {
-        type: "login",
-        value: "test",
-        label: "Login",
-        disabled: false,
-        error: null
-      }
-    ];
-
-    expect(wrapper.instance().updateFields(fieldName, value, fields)).toEqual(
-      expectedValue
-    );
-  });
-
-  it("should return not touched fields when fieldName not found", () => {
-    const wrapper = shallow(
-      <Auth
-        onLogin={() => {}}
-        loading={true}
-        error={false}
-        currentUser={false}
-      />
-    );
-
-    expect(
-      wrapper.instance().updateFields("fieldName", "test", fields)
-    ).toEqual(fields);
   });
 
   describe("mapDispatchToProps", () => {

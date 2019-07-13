@@ -1,18 +1,4 @@
-import { AuthFieldsInterface } from "./interfaces";
 import { removeToken } from "../../utils/userUtils";
-
-export function getValueFromFields(
-  fields: AuthFieldsInterface = [],
-  fieldName: string
-): string {
-  const filteredField = fields.find(field => field.type === fieldName);
-
-  if (!filteredField) {
-    return "";
-  }
-
-  return filteredField.value;
-}
 
 export function parseJwt(
   token: string

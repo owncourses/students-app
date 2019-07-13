@@ -3,4 +3,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  span {
+    margin-top: 10px;
+  }
+
+  a {
+    text-decoration: underline;
+    color: -webkit-link;
+  }
 }

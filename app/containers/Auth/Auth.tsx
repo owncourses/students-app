@@ -1,11 +1,12 @@
 import * as React from "react";
 import i18n from "i18next";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { userLoginInterface } from "./constants";
-import Login from "../../components/Login";
+import Fields from "../../components/Fields";
 import "./style.scss";
 import { AuthFieldsInterface, UserInterface } from "./interfaces";
-import { getValueFromFields } from "./auth-logic";
+import { getValueFromFields, updateFields } from "../../utils/fields-logic";
+import { Typography } from "@material-ui/core";
 
 interface AuthProps {
   onLogin: (payload: userLoginInterface) => void;
@@ -53,27 +54,9 @@ class Auth extends React.Component<AuthProps, AuthState> {
   };
 
   handleUserInput = (fieldName: string, value: string) => {
-    const updatedFields = this.updateFields(
-      fieldName,
-      value,
-      this.state.fields
-    );
+    const updatedFields = updateFields(fieldName, value, this.state.fields);
 
     this.setState({ fields: updatedFields });
-  };
-
-  updateFields = (
-    fieldName: string,
-    value: string,
-    fields: AuthFieldsInterface
-  ) => {
-    return fields.map(field => {
-      if (field.type === fieldName) {
-        field.value = value;
-        return field;
-      }
-      return field;
-    });
   };
 
   render() {
@@ -86,13 +69,18 @@ class Auth extends React.Component<AuthProps, AuthState> {
 
     return (
       <div className={"container"}>
-        <Login
+        <Fields
+          label={i18n.t("Sign in to your account!")}
+          buttonLabel={i18n.t("Sign in")}
           fields={fields}
           isLoading={loading}
           error={error}
           onUserInput={this.handleUserInput}
           onSubmit={this.handleSubmit}
         />
+        <Typography variant={"caption"}>
+          <Link to={"/reset_request"}>{i18n.t("I forgot a password")}</Link>
+        </Typography>
       </div>
     );
   }

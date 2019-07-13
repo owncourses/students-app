@@ -9,19 +9,21 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Switch, Route, Redirect } from "react-router-dom";
+import { History } from "history";
+import HomePage from "../HomePage/Loadable";
+import NotFoundPage from "../NotFoundPage/Loadable";
+import Auth from "../Auth/Loadable";
+import SingleCourse from "../SingleCourse/Loadable";
+import SingleLesson from "../SingleLesson/Loadable";
+import ResetPassword from "../ResetPassword/Loadable";
+import RequestResetPassword from "../RequestResetPassword/Loadable";
 import LoadingIndicator from "../../components/LoadingIndicator";
-import config from "../../../config/config";
-import HomePage from "../../containers/HomePage/Loadable";
-import NotFoundPage from "../../containers/NotFoundPage/Loadable";
-import Auth from "../../containers/Auth/Loadable";
-import SingleCourse from "../../containers/SingleCourse/Loadable";
-import SingleLesson from "../../containers/SingleLesson/Loadable";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import "./style.scss";
+import config from "../../../config/config";
 import { getToken } from "../../utils/userUtils";
 import { isTokenNotExpired } from "../Auth/auth-logic";
-import { History } from "history";
+import "./style.scss";
 
 interface AppProps {
   getUser: () => void;
@@ -63,6 +65,12 @@ class App extends React.Component<AppProps> {
         <div className={"main"}>
           <Switch>
             <Route exact path="/login" component={Auth} />
+            <Route exact path="/reset" component={ResetPassword} />
+            <Route
+              exact
+              path="/reset_request"
+              component={RequestResetPassword}
+            />
             <PrivateRoute
               path={`/:courseId/lesson/:lessonId`}
               component={SingleLesson}
