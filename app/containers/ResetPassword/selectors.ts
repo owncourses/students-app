@@ -18,6 +18,7 @@ const makeSelectResetPasswordSuccess = () =>
   );
 
 export {
+  selectResetPassword,
   makeSelectResetPasswordLoading,
   makeSelectResetPasswordError,
   makeSelectResetPasswordSuccess

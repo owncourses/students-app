@@ -44,3 +44,5 @@ export default compose<any>(
   withRequestResetPasswordSaga,
   withConnect
 )(RequestResetPassword);
+
+export { mapDispatchToProps };

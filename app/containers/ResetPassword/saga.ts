@@ -8,7 +8,7 @@ import {
   resetPasswordActionSuccess
 } from "./actions";
 
-function* resetPassword({
+export function* resetPassword({
   payload: { urlToken, ...rest }
 }: {
   payload: { password: string; repeatedPassword: string; urlToken: string };

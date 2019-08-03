@@ -7,7 +7,7 @@ import {
 import { REQUEST_RESET_PASSWORD } from "./constants";
 import { getAuthorizationHeaders } from "../../utils/userUtils";
 
-function* requestResetPassword({ payload }: { payload: string }) {
+export function* requestResetPassword({ payload }: { payload: string }) {
   try {
     const options = {
       method: "POST",
@@ -15,8 +15,6 @@ function* requestResetPassword({ payload }: { payload: string }) {
       data: JSON.stringify({ email: payload }),
       headers: getAuthorizationHeaders()
     };
-
-    console.log(options);
 
     yield call(request, options);
 
