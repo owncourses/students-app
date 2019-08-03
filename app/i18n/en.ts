@@ -1,3 +1,6 @@
+import { DialogTitle } from "@material-ui/core";
+import * as React from "react";
+
 export const en = {
   "Welcome to react": "Welcome to React and react-i18next",
   "Sign in": "Sign in",
@@ -23,5 +26,15 @@ export const en = {
   "Provide your email": "Provide your email",
   Submit: "Submit",
   "An e-mail has been sent to":
-    "An e-mail has been sent to {{value}}. Please follow the instructions to reset your password."
+    "An e-mail has been sent to {{value}}. Please follow the instructions to reset your password.",
+  "Lesson duration": "Lesson duration",
+  minutes: "minutes",
+  "Add bookmark": "Add bookmark",
+  "Set your bookmark title": "Set your bookmark title",
+  "Bookmark title": "Bookmark title",
+  Cancel: "Cancel",
+  "Are you sure you want to delete": "Are you sure you want to delete?",
+  Bookmarks: "Bookmarks",
+  "Files to download": "Files to download",
+  Loading: "Loading"
 };

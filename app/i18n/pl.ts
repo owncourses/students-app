@@ -1,3 +1,6 @@
+import { DialogTitle } from "@material-ui/core";
+import * as React from "react";
+
 export const pl = {
   "Welcome to react": "Witaj w React",
   "Sign in": "Zaloguj się",
@@ -23,5 +26,15 @@ export const pl = {
   "Provide your email": "Podaj adres email",
   Submit: "Zatwierdź",
   "An e-mail has been sent to":
-    "E-mail został wysłany na adres {{value}}. Postępuj zgodnie z instrukcjami, aby zresetować hasło."
+    "E-mail został wysłany na adres {{value}}. Postępuj zgodnie z instrukcjami, aby zresetować hasło.",
+  "Lesson duration": "Czas trwania lekcji",
+  minutes: "minut",
+  "Add bookmark": "Dodaj zakładkę",
+  "Set your bookmark title": "Ustaw tytuł zakładki",
+  "Bookmark title": "Tytył zakładki",
+  Cancel: "Anuluj",
+  "Are you sure you want to delete": "Czy na pewno chcesz usunć?",
+  Bookmarks: "Zakładki",
+  "Files to download": "Pliki do pobrania",
+  Loading: "Ładowanie"
 };

@@ -1,14 +1,21 @@
 import * as React from "react";
 import "./style.scss";
 
-const List = ({ component, items }: { component: any; items?: any }) => {
+const List = ({
+  component,
+  items,
+  ...rest
+}: {
+  component: any;
+  items?: any;
+  rest?: any;
+}) => {
   const ComponentToRender = component;
   let content = null;
-
   // If we have items, render them
   if (items) {
     content = items.map(item => (
-      <ComponentToRender key={`item-${item.id}`} item={item} />
+      <ComponentToRender key={`item-${item.id}`} item={item} {...rest} />
     ));
   } else {
     // Otherwise render a single component

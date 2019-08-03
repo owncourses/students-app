@@ -4,9 +4,11 @@ export interface LessonInterface {
   description: string;
   position: number;
   embed_code: string;
+  embed_type: string;
   created: string;
   updated: string;
   completed: boolean | null;
+  duration_in_minutes: number;
   module: {
     id: string;
     title: string;
@@ -25,5 +27,20 @@ export interface AttachmentInterface {
   file_name: string;
   href: {
     download: string;
+  };
+}
+
+export interface Bookmark {
+  title: string;
+  bookmarkTime: number;
+  lessonId: string;
+}
+
+export interface BookmarkViewModel {
+  title: string;
+  time_in_seconds: number;
+  id: string;
+  user: {
+    id: string;
   };
 }

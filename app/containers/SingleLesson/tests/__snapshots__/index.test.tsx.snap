@@ -5,7 +5,16 @@ exports[`<SingleLesson /> should render correctly 1`] = `
   className="course-lesson-wrapper"
 >
   <CourseLesson
+    bookmarkProps={
+      Object {
+        "bookmarkError": false,
+        "bookmarkList": null,
+        "bookmarkLoading": false,
+      }
+    }
     completeLoading={false}
+    deleteBookmark={[Function]}
+    handleBookmarkClick={[Function]}
     item={
       Object {
         "attachments": Array [
@@ -22,7 +31,9 @@ exports[`<SingleLesson /> should render correctly 1`] = `
         "completed": null,
         "created": "2019-03-17T11:29:18+01:00",
         "description": "Test description of example lesson",
+        "duration_in_minutes": 25,
         "embed_code": "Test embed_code of example lesson",
+        "embed_type": "vimeo",
         "id": "53ca8a0a-b5a9-40e9-b5b7-0f9d226a4d8b",
         "module": Object {
           "course": Object {
@@ -38,6 +49,11 @@ exports[`<SingleLesson /> should render correctly 1`] = `
       }
     }
     onComplete={[Function]}
+  />
+  <BookmarkModal
+    onCloseModal={[Function]}
+    onSubmitModal={[Function]}
+    open={false}
   />
 </div>
 `;

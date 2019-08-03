@@ -32,11 +32,32 @@ const makeSelectSingleLesson = () =>
     lessonState => lessonState.get("currentLesson")
   );
 
+const makeSelectBookmarkLoading = () =>
+  createSelector(
+    selectSingleLesson,
+    lessonState => lessonState.get("bookmarkLoading")
+  );
+
+const makeSelectBookmarkError = () =>
+  createSelector(
+    selectSingleLesson,
+    lessonState => lessonState.get("bookmarkError")
+  );
+
+const makeSelectBookmarkList = () =>
+  createSelector(
+    selectSingleLesson,
+    lessonState => lessonState.get("bookmarkList")
+  );
+
 export {
   selectSingleLesson,
   makeSelectSingleLessonLoading,
   makeSelectSingleLessonError,
   makeSelectSingleLesson,
   makeSelectSingleLessonCompleteLoading,
-  makeSelectSingleLessonCompleteError
+  makeSelectSingleLessonCompleteError,
+  makeSelectBookmarkLoading,
+  makeSelectBookmarkError,
+  makeSelectBookmarkList
 };

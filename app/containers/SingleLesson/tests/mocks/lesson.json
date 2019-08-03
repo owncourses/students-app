@@ -3,6 +3,8 @@
   "title": "Test title of example lesson",
   "description": "Test description of example lesson",
   "embed_code": "Test embed_code of example lesson",
+  "duration_in_minutes": 25,
+  "embed_type": "vimeo",
   "module": {
     "id": "fb8fbc90-2a0f-45b3-83ee-bb6e9d1bc402",
     "title": "Test title of example module",
