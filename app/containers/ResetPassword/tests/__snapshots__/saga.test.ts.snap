@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resetPassword Saga should call the resetPasswordActionError if the response errors 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "data": "{\\"password\\":\\"password\\",\\"repeatedPassword\\":\\"password\\"}",
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "POST",
+        "url": "/users/password/reset?token=randomString",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`resetPassword Saga should dispatch the resetPasswordActionSuccess if it requests the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      Object {
+        "data": "{\\"password\\":\\"password\\",\\"repeatedPassword\\":\\"password\\"}",
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "POST",
+        "url": "/users/password/reset?token=randomString",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;

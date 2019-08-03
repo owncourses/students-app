@@ -7,7 +7,11 @@ import {
 export function resetPasswordAction(payload: {
   password: string;
   repeatedPassword: string;
-}): { type: string; payload: { password: string; repeatedPassword: string } } {
+  urlToken: string;
+}): {
+  type: string;
+  payload: { password: string; repeatedPassword: string; urlToken: string };
+} {
   return {
     type: RESET_PASSWORD_ACTION,
     payload

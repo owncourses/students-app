@@ -45,3 +45,5 @@ export default compose<any>(
   withRouter,
   withConnect
 )(ResetPassword);
+
+export { mapDispatchToProps };

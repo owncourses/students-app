@@ -27,6 +27,7 @@ const makeSelectRequestResetPasswordEmail = () =>
   );
 
 export {
+  selectRequestResetPassword,
   makeSelectRequestResetPasswordLoading,
   makeSelectRequestResetPasswordError,
   makeSelectRequestResetPasswordSuccess,

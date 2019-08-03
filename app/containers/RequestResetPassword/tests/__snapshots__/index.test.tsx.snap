@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RequestResetPassword /> should render RequestResetPassword component 1`] = `
+<div
+  className="container"
+>
+  <Fields
+    error={false}
+    fields={
+      Array [
+        Object {
+          "disabled": false,
+          "error": null,
+          "label": undefined,
+          "type": "login",
+          "value": "",
+        },
+      ]
+    }
+    isLoading={false}
+    onSubmit={[Function]}
+    onUserInput={[Function]}
+  />
+</div>
+`;
