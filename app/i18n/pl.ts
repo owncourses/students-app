@@ -4,6 +4,8 @@ export const pl = {
   "Sign out": "Wyloguj się",
   Login: "Login",
   Password: "Hasło",
+  "Confirm password": "Potwierdź hasło",
+  "Reset your password": "Zresetuj swoje hasło",
   "Sign in to your account!": "Zaloguj się na swoje konto!",
   "My courses": "Moje kursy",
   "My modules": "Moje moduły",
@@ -15,5 +17,11 @@ export const pl = {
   "Course author": "Autor kursu",
   Logout: "Wyloguj",
   "Finished of course": "Ukończono {{value}}% kursu",
-  "Finished of module": "Ukończono {{value}}% modułu"
+  "Finished of module": "Ukończono {{value}}% modułu",
+  "I forgot a password": "Nie pamiętam hasła",
+  "You forgot a password": "Nie pamiętasz hasła?",
+  "Provide your email": "Podaj adres email",
+  Submit: "Zatwierdź",
+  "An e-mail has been sent to":
+    "E-mail został wysłany na adres {{value}}. Postępuj zgodnie z instrukcjami, aby zresetować hasło."
 };

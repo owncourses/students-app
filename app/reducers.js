@@ -7,6 +7,8 @@ import { combineReducers } from "redux-immutable";
 import { LOCATION_CHANGE } from "react-router-redux";
 
 import authReducer from "containers/Auth/reducer";
+import resetPassword from "containers/ResetPassword/reducer";
+import requestResetPassword from "containers/RequestResetPassword/reducer";
 import singleCourseReducer from "containers/SingleCourse/reducer";
 import singleLessonReducer from "containers/SingleLesson/reducer";
 
@@ -45,6 +47,8 @@ export default function createReducer(injectedReducers) {
   return combineReducers({
     route: routeReducer,
     auth: authReducer,
+    resetPassword,
+    requestResetPassword,
     singleCourse: singleCourseReducer,
     singleLesson: singleLessonReducer,
     ...injectedReducers
