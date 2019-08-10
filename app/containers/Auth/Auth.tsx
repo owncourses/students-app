@@ -78,7 +78,7 @@ class Auth extends React.Component<AuthProps, AuthState> {
           onUserInput={this.handleUserInput}
           onSubmit={this.handleSubmit}
         />
-        <Typography variant={"caption"}>
+        <Typography variant={"caption"} className={"forgot-link"}>
           <Link to={"/reset_request"}>{i18n.t("I forgot a password")}</Link>
         </Typography>
       </div>

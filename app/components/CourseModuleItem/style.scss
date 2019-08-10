@@ -1,10 +1,14 @@
 @import './../../styles/variables';
 
 .module-card {
-  padding: 16px;
+  padding: 12px;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .12);
   margin-bottom: 16px;
+
+  @media #{$--md-and-above} {
+    padding: 16px;
+  }
 
   .module-header {
     display: flex;
