@@ -82,7 +82,7 @@ function renderTextField(field, props) {
       margin="normal"
       variant="outlined"
       onChange={e => props.onUserInput(field.type, e.target.value)}
-      type={field.type !== "login" ? "password" : ""}
+      type={field.type !== "login" ? "password" : "email"}
       fullWidth
     />
   );

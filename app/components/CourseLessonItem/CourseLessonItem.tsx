@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, match } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import { Paper, Typography } from "@material-ui/core";
 import "./style.scss";
 import Icon from "@material-ui/core/Icon";
 
@@ -18,7 +18,7 @@ const CourseLessonItem = ({
 }) => {
   return (
     <Link to={`${match.url}/lesson/${item.id}`}>
-      <div className={"lesson"}>
+      <Paper className={"lesson"}>
         <img
           src={
             item.href.cover_image_url
@@ -31,7 +31,7 @@ const CourseLessonItem = ({
           <Typography variant={"body1"}>{item.title}</Typography>
           {item.completed && <Icon color={"primary"}>check</Icon>}
         </div>
-      </div>
+      </Paper>
     </Link>
   );
 };
