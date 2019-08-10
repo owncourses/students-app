@@ -15,6 +15,7 @@ export interface ModuleInterface {
   lessons: {
     id: string;
     title: string;
+    duration_in_minutes: number;
     href: {
       cover_image_url: string | null;
     };
