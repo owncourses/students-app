@@ -25,6 +25,7 @@ exports[`<SingleCourse /> should render correctly 1`] = `
             "lessons": Array [
               Object {
                 "completed": null,
+                "duration_in_minutes": 60,
                 "href": Object {
                   "cover_image_url": "simplestring.jpg",
                 },
