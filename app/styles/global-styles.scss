@@ -1,15 +1,10 @@
 html {
-  overflow-x: hidden;
-}
-
-html,
-body {
-  height: 100%;
+  overflow: hidden;
 }
 
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  height: 100vh;
+  overflow: auto;
 }
 
 body.fontLoaded {

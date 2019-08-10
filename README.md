@@ -28,7 +28,7 @@ Application for OwnCourses students.
 - [x] Additional course attachments
 - [x] Course authors
 - [x] Mark lesson as completed
-- [ ] Course/module progress info
+- [x] Course/module progress info
 
 # Development installation notes
 

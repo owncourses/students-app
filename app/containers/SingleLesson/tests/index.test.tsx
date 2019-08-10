@@ -10,6 +10,12 @@ describe("<SingleLesson />", () => {
     const renderedComponent = shallow(
       <SingleLesson
         getLesson={() => {}}
+        getBookmarkList={() => {}}
+        deleteBookmark={() => {}}
+        bookmarkError={false}
+        bookmarkList={null}
+        bookmarkLoading={false}
+        setBookmark={() => {}}
         completeLesson={() => {}}
         error={false}
         loading={false}

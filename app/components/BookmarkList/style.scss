@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+.bookmark-list {
+  margin-top: 16px;
+  padding: 8px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+
+  @media #{$--md-and-above} {
+    padding: 16px;
+  }
+}

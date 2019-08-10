@@ -16,7 +16,10 @@ describe("SingleLesson Reducer", () => {
       completeLoading: false,
       completeError: false,
       error: false,
-      currentLesson: false
+      currentLesson: false,
+      bookmarkLoading: true,
+      bookmarkError: false,
+      bookmarkList: null
     });
   });
 
