@@ -20,9 +20,10 @@ const CourseLessonItem = ({
   };
 }) => {
   const { t } = useTranslation();
+
   return (
-    <Link to={`${match.url}/lesson/${item.id}`}>
-      <Paper className={"lesson"}>
+    <Link to={{ pathname: `${match.url}lesson/${item.id}`, state: item.id }}>
+      <Paper className={`lesson restore-${item.id}`}>
         <img
           src={
             item.href.cover_image_url

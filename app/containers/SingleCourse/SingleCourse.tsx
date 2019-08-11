@@ -1,5 +1,6 @@
 import * as React from "react";
 import { match } from "react-router-dom";
+import { Location } from "history";
 import i18n from "i18next";
 import { Typography } from "@material-ui/core";
 import CourseModuleItem from "../../components/CourseModuleItem";
@@ -11,6 +12,7 @@ import "./style.scss";
 
 interface SingleCourseProps {
   match: match<{ courseId: string }>;
+  location: Location;
   getCourse: (id: string) => void;
   error: boolean | string;
   loading: boolean;
@@ -20,7 +22,17 @@ interface SingleCourseProps {
 class SingleCourse extends React.Component<SingleCourseProps> {
   componentDidMount(): void {
     const { courseId } = this.props.match.params;
-    this.props.getCourse(courseId);
+    if (!this.props.course) {
+      this.props.getCourse(courseId);
+      return;
+    }
+
+    const item = document.querySelector(
+      ".restore-" + this.props.location.state
+    );
+    if (item) {
+      item.scrollIntoView();
+    }
   }
 
   render(): React.ReactNode {

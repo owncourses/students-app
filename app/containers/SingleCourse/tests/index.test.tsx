@@ -4,11 +4,13 @@ import { shallow } from "enzyme";
 import * as course from "./mocks/course.json";
 import { mapDispatchToProps } from "../index";
 import { courseAction } from "../actions";
+import { Location } from "history";
 
 describe("<SingleCourse />", () => {
   it("should render correctly", () => {
     const renderedComponent = shallow(
       <SingleCourse
+        location={{ pathname: "", search: "", state: "", hash: "git" }}
         match={{ params: { courseId: "1" }, isExact: true, path: "", url: "" }}
         getCourse={() => {}}
         error={false}
