@@ -38,7 +38,9 @@ const CourseLessonItem = ({
             <Typography variant={"caption"}>
               {t("Lesson duration")}:{" "}
               <span>
-                {parseDurationInMinutesToString(item.duration_in_minutes)}
+                {parseDurationInMinutesToString(item.duration_in_minutes, {
+                  twoDigits: false
+                })}
               </span>{" "}
               {t("minutes")}
             </Typography>

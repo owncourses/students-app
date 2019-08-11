@@ -1,5 +1,6 @@
 export function parseDurationInMinutesToString(
-  duration_in_minutes: number = 0
+  duration_in_minutes: number = 0,
+  options: { twoDigits: boolean } = { twoDigits: true }
 ): string {
   let hours = 0;
   let minutes = duration_in_minutes;
@@ -7,10 +8,12 @@ export function parseDurationInMinutesToString(
   if (minutes >= 60) {
     hours = Math.floor(minutes / 60);
     minutes = duration_in_minutes - hours * 60;
-    return `${hours}:${parseToTwoDigitNumber(minutes)}`;
+    return `${hours}:${
+      options.twoDigits ? parseToTwoDigitNumber(minutes) : minutes
+    }`;
   }
 
-  return `${parseToTwoDigitNumber(minutes)}`;
+  return `${options.twoDigits ? parseToTwoDigitNumber(minutes) : minutes}`;
 }
 
 export function parseDurationInSecondsToString(

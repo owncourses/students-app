@@ -5,6 +5,7 @@ export interface AuthorInterface {
   href: {
     picture: string;
   };
+  gender: string;
   name: string;
   picture: string;
 }

@@ -24,6 +24,7 @@
         "bio": "Lorem Ipsum of bio",
         "name": "John Doe",
         "picture": "example.png",
+        "gender": "male",
         "href": {
           "picture": "examples.com/example.jpeg"
         }

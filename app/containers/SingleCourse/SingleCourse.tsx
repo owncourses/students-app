@@ -65,7 +65,9 @@ class SingleCourse extends React.Component<SingleCourseProps> {
     const authorTitle =
       course && course.authors.length > 1
         ? i18n.t("Course authors")
-        : i18n.t("Course author");
+        : course && course.authors && course.authors[0].gender === "female"
+        ? i18n.t("Course author female")
+        : i18n.t("Course author male");
 
     const authorsView = course && course.authors.length > 0 && (
       <div className={"authors"}>
