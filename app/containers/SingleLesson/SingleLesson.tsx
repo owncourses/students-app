@@ -5,6 +5,7 @@ import { Bookmark, BookmarkViewModel, LessonInterface } from "./interfaces";
 import LoadingIndicator from "../../components/LoadingIndicator";
 import "./style.scss";
 import BookmarkModal from "../../components/BookmarkModal";
+import Error from "../../components/Error";
 
 interface SingleLessonProps {
   getLesson: (lessonId: string) => void;
@@ -47,6 +48,20 @@ class SingleLesson extends React.Component<
     } = this.props.match;
     this.props.getLesson(lessonId);
     this.props.getBookmarkList(lessonId);
+  }
+
+  componentDidUpdate(
+    prevProps: Readonly<SingleLessonProps>,
+    prevState: Readonly<SingleLessonState>,
+    snapshot?: any
+  ): void {
+    if (prevProps.match.url !== this.props.match.url) {
+      const {
+        params: { lessonId }
+      } = this.props.match;
+      this.props.getLesson(lessonId);
+      this.props.getBookmarkList(lessonId);
+    }
   }
 
   handleCompleteLesson = isCompleted => {
@@ -104,7 +119,7 @@ class SingleLesson extends React.Component<
     } = this.props;
 
     if (error) {
-      return <div>{error}</div>;
+      return <Error message={error} />;
     }
     if (loading) {
       return <LoadingIndicator />;

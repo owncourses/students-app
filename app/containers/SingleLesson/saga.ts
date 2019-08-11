@@ -25,6 +25,7 @@ import {
 import request from "utils/request";
 import { Bookmark, BookmarkViewModel, LessonInterface } from "./interfaces";
 import { makeSelectBookmarkList } from "./selectors";
+import i18next from "i18next";
 
 export function* getLesson({
   payload: { id: lessonId }
@@ -45,7 +46,7 @@ export function* getLesson({
     yield put(lessonActionSuccess(lesson));
   } catch (err) {
     const { message } = err.response.data;
-    yield put(lessonActionError(message));
+    yield put(lessonActionError(message || i18next.t("Something goes wrong")));
   }
 }
 

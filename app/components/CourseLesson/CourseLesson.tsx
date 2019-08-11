@@ -2,7 +2,6 @@ import * as React from "react";
 import { Typography } from "@material-ui/core";
 import "./style.scss";
 import {
-  Bookmark,
   BookmarkViewModel,
   LessonInterface
 } from "../../containers/SingleLesson/interfaces";
@@ -17,6 +16,7 @@ import Attachment from "../Attachment";
 import VimeoPlayer from "../VimeoPlayer";
 import EmbedPlayer from "../EmbedPlayer";
 import { createEmbedCode } from "../EmbedPlayer/EmbedPlayer";
+import LessonNavigation from "../LessonNavigation";
 
 const CourseLesson = ({
   item: {
@@ -26,6 +26,7 @@ const CourseLesson = ({
     embed_type,
     duration_in_minutes,
     completed,
+    pagination: { next_lesson_id, prev_lesson_id },
     module: {
       course: { title: courseTitle }
     },
@@ -49,7 +50,6 @@ const CourseLesson = ({
   };
 }) => {
   const { t } = useTranslation();
-
   const doneIcon = completed ? (
     <DoneAllIcon className={"left-icon"} />
   ) : (
@@ -104,6 +104,11 @@ const CourseLesson = ({
   return (
     <div className={"course-lesson"}>
       <Jumbotron title={title} subtitle={courseTitle} />
+
+      <LessonNavigation
+        nextLessonUrl={next_lesson_id}
+        previousLessonUrl={prev_lesson_id}
+      />
 
       {playerView}
 

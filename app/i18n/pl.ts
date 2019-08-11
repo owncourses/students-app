@@ -37,5 +37,9 @@ export const pl = {
   "Are you sure you want to delete": "Czy na pewno chcesz usunć?",
   Bookmarks: "Zakładki",
   "Files to download": "Pliki do pobrania",
-  Loading: "Ładowanie"
+  Loading: "Ładowanie",
+  "Something goes wrong": "Coś poszło nie tak",
+  "Back to home page": "Wroć na strone główną",
+  "Next lesson": "Następna lekcja",
+  "Previous lesson": "Poprzednia lekcja"
 };
