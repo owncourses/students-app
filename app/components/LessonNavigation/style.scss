@@ -1,0 +1,24 @@
+.lesson-navigation {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  margin: 16px 0;
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+
+  > .prev-lesson {
+    cursor: pointer;
+    flex: 1
+  }
+
+  > .next-lesson {
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  }
+}

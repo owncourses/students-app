@@ -37,5 +37,9 @@ export const en = {
   "Are you sure you want to delete": "Are you sure you want to delete?",
   Bookmarks: "Bookmarks",
   "Files to download": "Files to download",
-  Loading: "Loading"
+  Loading: "Loading",
+  "Something goes wrong": "Something goes wrong",
+  "Back to home page": "Back to home page",
+  "Next lesson": "Next lesson",
+  "Previous lesson": "Previous lesson"
 };

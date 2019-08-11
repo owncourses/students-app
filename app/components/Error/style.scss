@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+
+.error {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  > a {
+    text-decoration: underline;
+    color: #{$--primary-color};
+  }
+}
