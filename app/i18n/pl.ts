@@ -29,6 +29,7 @@ export const pl = {
   "An e-mail has been sent to":
     "E-mail został wysłany na adres {{value}}. Postępuj zgodnie z instrukcjami, aby zresetować hasło.",
   "Lesson duration": "Czas trwania lekcji",
+  Lesson: "Lekcja",
   minutes: "minut",
   "Add bookmark": "Dodaj zakładkę",
   "Set your bookmark title": "Ustaw tytuł zakładki",

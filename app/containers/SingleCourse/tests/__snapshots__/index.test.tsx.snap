@@ -3,7 +3,7 @@
 exports[`<SingleCourse /> should render correctly 1`] = `
 <section>
   <Jumbotron
-    subtitle="Description of first example course"
+    description="Description of first example course"
     title="First example course"
   />
   <div
