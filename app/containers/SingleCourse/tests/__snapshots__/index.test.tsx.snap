@@ -67,6 +67,7 @@ exports[`<SingleCourse /> should render correctly 1`] = `
         author={
           Object {
             "bio": "Lorem Ipsum of bio",
+            "gender": "male",
             "href": Object {
               "picture": "examples.com/example.jpeg",
             },

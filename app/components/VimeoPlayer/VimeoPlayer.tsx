@@ -116,8 +116,13 @@ class VimeoPlayer extends React.Component<VimeoPlayerProps, VimeoPlayerState> {
   render() {
     const { duration, bookmarkProps } = this.props;
     const { isConfirmModalOpen } = this.state;
-    const parsedDuration = parseDurationInMinutesToString(duration);
-    const bookmarksView = this.getBookmarkListView(bookmarkProps);
+    const parsedDuration = parseDurationInMinutesToString(duration, {
+      twoDigits: false
+    });
+    const bookmarksView =
+      bookmarkProps.bookmarkList &&
+      bookmarkProps.bookmarkList.length > 0 &&
+      this.getBookmarkListView(bookmarkProps);
 
     return (
       <React.Fragment>
