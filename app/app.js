@@ -23,6 +23,7 @@ import configureStore from "./configureStore";
 
 import "./i18n/i18n";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import { BrowserRouter } from "react-router-dom";
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
@@ -41,6 +42,7 @@ openSansObserver.load().then(
 // Create redux store with history
 const initialState = {};
 const history = createHistory();
+
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById("app");
 const customTheme = createMuiTheme({
@@ -61,9 +63,11 @@ const render = () => {
   ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <MuiThemeProvider theme={customTheme}>
-          <App />
-        </MuiThemeProvider>
+        <BrowserRouter>
+          <MuiThemeProvider theme={customTheme}>
+            <App />
+          </MuiThemeProvider>
+        </BrowserRouter>
       </ConnectedRouter>
     </Provider>,
     MOUNT_NODE

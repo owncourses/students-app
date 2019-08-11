@@ -49,7 +49,12 @@ const Header = ({
                   className={"navigate_before"}
                   color="inherit"
                   aria-label="Back"
-                  onClick={history.goBack}
+                  onClick={() => {
+                    history.push({
+                      pathname: "..",
+                      state: history.location.state
+                    });
+                  }}
                 >
                   <Icon>navigate_before</Icon>
                 </IconButton>

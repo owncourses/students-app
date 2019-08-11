@@ -31,7 +31,7 @@ const CourseItem = ({
           <Typography variant={"h4"}>{title}</Typography>
           <Typography variant="body2">{description}</Typography>
           <Progress value={parseInt(completed_percentage)} type={"course"} />
-          <Link to={`/${id}`}>
+          <Link to={`${id}/`}>
             <SuccessButton variant={"outlined"} text={successButtonText} />
           </Link>
         </CardContent>
