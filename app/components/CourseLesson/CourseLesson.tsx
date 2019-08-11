@@ -21,6 +21,7 @@ import LessonNavigation from "../LessonNavigation";
 const CourseLesson = ({
   item: {
     title,
+    position,
     description,
     embed_code,
     embed_type,
@@ -28,6 +29,7 @@ const CourseLesson = ({
     completed,
     pagination: { next_lesson_id, prev_lesson_id },
     module: {
+      title: moduleTitle,
       course: { title: courseTitle }
     },
     attachments
@@ -103,7 +105,10 @@ const CourseLesson = ({
 
   return (
     <div className={"course-lesson"}>
-      <Jumbotron title={title} subtitle={courseTitle} />
+      <Jumbotron
+        title={`${t("Lesson")} ${position + 1}: ${title}`}
+        description={moduleTitle}
+      />
 
       <LessonNavigation
         nextLessonUrl={next_lesson_id}

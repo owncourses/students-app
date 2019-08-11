@@ -4,16 +4,21 @@ import "./style.scss";
 
 const Jumbotron = ({
   title,
-  subtitle
+  subtitle,
+  description
 }: {
   title: string;
   subtitle?: string;
+  description?: string;
 }) => {
   return (
     <div className={"jumbotron"}>
       <div className={"content"}>
         <Typography variant={"h6"}>{title}</Typography>
-        {subtitle && <Typography variant={"caption"}>{subtitle}</Typography>}
+        {subtitle && <Typography variant={"body1"}>{subtitle}</Typography>}
+        {description && (
+          <Typography variant={"caption"}>{description}</Typography>
+        )}
       </div>
     </div>
   );

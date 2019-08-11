@@ -29,6 +29,7 @@ export const en = {
   "An e-mail has been sent to":
     "An e-mail has been sent to {{value}}. Please follow the instructions to reset your password.",
   "Lesson duration": "Lesson duration",
+  Lesson: "Lesson",
   minutes: "minutes",
   "Add bookmark": "Add bookmark",
   "Set your bookmark title": "Set your bookmark title",
