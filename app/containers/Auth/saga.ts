@@ -1,4 +1,5 @@
 import { call, put, select, takeEvery } from "redux-saga/effects";
+import * as ReactGA from "react-ga";
 import {
   AUTH_ACTION,
   LOGOUT_ACTION,
@@ -49,6 +50,7 @@ export function* getUser() {
       options
     );
 
+    ReactGA.set({ userId: user.id });
     yield put(authActionSuccess(user));
   } catch (err) {
     const { message } = err.response.data;

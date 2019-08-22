@@ -5,7 +5,7 @@ import "@babel/polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { ConnectedRouter } from "react-router-redux";
+import { ConnectedRouter } from "connected-react-router/immutable";
 import FontFaceObserver from "fontfaceobserver";
 import createHistory from "history/createBrowserHistory";
 import "sanitize.css/sanitize.css";
@@ -13,6 +13,7 @@ import "sanitize.css/sanitize.css";
 // Import root app
 import App from "containers/App";
 import config from "../config/config";
+import Immutable from "immutable";
 
 /* eslint-enable import/no-webpack-loader-syntax */
 
@@ -24,6 +25,7 @@ import configureStore from "./configureStore";
 import "./i18n/i18n";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter } from "react-router-dom";
+import * as ReactGA from "react-ga";
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
@@ -39,10 +41,15 @@ openSansObserver.load().then(
   }
 );
 
+// Init GoogleAnalitycs
+const { gaId } = config;
+if (gaId) {
+  ReactGA.initialize(gaId);
+}
+
 // Create redux store with history
 const initialState = {};
 const history = createHistory();
-
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById("app");
 const customTheme = createMuiTheme({
@@ -63,11 +70,9 @@ const render = () => {
   ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <BrowserRouter>
-          <MuiThemeProvider theme={customTheme}>
-            <App />
-          </MuiThemeProvider>
-        </BrowserRouter>
+        <MuiThemeProvider theme={customTheme}>
+          <App />
+        </MuiThemeProvider>
       </ConnectedRouter>
     </Provider>,
     MOUNT_NODE

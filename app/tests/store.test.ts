@@ -3,8 +3,10 @@
  */
 
 // @ts-ignore
-import { browserHistory } from "react-router-dom";
 import configureStore from "../configureStore";
+import { createBrowserHistory } from "history";
+
+const browserHistory = createBrowserHistory();
 
 describe("configureStore", () => {
   let store;

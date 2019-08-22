@@ -1,7 +1,5 @@
 import invariant from "invariant";
-import isEmpty from "lodash/isEmpty";
-import isFunction from "lodash/isFunction";
-import isString from "lodash/isString";
+import { isEmpty, isFunction, isString } from "lodash";
 
 import checkStore from "./checkStore";
 import createReducer from "../reducers";
@@ -24,7 +22,6 @@ export function injectReducerFactory(store, isValid) {
 
     store.injectedReducers[key] = reducer; // eslint-disable-line no-param-reassign
     store.replaceReducer(createReducer(store.injectedReducers));
-    store.dispatch({ type: "@@REDUCER_INJECTED" });
   };
 }
 

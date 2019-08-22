@@ -3,7 +3,8 @@
 exports[`getCourse Saga should call the authActionError if the response errors 1`] = `
 Object {
   "@@redux-saga/IO": true,
-  "CALL": Object {
+  "combinator": false,
+  "payload": Object {
     "args": Array [
       Object {
         "headers": Object {
@@ -16,13 +17,15 @@ Object {
     "context": null,
     "fn": [Function],
   },
+  "type": "CALL",
 }
 `;
 
 exports[`getCourse Saga should dispatch the courseActionSuccess if it requests the data successfully 1`] = `
 Object {
   "@@redux-saga/IO": true,
-  "CALL": Object {
+  "combinator": false,
+  "payload": Object {
     "args": Array [
       Object {
         "headers": Object {
@@ -35,5 +38,6 @@ Object {
     "context": null,
     "fn": [Function],
   },
+  "type": "CALL",
 }
 `;
