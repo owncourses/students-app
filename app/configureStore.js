@@ -4,10 +4,11 @@
 
 import { createStore, applyMiddleware, compose } from "redux";
 import { fromJS } from "immutable";
-import { routerMiddleware } from "react-router-redux";
+import { routerMiddleware } from "connected-react-router/immutable";
 import createSagaMiddleware from "redux-saga";
 import createReducer from "./reducers";
 import logger from "redux-logger";
+import { googleAnalytics } from "./utils/googleAnalitycsMiddleware";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -15,7 +16,11 @@ export default function configureStore(initialState = {}, history) {
   // Create the store with two middlewares
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
-  const middlewares = [sagaMiddleware, routerMiddleware(history)];
+  const middlewares = [
+    sagaMiddleware,
+    routerMiddleware(history),
+    googleAnalytics
+  ];
 
   if (process.env.NODE_ENV === "development") {
     middlewares.push(logger);
@@ -38,7 +43,7 @@ export default function configureStore(initialState = {}, history) {
   /* eslint-enable */
 
   const store = createStore(
-    createReducer(),
+    createReducer(history),
     fromJS(initialState),
     composeEnhancers(...enhancers)
   );
@@ -52,7 +57,7 @@ export default function configureStore(initialState = {}, history) {
   /* istanbul ignore next */
   if (module.hot) {
     module.hot.accept("./reducers", () => {
-      store.replaceReducer(createReducer(store.injectedReducers));
+      store.replaceReducer(createReducer(history, store.injectedReducers));
       store.dispatch({ type: "@@REDUCER_INJECTED" });
     });
   }

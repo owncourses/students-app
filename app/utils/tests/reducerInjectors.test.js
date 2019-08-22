@@ -2,26 +2,26 @@
  * Test injectors
  */
 
-import { memoryHistory } from "react-router-dom";
-import { fromJS } from "immutable";
+import produce from "immer";
 import identity from "lodash/identity";
-
 import configureStore from "../../configureStore";
-
 import getInjectors, { injectReducerFactory } from "../reducerInjectors";
+import { createMemoryHistory } from "history";
 
 // Fixtures
 
-const initialState = fromJS({ reduced: "soon" });
+const initialState = { reduced: "soon" };
+const memoryHistory = createMemoryHistory();
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "TEST":
-      return state.set("reduced", action.payload);
-    default:
-      return state;
-  }
-};
+/* eslint-disable default-case, no-param-reassign */
+const reducer = (state = initialState, action) =>
+  produce(state, draft => {
+    switch (action.type) {
+      case "TEST":
+        draft.reduced = action.payload;
+        break;
+    }
+  });
 
 describe("reducer injectors", () => {
   let store;
@@ -60,6 +60,8 @@ describe("reducer injectors", () => {
     });
 
     it("it should not check a store if the second argument is true", () => {
+      Reflect.deleteProperty(store, "dispatch");
+
       expect(() => injectReducer("test", reducer)).not.toThrow();
     });
 
@@ -67,15 +69,6 @@ describe("reducer injectors", () => {
       expect(() => injectReducer("", reducer)).toThrow();
       expect(() => injectReducer(1, reducer)).toThrow();
       expect(() => injectReducer(1, 1)).toThrow();
-    });
-
-    it("given a store, it should provide a function to inject a reducer", () => {
-      injectReducer("test", reducer);
-
-      const actual = store.getState().get("test");
-      const expected = initialState;
-
-      expect(actual.toJS()).toEqual(expected.toJS());
     });
 
     it("should not assign reducer if already existing", () => {

@@ -2,50 +2,20 @@
  * Combine all reducers in this file and export the combined reducers.
  */
 
-import { fromJS } from "immutable";
 import { combineReducers } from "redux-immutable";
-import { LOCATION_CHANGE } from "react-router-redux";
-
+import { connectRouter } from "connected-react-router/immutable";
 import authReducer from "containers/Auth/reducer";
 import resetPassword from "containers/ResetPassword/reducer";
 import requestResetPassword from "containers/RequestResetPassword/reducer";
 import singleCourseReducer from "containers/SingleCourse/reducer";
 import singleLessonReducer from "containers/SingleLesson/reducer";
 
-/*
- * routeReducer
- *
- * The reducer merges route location changes into our immutable state.
- * The change is necessitated by moving to react-router-redux@5
- *
- */
-
-// Initial routing state
-const routeInitialState = fromJS({
-  location: null
-});
-
-/**
- * Merge route into the global application state
- */
-function routeReducer(state = routeInitialState, action) {
-  switch (action.type) {
-    /* istanbul ignore next */
-    case LOCATION_CHANGE:
-      return state.merge({
-        location: action.payload
-      });
-    default:
-      return state;
-  }
-}
-
 /**
  * Creates the main reducer with the dynamically injected ones
  */
-export default function createReducer(injectedReducers) {
+export default function createReducer(history, injectedReducers) {
   return combineReducers({
-    route: routeReducer,
+    router: connectRouter(history),
     auth: authReducer,
     resetPassword,
     requestResetPassword,

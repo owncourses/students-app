@@ -13,6 +13,7 @@ interface Config {
   ui: {
     language: string;
   };
+  gaId: string;
 }
 
 const config: Config = {
@@ -29,7 +30,8 @@ const config: Config = {
   },
   ui: {
     language: process.env.UI_LANGUAGE
-  }
+  },
+  gaId: process.env.GAID
 };
 
 export default config;

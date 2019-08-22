@@ -3,7 +3,8 @@
 exports[`resetPassword Saga should call the resetPasswordActionError if the response errors 1`] = `
 Object {
   "@@redux-saga/IO": true,
-  "CALL": Object {
+  "combinator": false,
+  "payload": Object {
     "args": Array [
       Object {
         "data": "{\\"password\\":\\"password\\",\\"repeatedPassword\\":\\"password\\"}",
@@ -17,13 +18,15 @@ Object {
     "context": null,
     "fn": [Function],
   },
+  "type": "CALL",
 }
 `;
 
 exports[`resetPassword Saga should dispatch the resetPasswordActionSuccess if it requests the data successfully 1`] = `
 Object {
   "@@redux-saga/IO": true,
-  "CALL": Object {
+  "combinator": false,
+  "payload": Object {
     "args": Array [
       Object {
         "data": "{\\"password\\":\\"password\\",\\"repeatedPassword\\":\\"password\\"}",
@@ -37,5 +40,6 @@ Object {
     "context": null,
     "fn": [Function],
   },
+  "type": "CALL",
 }
 `;
