@@ -22,7 +22,8 @@ interface SingleCourseProps {
 class SingleCourse extends React.Component<SingleCourseProps> {
   componentDidMount(): void {
     const { courseId } = this.props.match.params;
-    if (!this.props.course) {
+
+    if (Number(courseId) !== this.props.course.id) {
       this.props.getCourse(courseId);
       return;
     }
