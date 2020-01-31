@@ -15,7 +15,13 @@ export function isTokenNotExpired(token: string): boolean {
 
   const parsedToken = parseJwt(token);
 
-  return parsedToken.exp * 1000 > +new Date();
+  if (parsedToken.exp * 1000 > +new Date()) {
+    return true;
+  }
+
+  removeToken();
+
+  return false;
 }
 
 export function logout() {
