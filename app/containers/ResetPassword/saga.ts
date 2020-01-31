@@ -1,8 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { RESET_PASSWORD_ACTION } from "./constatns";
-import { getAuthorizationHeaders, setToken } from "../../utils/userUtils";
+import { getAuthorizationHeaders } from "../../utils/userUtils";
 import request from "../../utils/request";
-import { authActionError, authActionSuccess } from "../Auth/actions";
 import {
   resetPasswordActionError,
   resetPasswordActionSuccess

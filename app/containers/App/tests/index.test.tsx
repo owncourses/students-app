@@ -15,6 +15,7 @@ describe("<App />", () => {
         logoutAction={() => false}
         history={{} as History}
         loading={false}
+        error={''}
       />
     );
     expect(renderedComponent.find(Header).length).toBe(1);
@@ -27,6 +28,7 @@ describe("<App />", () => {
         logoutAction={() => false}
         history={{} as History}
         loading={false}
+        error={''}
       />
     );
     expect(renderedComponent.find(Route).length).not.toBe(0);
@@ -39,6 +41,7 @@ describe("<App />", () => {
         logoutAction={() => false}
         history={{} as History}
         loading={false}
+        error={''}
       />
     );
     expect(renderedComponent.find(Footer).length).toBe(1);

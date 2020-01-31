@@ -22,6 +22,7 @@ interface AppProps {
   logoutAction: () => void;
   history: History;
   loading: boolean;
+  error: string;
 }
 
 class App extends React.Component<AppProps> {
@@ -45,6 +46,9 @@ class App extends React.Component<AppProps> {
 
     if (this.props.loading) {
       return <LoadingIndicator />;
+    }
+    if (this.props.error) {
+      return <div>{this.props.error}</div>;
     }
 
     return (
