@@ -57,23 +57,25 @@ class SingleCourse extends React.Component<SingleCourseProps> {
       <Jumbotron title={course.title} description={course.description} />
     );
 
-    const authors =
-      course &&
+    const authors = course && course.authors && course.authors.length > 0;
+
+    const authorsMap =
+      authors &&
       course.authors.map(author => (
         <Author author={author} key={author.name} />
       ));
 
     const authorTitle =
-      course && course.authors.length > 1
+      authors && course.authors.length > 1
         ? i18n.t("Course authors")
-        : course && course.authors && course.authors[0].gender === "female"
+        : authors && course.authors[0].gender === "female"
         ? i18n.t("Course author female")
         : i18n.t("Course author male");
 
-    const authorsView = course && course.authors.length > 0 && (
+    const authorsView = authors && (
       <div className={"authors"}>
         <Typography variant={"h5"}>{authorTitle}</Typography>
-        {authors}
+        {authorsMap}
       </div>
     );
 
