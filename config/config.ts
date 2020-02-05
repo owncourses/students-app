@@ -14,6 +14,7 @@ interface Config {
     language: string;
   };
   gaId: string;
+  sentryDsn: string;
 }
 
 const config: Config = {
@@ -31,7 +32,8 @@ const config: Config = {
   ui: {
     language: process.env.UI_LANGUAGE
   },
-  gaId: process.env.GAID
+  gaId: process.env.GAID,
+  sentryDsn: process.env.SENTRY_DSN
 };
 
 export default config;
