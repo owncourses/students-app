@@ -27,6 +27,12 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter } from "react-router-dom";
 import * as ReactGA from "react-ga";
 
+import * as Sentry from "@sentry/browser";
+
+Sentry.init({
+  dsn: config.sentryDsn
+});
+
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
 const openSansObserver = new FontFaceObserver("Open Sans", {});
