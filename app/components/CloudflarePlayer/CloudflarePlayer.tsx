@@ -18,7 +18,8 @@ class CloudflarePlayer extends React.Component<any, any> {
   render() {
     return (
       <div className={"embed-code"}>
-        // @ts-ignore
+        {/*
+        // @ts-ignore */}
         <stream
           is="stream"
           currentTime
