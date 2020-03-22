@@ -4,7 +4,6 @@ import { match } from "react-router";
 import { Bookmark, BookmarkViewModel, LessonInterface } from "./interfaces";
 import LoadingIndicator from "../../components/LoadingIndicator";
 import "./style.scss";
-import BookmarkModal from "../../components/BookmarkModal";
 import Error from "../../components/Error";
 
 interface SingleLessonProps {
@@ -24,24 +23,7 @@ interface SingleLessonProps {
   match: match<{ lessonId: string }>;
 }
 
-interface SingleLessonState {
-  isBookmarkModalOpen: boolean;
-  bookmarkTime: number | null;
-}
-
-class SingleLesson extends React.Component<
-  SingleLessonProps,
-  SingleLessonState
-> {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isBookmarkModalOpen: false,
-      bookmarkTime: null
-    };
-  }
-
+class SingleLesson extends React.Component<SingleLessonProps, any> {
   componentDidMount() {
     const {
       params: { lessonId }
@@ -50,11 +32,7 @@ class SingleLesson extends React.Component<
     this.props.getBookmarkList(lessonId);
   }
 
-  componentDidUpdate(
-    prevProps: Readonly<SingleLessonProps>,
-    prevState: Readonly<SingleLessonState>,
-    snapshot?: any
-  ): void {
+  componentDidUpdate(prevProps: Readonly<SingleLessonProps>): void {
     if (prevProps.match.url !== this.props.match.url) {
       const {
         params: { lessonId }
@@ -72,38 +50,18 @@ class SingleLesson extends React.Component<
     this.props.completeLesson(isCompleted, lessonId);
   };
 
-  handleBookmarkClick = (bookmarkTime: number) => {
-    this.setState({
-      bookmarkTime
-    });
-    this.openBookmarkModal();
-  };
-
-  openBookmarkModal = () => {
-    this.setState({
-      isBookmarkModalOpen: true
-    });
-  };
-
-  closeBookmarkModal = () => {
-    this.setState({
-      isBookmarkModalOpen: false
-    });
-  };
-
   handleBookmarkDelete = (bookmarkId: string) => {
     this.props.deleteBookmark(bookmarkId);
   };
 
-  handleModalSubmit = bookmarkTitle => {
+  handleBookmarkSet = bookmark => {
     const {
       params: { lessonId }
     } = this.props.match;
 
-    this.closeBookmarkModal();
     this.props.setBookmark({
-      title: bookmarkTitle,
-      bookmarkTime: this.state.bookmarkTime,
+      title: bookmark.bookmarkTitle,
+      bookmarkTime: bookmark.bookmarkTime,
       lessonId
     });
   };
@@ -132,14 +90,9 @@ class SingleLesson extends React.Component<
             item={currentLesson}
             bookmarkProps={{ bookmarkList, bookmarkError, bookmarkLoading }}
             onComplete={this.handleCompleteLesson}
-            handleBookmarkClick={this.handleBookmarkClick}
-            deleteBookmark={this.handleBookmarkDelete}
+            bookmarkDelete={this.handleBookmarkDelete}
+            bookmarkSet={this.handleBookmarkSet}
             completeLoading={this.props.completeLoading}
-          />
-          <BookmarkModal
-            onSubmitModal={this.handleModalSubmit}
-            open={this.state.isBookmarkModalOpen}
-            onCloseModal={this.closeBookmarkModal}
           />
         </div>
       );

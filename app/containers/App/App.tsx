@@ -47,6 +47,7 @@ class App extends React.Component<AppProps> {
     if (this.props.loading) {
       return <LoadingIndicator />;
     }
+
     if (this.props.error) {
       return <div>{this.props.error}</div>;
     }
