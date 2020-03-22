@@ -95,8 +95,6 @@ const CourseLesson = ({
     </div>
   );
 
-  embed_type = "cloudflare";
-
   const bookmarkListProps = {
     bookmarkProps,
     bookmarkSet,

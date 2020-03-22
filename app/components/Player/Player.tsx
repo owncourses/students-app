@@ -19,7 +19,7 @@ class Player extends React.Component<
     this.playerInstance = player;
   };
 
-  getPlayers = type => {
+  getPlayer = type => {
     const { embedCode } = this.props;
     switch (type) {
       case PlayersType.VIMEO: {
@@ -61,17 +61,16 @@ class Player extends React.Component<
   };
 
   handleBookmarkSet = async bookmarkTitle => {
-    await this.getPlayers(this.props.embedType).pause();
-    const bookmarkTime = await this.getPlayers(
+    await this.getPlayer(this.props.embedType).pause();
+    const bookmarkTime = await this.getPlayer(
       this.props.embedType
     ).getCurrentTime();
-    console.log(bookmarkTime);
     this.props.bookmarkProps.bookmarkSet({ bookmarkTitle, bookmarkTime });
   };
 
   handleBookmarkClick = bookmarkTime => {
-    this.getPlayers(this.props.embedType).setTime(bookmarkTime);
-    this.getPlayers(this.props.embedType).play();
+    this.getPlayer(this.props.embedType).setTime(bookmarkTime);
+    this.getPlayer(this.props.embedType).play();
   };
 
   render() {
@@ -79,13 +78,14 @@ class Player extends React.Component<
       embedType,
       bookmarkProps: { bookmarkProps, bookmarkDelete, parsedDuration }
     } = this.props;
-    const player = this.getPlayers(embedType).component;
+    const player = this.getPlayer(embedType).component;
+    console.log(player);
     return (
       <>
         {player}
         {supportedPlayers.includes(embedType) && (
           <BookmarkList
-            pausePlayer={this.getPlayers(embedType).pause}
+            pausePlayer={this.getPlayer(embedType).pause}
             bookmarkProps={bookmarkProps}
             bookmarkSet={this.handleBookmarkSet}
             bookmarkDelete={bookmarkDelete}
