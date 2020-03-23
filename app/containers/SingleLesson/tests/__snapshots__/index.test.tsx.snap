@@ -5,6 +5,7 @@ exports[`<SingleLesson /> should render correctly 1`] = `
   className="course-lesson-wrapper"
 >
   <CourseLesson
+    bookmarkDelete={[Function]}
     bookmarkProps={
       Object {
         "bookmarkError": false,
@@ -12,9 +13,8 @@ exports[`<SingleLesson /> should render correctly 1`] = `
         "bookmarkLoading": false,
       }
     }
+    bookmarkSet={[Function]}
     completeLoading={false}
-    deleteBookmark={[Function]}
-    handleBookmarkClick={[Function]}
     item={
       Object {
         "attachments": Array [
@@ -53,11 +53,6 @@ exports[`<SingleLesson /> should render correctly 1`] = `
       }
     }
     onComplete={[Function]}
-  />
-  <BookmarkModal
-    onCloseModal={[Function]}
-    onSubmitModal={[Function]}
-    open={false}
   />
 </div>
 `;

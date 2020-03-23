@@ -1,12 +1,7 @@
 import * as React from "react";
 import "./style.scss";
 
-const EmbedPlayer = ({
-  embedCode
-}: {
-  embedCode: string;
-  duration: number;
-}) => {
+const EmbedPlayer = ({ embedCode }: { embedCode: string }) => {
   return (
     <div
       className={"embed-code"}

@@ -2,6 +2,7 @@ import * as React from "react";
 import { Typography } from "@material-ui/core";
 import "./style.scss";
 import {
+  Bookmark,
   BookmarkViewModel,
   LessonInterface
 } from "../../containers/SingleLesson/interfaces";
@@ -17,6 +18,10 @@ import VimeoPlayer from "../VimeoPlayer";
 import EmbedPlayer from "../EmbedPlayer";
 import { createEmbedCode } from "../EmbedPlayer/EmbedPlayer";
 import LessonNavigation from "../LessonNavigation";
+import CloudflarePlayer from "../CloudflarePlayer";
+import BookmarkList from "../BookmarkList";
+import { parseDurationInMinutesToString } from "../../utils/durationUtils";
+import Player from "../Player/Player";
 
 const CourseLesson = ({
   item: {
@@ -36,14 +41,14 @@ const CourseLesson = ({
   },
   onComplete,
   completeLoading,
-  handleBookmarkClick,
+  bookmarkSet,
   bookmarkProps,
-  deleteBookmark
+  bookmarkDelete
 }: {
   item: LessonInterface;
   onComplete: (isCompleted: boolean) => void;
-  handleBookmarkClick: (bookmarkTime: number) => void;
-  deleteBookmark: (bookmarkId: string) => void;
+  bookmarkSet: (bookmark: Bookmark) => void;
+  bookmarkDelete: (bookmarkId: string) => void;
   completeLoading: boolean;
   bookmarkProps: {
     bookmarkLoading: boolean;
@@ -90,18 +95,20 @@ const CourseLesson = ({
     </div>
   );
 
-  const playerView =
-    embed_type === "vimeo" ? (
-      <VimeoPlayer
-        duration={duration_in_minutes}
-        vimeoUrl={embed_code}
-        setBookmark={handleBookmarkClick}
-        bookmarkProps={bookmarkProps}
-        deleteBookmark={deleteBookmark}
-      />
-    ) : (
-      <EmbedPlayer duration={duration_in_minutes} embedCode={embed_code} />
-    );
+  const bookmarkListProps = {
+    bookmarkProps,
+    bookmarkSet,
+    bookmarkDelete,
+    parsedDuration: parseDurationInMinutesToString(duration_in_minutes)
+  };
+
+  const playerView = (
+    <Player
+      embedCode={embed_code}
+      embedType={embed_type}
+      bookmarkProps={bookmarkListProps}
+    />
+  );
 
   return (
     <div className={"course-lesson"}>
