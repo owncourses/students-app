@@ -40,5 +40,6 @@ export const pl = {
   "Back to previous page": "Wroć do poprzedniej strony",
   "Next lesson": "Następna lekcja",
   "Previous lesson": "Poprzednia lekcja",
-  "Bad credentials": "Nieprawidłowy login lub hasło"
+  "Bad credentials": "Nieprawidłowy login lub hasło",
+  "Internal Server Error": "Wystąpił nieoczekiwany błąd"
 };

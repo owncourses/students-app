@@ -40,5 +40,6 @@ export const en = {
   "Back to previous page": "Back to previous page",
   "Next lesson": "Next lesson",
   "Previous lesson": "Previous lesson",
-  "Bad credentials": "Bad credentials"
+  "Bad credentials": "Bad credentials",
+  "Internal Server Error": "Internal Server Error"
 };
