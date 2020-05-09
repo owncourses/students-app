@@ -6,7 +6,6 @@ import {
   USER_ACTION,
   userLoginInterface
 } from "./constants";
-
 // @ts-ignore
 import request from "utils/request";
 import {
@@ -53,7 +52,12 @@ export function* getUser() {
     ReactGA.set({ userId: user.id });
     yield put(authActionSuccess(user));
   } catch (err) {
-    const { message } = err.response.data;
+    let { message } = err.response.data;
+
+    if (err.response.status === 500) {
+      message = err.response.statusText;
+    }
+
     yield put(authActionError(message));
   }
 }

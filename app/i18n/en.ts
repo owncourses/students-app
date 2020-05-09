@@ -1,6 +1,3 @@
-import { DialogTitle } from "@material-ui/core";
-import * as React from "react";
-
 export const en = {
   "Welcome to react": "Welcome to React and react-i18next",
   "Sign in": "Sign in",
@@ -40,7 +37,9 @@ export const en = {
   "Files to download": "Files to download",
   Loading: "Loading",
   "Something goes wrong": "Something goes wrong",
-  "Back to home page": "Back to home page",
+  "Back to previous page": "Back to previous page",
   "Next lesson": "Next lesson",
-  "Previous lesson": "Previous lesson"
+  "Previous lesson": "Previous lesson",
+  "Bad credentials": "Bad credentials",
+  "Internal Server Error": "Internal Server Error"
 };

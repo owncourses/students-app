@@ -60,7 +60,7 @@ exports[`<SingleCourse /> should render correctly 1`] = `
     <div
       className="authors"
     >
-      <WithStyles(Typography)
+      <WithStyles(ForwardRef(Typography))
         variant="h5"
       />
       <Author

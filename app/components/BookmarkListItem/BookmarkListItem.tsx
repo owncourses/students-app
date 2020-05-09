@@ -18,7 +18,7 @@ const BookmarkListItem = ({
   const deleteIconView = item.user ? (
     <DeleteIcon
       cursor={"pointer"}
-      nativeColor={config.brand.colors.primary}
+      htmlColor={config.brand.colors.primary}
       onClick={onDeleteClick.bind(null, item.id)}
     />
   ) : (

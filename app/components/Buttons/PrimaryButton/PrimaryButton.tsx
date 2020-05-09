@@ -7,7 +7,7 @@ const successTheme = createMuiTheme({
   },
   overrides: {
     MuiButton: {
-      raisedPrimary: {
+      containedPrimary: {
         color: "#FFFFFF"
       }
     }
@@ -23,14 +23,7 @@ const PrimaryButton = ({
   text: any;
   disabled?: boolean;
   onClick?: () => any;
-  variant?:
-    | "text"
-    | "flat"
-    | "outlined"
-    | "contained"
-    | "raised"
-    | "fab"
-    | "extendedFab";
+  variant?: "text" | "contained" | "outlined";
 }) => {
   return (
     <MuiThemeProvider theme={successTheme}>
