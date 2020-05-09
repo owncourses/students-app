@@ -1,13 +1,22 @@
-import {call, put, select, takeEvery} from "redux-saga/effects";
+import { call, put, select, takeEvery } from "redux-saga/effects";
 import * as ReactGA from "react-ga";
-import {AUTH_ACTION, LOGOUT_ACTION, USER_ACTION, userLoginInterface} from "./constants";
+import {
+  AUTH_ACTION,
+  LOGOUT_ACTION,
+  USER_ACTION,
+  userLoginInterface
+} from "./constants";
 // @ts-ignore
 import request from "utils/request";
-import {authActionError, authActionSuccess, logoutActionSuccess} from "./actions";
-import {getAuthorizationHeaders, setToken} from "../../utils/userUtils";
-import {makeSelectAuthError} from "./selectors";
-import {UserInterface} from "./interfaces";
-import {logout} from "./auth-logic";
+import {
+  authActionError,
+  authActionSuccess,
+  logoutActionSuccess
+} from "./actions";
+import { getAuthorizationHeaders, setToken } from "../../utils/userUtils";
+import { makeSelectAuthError } from "./selectors";
+import { UserInterface } from "./interfaces";
+import { logout } from "./auth-logic";
 
 export function* getTokenFromApi(payload: userLoginInterface) {
   try {
