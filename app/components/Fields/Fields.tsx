@@ -3,6 +3,7 @@ import { Button, Paper, TextField, Typography } from "@material-ui/core";
 import "./style.scss";
 import { useTranslation } from "react-i18next";
 import { AuthFieldsInterface } from "../../containers/Auth/interfaces";
+import Box from "@material-ui/core/Box";
 
 interface LoginProps {
   fields: AuthFieldsInterface;
@@ -43,7 +44,11 @@ const Fields = ({
     }
   });
 
-  const errorView = error && <Typography color={"error"}>{error}</Typography>;
+  const errorView = error && (
+    <Box my={"0.5rem"} textAlign={"center"}>
+      <Typography color={"error"}>{t(String(error))}</Typography>
+    </Box>
+  );
   const subtitleView = subtitle && (
     <Typography variant={"subtitle2"}>{subtitle}</Typography>
   );

@@ -23,7 +23,7 @@ const LessonNavigation = ({
           <Link to={previousLessonUrl}>
             <ChevronLeftIcon
               fontSize={"large"}
-              nativeColor={config.brand.colors.primary}
+              htmlColor={config.brand.colors.primary}
             />
             <Typography variant={"body1"}>{t("Previous lesson")}</Typography>
           </Link>
@@ -35,7 +35,7 @@ const LessonNavigation = ({
             <Typography variant={"body1"}>{t("Next lesson")}</Typography>
             <ChevronRightIcon
               fontSize={"large"}
-              nativeColor={config.brand.colors.primary}
+              htmlColor={config.brand.colors.primary}
             />
           </Link>
         )}

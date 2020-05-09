@@ -7,6 +7,7 @@
   flex-direction: column;
 
   > a {
+    margin-top: 1rem;
     text-decoration: underline;
     color: #{$--primary-color};
   }

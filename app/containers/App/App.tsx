@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { History } from "history";
 import HomePage from "../HomePage/Loadable";
 import NotFoundPage from "../NotFoundPage/Loadable";
@@ -46,9 +46,6 @@ class App extends React.Component<AppProps> {
 
     if (this.props.loading) {
       return <LoadingIndicator />;
-    }
-    if (this.props.error) {
-      return <div>{this.props.error}</div>;
     }
 
     return (

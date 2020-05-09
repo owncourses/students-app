@@ -1,6 +1,3 @@
-import { DialogTitle } from "@material-ui/core";
-import * as React from "react";
-
 export const pl = {
   "Welcome to react": "Witaj w React",
   "Sign in": "Zaloguj się",
@@ -40,7 +37,8 @@ export const pl = {
   "Files to download": "Pliki do pobrania",
   Loading: "Ładowanie",
   "Something goes wrong": "Coś poszło nie tak",
-  "Back to home page": "Wroć na strone główną",
+  "Back to previous page": "Wroć do poprzedniej strony",
   "Next lesson": "Następna lekcja",
-  "Previous lesson": "Poprzednia lekcja"
+  "Previous lesson": "Poprzednia lekcja",
+  "Bad credentials": "Nieprawidłowy login lub hasło"
 };
