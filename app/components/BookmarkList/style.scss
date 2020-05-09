@@ -10,3 +10,20 @@
     padding: 16px;
   }
 }
+
+.meta {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+
+  .video-bookmark {
+    margin: 16px 0;
+    cursor: pointer;
+
+    svg {
+      font-size: 30px;
+    }
+  }
+}

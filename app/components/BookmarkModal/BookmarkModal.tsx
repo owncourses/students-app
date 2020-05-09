@@ -40,7 +40,7 @@ const BookmarkModal = ({ open, onCloseModal, onSubmitModal }) => {
         <Button color="primary" onClick={onCloseModal}>
           {t("Cancel")}
         </Button>
-        <Button color="primary" onClick={onSubmitModal.bind(null, title)}>
+        <Button color="primary" onClick={() => onSubmitModal(title)}>
           {t("Submit")}
         </Button>
       </DialogActions>
