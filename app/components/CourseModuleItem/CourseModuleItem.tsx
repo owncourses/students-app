@@ -5,6 +5,7 @@ import "./style.scss";
 import { ModuleInterface } from "../../containers/SingleCourse/interfaces";
 import { match } from "react-router";
 import Progress from "../Progress";
+import DemoCourseLessonItem from "../DemoCourseLessonItem";
 
 const CourseModuleItem = ({
   item: {
@@ -12,16 +13,26 @@ const CourseModuleItem = ({
     lessons,
     progress: { completed_percentage }
   },
+  purchaseUrl,
   match
 }: {
   item: ModuleInterface;
+  purchaseUrl: string;
   match: match;
 }) => {
   const lessonsView =
     lessons &&
-    lessons.map(lesson => (
-      <CourseLessonItem key={lesson.id} item={lesson} match={match} />
-    ));
+    lessons.map(lesson => {
+      return lesson.blocked ? (
+        <DemoCourseLessonItem
+          key={lesson.id}
+          item={lesson}
+          purchaseUrl={purchaseUrl}
+        />
+      ) : (
+        <CourseLessonItem key={lesson.id} item={lesson} match={match} />
+      );
+    });
 
   return (
     <div className={"module-card"}>

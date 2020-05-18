@@ -50,7 +50,12 @@ class SingleCourse extends React.Component<SingleCourseProps> {
     const modulesView =
       course &&
       course.modules.map(module => (
-        <CourseModuleItem match={match} item={module} key={module.id} />
+        <CourseModuleItem
+          match={match}
+          purchaseUrl={course.purchase_url}
+          item={module}
+          key={module.id}
+        />
       ));
 
     const jumbotronView = course && (

@@ -2,6 +2,8 @@
   "id": 1,
   "title": "First example course",
   "description": "Description of first example course",
+  "type": "STANDARD",
+  "purchase_url": "examplePurchaseUrl",
   "cover_image_name": "example.jpeg",
   "created": "2019-03-08T00:00:00+01:00",
   "updated": "2019-03-23T14:54:36+01:00",
