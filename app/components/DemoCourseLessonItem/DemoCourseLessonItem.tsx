@@ -5,7 +5,6 @@ import { parseDurationInMinutesToString } from "../../utils/durationUtils";
 import CheckIcon from "@material-ui/icons/Check";
 import LockIcon from "@material-ui/icons/Lock";
 import { useTranslation } from "react-i18next";
-import { url } from "inspector";
 import PrimaryButton from "../Buttons/PrimaryButton";
 
 const DemoCourseLessonItem = ({
@@ -40,7 +39,7 @@ const DemoCourseLessonItem = ({
             <PrimaryButton
               fullWidth={false}
               variant={"contained"}
-              text={"Odblokuj dostęp teraz"}
+              text={t("Unlock access now")}
             />
           </a>
         </div>

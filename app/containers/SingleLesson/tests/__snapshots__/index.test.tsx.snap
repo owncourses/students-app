@@ -28,6 +28,7 @@ exports[`<SingleLesson /> should render correctly 1`] = `
             "name": "dummy name",
           },
         ],
+        "blocked": false,
         "completed": null,
         "created": "2019-03-17T11:29:18+01:00",
         "description": "Test description of example lesson",

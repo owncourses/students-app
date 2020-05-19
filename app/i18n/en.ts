@@ -41,5 +41,6 @@ export const en = {
   "Next lesson": "Next lesson",
   "Previous lesson": "Previous lesson",
   "Bad credentials": "Bad credentials",
-  "Internal Server Error": "Internal Server Error"
+  "Internal Server Error": "Internal Server Error",
+  "Unlock access now": "Unlock access now"
 };
