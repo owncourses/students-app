@@ -3,6 +3,8 @@ import * as ReactGA from "react-ga";
 import {
   AUTH_ACTION,
   LOGOUT_ACTION,
+  NOTIFICATIONS_ACTION,
+  TOGGLE_NOTIFICATION_ACTION,
   USER_ACTION,
   userLoginInterface
 } from "./constants";
@@ -11,7 +13,11 @@ import request from "utils/request";
 import {
   authActionError,
   authActionSuccess,
-  logoutActionSuccess
+  getNotificationsError,
+  getNotificationsSuccess,
+  logoutActionSuccess,
+  toggleNotificationError,
+  toggleNotificationSuccess
 } from "./actions";
 import { getAuthorizationHeaders, setToken } from "../../utils/userUtils";
 import { makeSelectAuthError } from "./selectors";
@@ -88,9 +94,45 @@ export function* logoutSaga() {
   }
 }
 
+export function* getNotifications() {
+  try {
+    const notificationOptions = {
+      method: "GET",
+      url: `/notifications`,
+      headers: getAuthorizationHeaders()
+    };
+
+    const { data: notifications } = yield call(request, notificationOptions);
+
+    yield put(getNotificationsSuccess(notifications));
+  } catch (err) {
+    const { message } = err.response.data;
+    yield put(getNotificationsError(message));
+  }
+}
+
+export function* toggleNotification(action) {
+  try {
+    const notificationOptions = {
+      method: "POST",
+      url: `/notifications/${action.id}`,
+      headers: getAuthorizationHeaders()
+    };
+
+    const { data: notifications } = yield call(request, notificationOptions);
+
+    yield put(toggleNotificationSuccess(notifications));
+  } catch (err) {
+    const { message } = err.response.data;
+    yield put(toggleNotificationError(message));
+  }
+}
+
 export default function* authFlow() {
   // @ts-ignore
   yield takeEvery(AUTH_ACTION, login);
+  yield takeEvery(NOTIFICATIONS_ACTION, getNotifications);
+  yield takeEvery(TOGGLE_NOTIFICATION_ACTION, toggleNotification);
   yield takeEvery(LOGOUT_ACTION, logoutSaga);
   yield takeEvery(USER_ACTION, getUser);
 }

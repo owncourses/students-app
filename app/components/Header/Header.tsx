@@ -9,24 +9,26 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
 import { History } from "history";
-import {
-  ListItemIcon,
-  ListItemText,
-  Menu,
-  MenuItem,
-  Tooltip
-} from "@material-ui/core";
+import { ListItemIcon, ListItemText, Menu, MenuItem } from "@material-ui/core";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
 import { isInHomeScreen, isInLoginScreen } from "../../utils/urlService";
+import Notifications from "../Notifications";
+import { NotificationsInterface } from "../../containers/Auth/interfaces";
 
 const Header = ({
   title,
   onLogout,
+  notificationsProps,
   history
 }: {
   title: string;
+  haveUnreadNotification?: boolean;
   onLogout: () => void;
   history: History;
+  notificationsProps: {
+    notifications: NotificationsInterface;
+    toggleNotification: (id) => void;
+  };
 }) => {
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -71,13 +73,9 @@ const Header = ({
               <Button color="secondary">{title}</Button>
             </Link>
           </Typography>
-          <div>
-            <IconButton color="inherit">
-              <Tooltip title={t("Notifications")} arrow>
-                <Icon>notifications</Icon>
-              </Tooltip>
-            </IconButton>
-          </div>
+          {!isInLoginScreen(history.location.pathname) && (
+            <Notifications notificationsProps={notificationsProps} />
+          )}
           <div className={"menu-icon"}>
             {!isInLoginScreen(history.location.pathname) && (
               <IconButton

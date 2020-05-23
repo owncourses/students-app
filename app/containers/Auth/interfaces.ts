@@ -54,3 +54,17 @@ export interface ProgressInterface {
 }
 
 export interface AuthFieldsInterface extends Array<AuthFields> {}
+
+export interface NotificationsInterface {
+  unread: number;
+  notifications: NotificationInterface[];
+}
+
+export interface NotificationInterface {
+  id: string;
+  title: string;
+  text: string;
+  url?: string;
+  created: string;
+  label: "new" | "important";
+}
