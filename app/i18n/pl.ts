@@ -42,5 +42,6 @@ export const pl = {
   "Previous lesson": "Poprzednia lekcja",
   "Bad credentials": "Nieprawidłowy login lub hasło",
   "Internal Server Error": "Wystąpił nieoczekiwany błąd",
+  Notifications: "Powiadomienia"
   "Unlock access now": "Odblokuj dostęp teraz"
 };
