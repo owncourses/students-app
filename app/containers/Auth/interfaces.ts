@@ -21,7 +21,9 @@ interface AuthFields {
 export interface CourseInterface {
   id?: number;
   title: string;
+  type: string;
   description: string;
+  purchase_url?: string;
   cover_image_name: string;
   created: string;
   updated: string;

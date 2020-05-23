@@ -18,17 +18,19 @@ const PrimaryButton = ({
   onClick,
   text,
   variant,
-  disabled
+  disabled,
+  fullWidth
 }: {
   text: any;
   disabled?: boolean;
   onClick?: () => any;
   variant?: "text" | "contained" | "outlined";
+  fullWidth?: boolean;
 }) => {
   return (
     <MuiThemeProvider theme={successTheme}>
       <Button
-        fullWidth
+        fullWidth={fullWidth}
         color={"primary"}
         variant={variant}
         onClick={onClick}

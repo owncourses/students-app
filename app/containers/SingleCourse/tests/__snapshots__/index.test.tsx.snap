@@ -55,6 +55,7 @@ exports[`<SingleCourse /> should render correctly 1`] = `
             "url": "",
           }
         }
+        purchaseUrl="examplePurchaseUrl"
       />
     </div>
     <div
