@@ -1,0 +1,24 @@
+.blocked-lesson-image {
+  position: relative;
+  > img {
+    filter: grayscale(1);
+    height: auto;
+    width: 100%;
+  }
+  > .button-disabled-lesson {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    > svg {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

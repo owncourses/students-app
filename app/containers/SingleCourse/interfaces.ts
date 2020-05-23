@@ -20,5 +20,6 @@ export interface ModuleInterface {
       cover_image_url: string | null;
     };
     completed: boolean | null;
+    blocked?: boolean;
   }[];
 }

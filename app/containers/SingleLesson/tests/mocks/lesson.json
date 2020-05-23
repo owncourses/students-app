@@ -31,5 +31,6 @@
         "download": "example.com/example.png"
       }
     }
-  ]
+  ],
+  "blocked": false
 }

@@ -79,7 +79,6 @@ class Player extends React.Component<
       bookmarkProps: { bookmarkProps, bookmarkDelete, parsedDuration }
     } = this.props;
     const player = this.getPlayer(embedType).component;
-    console.log(player);
     return (
       <>
         {player}

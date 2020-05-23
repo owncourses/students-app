@@ -1,6 +1,3 @@
-import { Tooltip } from "@material-ui/core";
-import * as React from "react";
-
 export const en = {
   "Welcome to react": "Welcome to React and react-i18next",
   "Sign in": "Sign in",
@@ -46,4 +43,5 @@ export const en = {
   "Bad credentials": "Bad credentials",
   "Internal Server Error": "Internal Server Error",
   Notifications: "Notifications"
+  "Unlock access now": "Unlock access now"
 };
