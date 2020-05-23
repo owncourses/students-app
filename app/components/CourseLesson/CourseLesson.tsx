@@ -99,7 +99,9 @@ const CourseLesson = ({
     bookmarkProps,
     bookmarkSet,
     bookmarkDelete,
-    parsedDuration: parseDurationInMinutesToString(duration_in_minutes)
+    parsedDuration: parseDurationInMinutesToString(duration_in_minutes, {
+      twoDigits: false
+    })
   };
 
   const playerView = (
