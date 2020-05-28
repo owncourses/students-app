@@ -66,5 +66,6 @@ export interface NotificationInterface {
   text: string;
   url?: string;
   created: string;
+  url_title: string;
   label: "new" | "important";
 }

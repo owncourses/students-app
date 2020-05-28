@@ -11,7 +11,8 @@ describe("auth Reducer", () => {
     state = fromJS({
       loading: false,
       error: false,
-      currentUser: false
+      currentUser: false,
+      notifications: null
     });
   });
 

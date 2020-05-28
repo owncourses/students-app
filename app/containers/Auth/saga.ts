@@ -131,8 +131,8 @@ export function* toggleNotification(action) {
 export default function* authFlow() {
   // @ts-ignore
   yield takeEvery(AUTH_ACTION, login);
-  yield takeEvery(NOTIFICATIONS_ACTION, getNotifications);
-  yield takeEvery(TOGGLE_NOTIFICATION_ACTION, toggleNotification);
   yield takeEvery(LOGOUT_ACTION, logoutSaga);
   yield takeEvery(USER_ACTION, getUser);
+  yield takeEvery(NOTIFICATIONS_ACTION, getNotifications);
+  yield takeEvery(TOGGLE_NOTIFICATION_ACTION, toggleNotification);
 }
