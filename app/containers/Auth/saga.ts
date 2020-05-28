@@ -76,6 +76,7 @@ export function* login({ payload }: { payload: userLoginInterface }) {
 
     if (!err) {
       yield call(getUser);
+      yield call(getNotifications);
     }
   } catch (err) {
     const { message } = err.response.data;

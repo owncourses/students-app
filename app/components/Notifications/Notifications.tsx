@@ -25,14 +25,10 @@ const Notifications = ({
   };
 }) => {
   const { t } = useTranslation();
-  if (!notifications) {
-    return null;
-  }
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedNotification, setSelectedNotification] = React.useState(null);
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
-  const isBadgeVisible = notifications.unread > 0;
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -43,11 +39,13 @@ const Notifications = ({
   };
 
   const handleClickOnSingleNotification = id => {
-    toggleNotification(id);
     const foundNotification = notifications.notifications.find(
       notification => notification.id === id
     );
     if (foundNotification) {
+      if (!foundNotification.read) {
+        toggleNotification(id);
+      }
       setSelectedNotification(foundNotification);
     }
   };
@@ -55,6 +53,12 @@ const Notifications = ({
   const resetSelectedNotification = () => {
     setSelectedNotification(null);
   };
+
+  if (!notifications) {
+    return null;
+  }
+
+  const isBadgeVisible = notifications.unread > 0;
 
   return (
     <>
