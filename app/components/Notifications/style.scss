@@ -1,0 +1,14 @@
+.notifications-popover {
+  padding: 1rem;
+  width: 300px;
+
+  .tab-1 {
+    position: relative;
+
+    .navigate-back {
+      position: absolute;
+      top: 13px;
+      left: 3px
+    }
+  }
+}

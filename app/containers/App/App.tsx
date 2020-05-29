@@ -16,22 +16,27 @@ import config from "../../../config/config";
 import { getToken } from "../../utils/userUtils";
 import { isTokenNotExpired } from "../Auth/auth-logic";
 import "./style.scss";
+import { NotificationsInterface } from "../Auth/interfaces";
 
 interface AppProps {
   getUser: () => void;
+  getNotifications: () => void;
+  toggleNotification: (id) => void;
   logoutAction: () => void;
   history: History;
   loading: boolean;
   error: string;
+  notifications: NotificationsInterface;
 }
 
 class App extends React.Component<AppProps> {
   componentDidMount() {
     const token = getToken();
     const isTokenValid = isTokenNotExpired(token);
-    const { getUser } = this.props;
+    const { getUser, getNotifications } = this.props;
     if (token && isTokenValid) {
       getUser();
+      getNotifications();
     }
   }
 
@@ -43,8 +48,13 @@ class App extends React.Component<AppProps> {
   render() {
     const headerTitle = config.brand.headerText;
     const footerTitle = config.brand.footerText;
+    const { notifications, toggleNotification, loading } = this.props;
+    const notificationsProps = {
+      notifications,
+      toggleNotification
+    };
 
-    if (this.props.loading) {
+    if (loading) {
       return <LoadingIndicator />;
     }
 
@@ -54,7 +64,11 @@ class App extends React.Component<AppProps> {
           <title>{headerTitle}</title>
           <meta name="description" content="Courses Dashboard" />
         </Helmet>
-        <Header title={headerTitle} onLogout={this.handleLogout} />
+        <Header
+          notificationsProps={notificationsProps}
+          title={headerTitle}
+          onLogout={this.handleLogout}
+        />
         <div className={"main"}>
           <Switch>
             <Route exact path="/login" component={Auth} />

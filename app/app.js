@@ -65,6 +65,9 @@ const customTheme = createMuiTheme({
     },
     secondary: {
       main: config.brand.colors.secondary
+    },
+    success: {
+      main: "#91BB69"
     }
   },
   typography: {

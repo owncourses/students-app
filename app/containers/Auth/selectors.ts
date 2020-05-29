@@ -20,8 +20,14 @@ const makeSelectUser = () =>
     selectAuth,
     authState => authState.get("currentUser")
   );
+const makeSelectNotifications = () =>
+  createSelector(
+    selectAuth,
+    authState => authState.get("notifications")
+  );
 export {
   selectAuth,
+  makeSelectNotifications,
   makeSelectAuthLoading,
   makeSelectAuthError,
   makeSelectUser
