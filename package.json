@@ -70,6 +70,7 @@
     "jest": "^23.0.0",
     "lodash": "^4.17.11",
     "minimist": "1.2.0",
+    "node-fetch": "^2.6.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -90,6 +91,7 @@
     "typescript": "^3.3.3",
     "warning": "^4.0.1",
     "webpack-assets-manifest": "^3.1.1",
+    "webpack-pwa-manifest": "^4.2.0",
     "whatwg-fetch": "2.0.4"
   },
   "devDependencies": {
