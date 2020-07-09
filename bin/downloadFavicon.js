@@ -20,4 +20,4 @@ const downloadFile = async (url, path) => {
   });
 };
 
-downloadFile(faviconUrl, path.join(process.cwd(), "assets/image.png"));
+downloadFile(faviconUrl, path.join(process.cwd(), "assets/image.png")).then();
