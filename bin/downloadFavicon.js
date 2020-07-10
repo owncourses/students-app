@@ -20,4 +20,10 @@ const downloadFile = async (url, path) => {
   });
 };
 
-downloadFile(faviconUrl, path.join(process.cwd(), "assets/image.png")).then();
+const dir = process.cwd()+'/assets';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
+
+downloadFile(faviconUrl, dir+"/image.png").then();
