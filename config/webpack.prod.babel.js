@@ -53,7 +53,7 @@ module.exports = require("./webpack.base.babel")({
         "apple-mobile-web-app-status-bar-style":
           process.env.BRAND_COLORS_PRIMARY
       },
-      background_color: process.env.BRAND_COLORS_PRIMARY,
+      background_color: process.env.BRAND_COLORS_SECONDARY,
       theme_color: process.env.BRAND_COLORS_PRIMARY,
       crossorigin: "use-credentials", //can be null, use-credentials or anonymous
       icons: [
