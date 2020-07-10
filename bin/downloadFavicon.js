@@ -1,11 +1,9 @@
 const fs = require("fs");
-const path = require("path");
 const dotenv = require("dotenv");
 const fetch = require("node-fetch");
-dotenv.config();
+console.log(dotenv.config());
 
 const faviconUrl = process.env.FAVICON_URL;
-
 const downloadFile = async (url, path) => {
   const res = await fetch(url);
   const fileStream = fs.createWriteStream(path);
@@ -20,10 +18,11 @@ const downloadFile = async (url, path) => {
   });
 };
 
-const dir = process.cwd()+'/assets';
-
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+const dir = process.cwd() + "/assets";
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir);
 }
 
-downloadFile(faviconUrl, dir+"/image.png").then();
+downloadFile(faviconUrl, dir + "/image.png")
+  .then(() => console.log("File downloaded:" + dir + "/image.png"))
+  .catch(e => console.log(e));
