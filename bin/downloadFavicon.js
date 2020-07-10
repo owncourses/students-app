@@ -1,7 +1,9 @@
 const fs = require("fs");
 const dotenv = require("dotenv");
 const fetch = require("node-fetch");
-console.log(dotenv.config());
+if (fs.existsSync("./.env")) {
+  console.log(dotenv.config());
+}
 
 const faviconUrl = process.env.FAVICON_URL;
 const downloadFile = async (url, path) => {
@@ -24,5 +26,7 @@ if (!fs.existsSync(dir)) {
 }
 
 downloadFile(faviconUrl, dir + "/image.png")
-  .then(() => console.log("File downloaded:" + dir + "/image.png"))
+  .then(() =>
+    console.log(`File downloaded from ${faviconUrl} to ${dir}/image.png`)
+  )
   .catch(e => console.log(e));
