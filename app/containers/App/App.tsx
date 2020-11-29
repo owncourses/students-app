@@ -65,6 +65,7 @@ class App extends React.Component<AppProps> {
           <meta name="description" content="Courses Dashboard" />
         </Helmet>
         <Header
+          // @ts-ignore
           notificationsProps={notificationsProps}
           title={headerTitle}
           onLogout={this.handleLogout}
