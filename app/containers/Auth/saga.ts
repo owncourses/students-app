@@ -14,7 +14,7 @@ import {
   authActionError,
   authActionSuccess,
   getNotificationsError,
-  getNotificationsSuccess,
+  getNotificationsSuccess, logoutAction,
   logoutActionSuccess,
   toggleNotificationError,
   toggleNotificationSuccess
@@ -62,6 +62,10 @@ export function* getUser() {
 
     if (err.response.status === 500) {
       message = err.response.statusText;
+    }
+
+    if (err.response.status === 401) {
+      yield put(logoutAction());
     }
 
     yield put(authActionError(message));

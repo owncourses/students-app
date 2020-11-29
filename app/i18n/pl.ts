@@ -37,6 +37,7 @@ export const pl = {
   "Files to download": "Pliki do pobrania",
   Loading: "Ładowanie",
   "Something goes wrong": "Coś poszło nie tak",
+  "Invalid JWT Token": "Zaloguj się ponownie",
   "Back to previous page": "Wroć do poprzedniej strony",
   "Next lesson": "Następna lekcja",
   "Previous lesson": "Poprzednia lekcja",
