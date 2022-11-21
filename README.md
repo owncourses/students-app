@@ -11,7 +11,6 @@
   [![GitHub Issues](https://img.shields.io/github/issues/owncourses/students-app.svg)](https://github.com/owncourses/students-app/issues)
   [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/owncourses/students-app.svg)](https://github.com/owncourses/students-app/pulls)
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
-  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/owncourses/students-app)
 
 </div>
 
